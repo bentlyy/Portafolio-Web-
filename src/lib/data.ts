@@ -46,7 +46,7 @@ export const projects = [
     description: "Plataforma IoT full-stack para monitoreo agrícola en tiempo real. Recibe datos de sensores vía API Wialon, los evalúa contra criterios configurables y genera alertas automáticas multicanal.",
     tech: ["React 18", "Node.js", "TypeScript", "MySQL", "Docker", "Prometheus", "Grafana", "Twilio", "Leaflet"],
     github: "https://github.com/bentlyy/agrobot-alert",
-    demo: "",
+    demo: "https://agrobot.amgdeveloper.cl",
     image: "/images/agrobot.png",
     features: [
       "Dashboard en tiempo real con mapa interactivo, gráficos y panel de alertas",
@@ -60,7 +60,7 @@ export const projects = [
     description: "Sistema de gestión clínica full-stack con 16 módulos: booking, facturación, laboratorio, historia clínica electrónica, ML predictivo, multi-tenencia y notificaciones multicanal.",
     tech: ["React 19", "Node.js", "TypeScript", "PostgreSQL", "TensorFlow.js", "Docker", "CI/CD"],
     github: "https://github.com/bentlyy/clinic-backendcopia",
-    demo: "",
+    demo: "https://clinica-salud-vital.onrender.com",
     image: "/images/clinic.png",
     features: [
       "16 módulos funcionales con arquitectura modular monolith",
@@ -74,7 +74,7 @@ export const projects = [
     description: "Sistema multi-tenant para gestión de talleres mecánicos. Administra clientes, vehículos, órdenes de reparación, inventario de piezas, facturación y roles con monitoreo Prometheus.",
     tech: ["React 18", "Node.js", "TypeScript", "PostgreSQL", "Prisma", "Docker", "Prometheus", "Grafana"],
     github: "https://github.com/bentlyy/TallerMecanico",
-    demo: "",
+    demo: "https://tallerpro.amgdeveloper.cl",
     image: "/images/tallerpro.png",
     features: [
       "Multi-tenencia con aislamiento completo de datos por empresa",
@@ -88,7 +88,7 @@ export const projects = [
     description: "Plataforma interactiva de Machine Learning con 12 modelos en 4 categorías. Sube datasets CSV, configura hiperparámetros, entrena modelos y obtén predicciones en tiempo real.",
     tech: ["React 19", "FastAPI", "Python", "scikit-learn", "Docker", "TypeScript"],
     github: "https://github.com/bentlyy/ml-portafolio",
-    demo: "",
+    demo: "https://ml.amgdeveloper.cl",
     image: "/images/ml-portfolio.png",
     features: [
       "12 modelos ML: clasificación, regresión, clustering y redes neuronales (MLP)",

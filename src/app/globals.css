@@ -1,17 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #6366f1;
-  --color-primary-dark: #4f46e5;
-  --color-accent: #22d3ee;
-  --color-surface: #0f172a;
-  --color-surface-light: #1e293b;
-  --color-surface-lighter: #334155;
-  --color-text: #f1f5f9;
-  --color-text-muted: #94a3b8;
-  --color-border: #1e293b;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --color-surface: #121414;
+  --color-surface-dim: #121414;
+  --color-surface-bright: #37393a;
+  --color-surface-container-lowest: #0c0f0f;
+  --color-surface-container-low: #1a1c1c;
+  --color-surface-container: #1e2020;
+  --color-surface-container-high: #282a2b;
+  --color-surface-container-highest: #333535;
+  --color-on-surface: #e2e2e2;
+  --color-on-surface-variant: #c7c4d8;
+  --color-inverse-surface: #e2e2e2;
+  --color-inverse-on-surface: #2f3131;
+  --color-outline: #918fa1;
+  --color-outline-variant: #464555;
+  --color-surface-tint: #c4c0ff;
+  --color-primary: #c4c0ff;
+  --color-on-primary: #2000a4;
+  --color-primary-container: #8781ff;
+  --color-on-primary-container: #1b0091;
+  --color-inverse-primary: #4f44e2;
+  --color-secondary: #62d8d5;
+  --color-on-secondary: #003736;
+  --color-secondary-container: #11a19e;
+  --color-on-secondary-container: #00302f;
+  --color-tertiary: #c5c5d4;
+  --color-on-tertiary: #2e303b;
+  --color-tertiary-container: #8f909d;
+  --color-on-tertiary-container: #272934;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-primary-fixed: #e3dfff;
+  --color-primary-fixed-dim: #c4c0ff;
+  --color-on-primary-fixed: #100069;
+  --color-on-primary-fixed-variant: #3622ca;
+  --color-secondary-fixed: #81f5f1;
+  --color-secondary-fixed-dim: #62d8d5;
+  --color-on-secondary-fixed: #00201f;
+  --color-on-secondary-fixed-variant: #00504e;
+  --color-tertiary-fixed: #e1e1f0;
+  --color-tertiary-fixed-dim: #c5c5d4;
+  --color-on-tertiary-fixed: #191b26;
+  --color-on-tertiary-fixed-variant: #444652;
+  --color-background: #121414;
+  --color-on-background: #e2e2e2;
+  --color-surface-variant: #333535;
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 html {
@@ -19,18 +58,19 @@ html {
 }
 
 body {
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 ::selection {
   background-color: var(--color-primary);
-  color: white;
+  color: var(--color-on-primary);
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -38,10 +78,123 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-surface-lighter);
-  border-radius: 4px;
+  background: var(--color-surface-container-highest);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+  }
+}
+
+@keyframes rotate-planet {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 40px rgba(196, 192, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 80px rgba(196, 192, 255, 0.4);
+  }
+}
+
+@keyframes shine {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.nebula-bg {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(196, 192, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(98, 216, 213, 0.05) 0%, transparent 50%);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  border-color: rgba(196, 192, 255, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(135, 129, 255, 0.15);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.glass-card:hover::before {
+  left: 100%;
+}
+
+.nebula-glow-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(135, 129, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(98, 216, 213, 0.08) 0%, transparent 40%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.pill-gradient {
+  background: linear-gradient(135deg, #8781ff 0%, #3622ca 100%);
+  transition: all 0.3s ease;
+}
+
+.pill-gradient:hover {
+  box-shadow: 0 0 20px rgba(135, 129, 255, 0.5);
+  transform: scale(1.02);
 }
