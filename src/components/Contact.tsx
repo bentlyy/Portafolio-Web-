@@ -26,8 +26,9 @@ export default function Contact() {
             ENVÍA UN <span className="text-primary">MENSAJE</span>
           </h2>
           <p className="font-body text-on-surface-variant max-w-xl mx-auto">
-            Si tienes un proyecto importante, una oportunidad de colaboración, o
-            simplemente quieres establecer contacto — envíame un mensaje.
+            Estoy en búsqueda activa de nuevas oportunidades profesionales. Si tienes
+            un proyecto, una idea o simplemente quieres conversar — estaré encantado de
+            escucharte.
           </p>
         </motion.div>
 
