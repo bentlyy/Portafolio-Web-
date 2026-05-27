@@ -59,7 +59,7 @@ export const projects = [
     title: "Clínica Salud Vital",
     description: "Sistema de gestión clínica full-stack con 16 módulos: booking, facturación, laboratorio, historia clínica electrónica, ML predictivo, multi-tenencia y notificaciones multicanal.",
     tech: ["React 19", "Node.js", "TypeScript", "PostgreSQL", "TensorFlow.js", "Docker", "CI/CD"],
-    github: "https://github.com/bentlyy/clinic-backendcopia",
+    github: "https://github.com/bentlyy/Clinica-Salud-Vital",
     demo: "https://clinica-salud-vital.onrender.com",
     image: "/images/clinic.png",
     features: [
