@@ -104,21 +104,21 @@ export default function Projects() {
 
               <div className="relative z-10 flex gap-2">
                 <a
-                  href={project.github}
+                  href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="pill-gradient w-full py-3.5 rounded-full flex items-center justify-center gap-2 font-mono text-xs text-on-primary uppercase tracking-widest"
                 >
-                  <Github size={16} />
-                  CÓDIGO
+                  <Terminal size={16} />
+                  VER PROYECTO
                 </a>
                 <a
-                  href={project.demo}
+                  href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full glass-panel inline-flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all"
                 >
-                  <Terminal size={16} />
+                  <Github size={16} />
                 </a>
               </div>
             </motion.div>
