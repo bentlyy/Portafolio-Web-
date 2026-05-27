@@ -104,9 +104,10 @@ export default function Hero() {
             <a
               href="/cv.pdf"
               download="AlejandroMuñozCV.pdf"
-              className="glass-panel w-12 h-12 rounded-full inline-flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all duration-300"
+              className="glass-panel px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/40 uppercase tracking-widest transition-all duration-300"
             >
               <Download size={16} />
+              DESCARGAR CV
             </a>
           </motion.div>
         </div>
