@@ -18,16 +18,16 @@ export default function Contact() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              SIGNAL_NODE
+              CONTACTO
             </p>
             <span className="w-12 h-[1px] bg-secondary" />
           </div>
           <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-4">
-            TRANSMIT <span className="text-primary">SIGNAL</span>
+            ENVÍA UN <span className="text-primary">MENSAJE</span>
           </h2>
           <p className="font-body text-on-surface-variant max-w-xl mx-auto">
-            If you have a mission-critical project, an orbital collaboration opportunity, or
-            just want to establish a comms link — send a transmission.
+            Si tienes un proyecto importante, una oportunidad de colaboración, o
+            simplemente quieres establecer contacto — envíame un mensaje.
           </p>
         </motion.div>
 
@@ -46,7 +46,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">
-                    Email
+                     Correo
                   </p>
                   <a
                     href={`mailto:${personalInfo.email}`}
@@ -63,7 +63,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">
-                    Location
+                    Ubicación
                   </p>
                   <p className="font-body text-sm text-on-surface-variant">
                     {personalInfo.location}
@@ -114,18 +114,18 @@ export default function Contact() {
               <div className="text-center">
                 <FileText size={36} className="text-primary mx-auto mb-3" />
                 <h3 className="font-sans font-semibold text-on-surface mb-1">
-                  Download CV
+                  Descargar CV
                 </h3>
                 <p className="font-body text-xs text-on-surface-variant/60 mb-5">
-                  Complete mission log with full experience, projects, and training.
+                  Registro completo con experiencia, proyectos y formación.
                 </p>
                 <a
                   href="/cv.pdf"
-                  download
+                  download="AlejandroMuñozCV.pdf"
                   className="pill-gradient inline-flex items-center gap-2 text-on-primary px-6 py-3.5 rounded-full font-mono text-xs uppercase tracking-widest"
                 >
                   <Download size={16} />
-                  Download
+                  Descargar
                 </a>
               </div>
             </div>

@@ -4,21 +4,21 @@ import { motion } from "framer-motion"
 import { skills } from "@/lib/data"
 
 const categoryAccents: Record<string, string> = {
-  languages: "bg-blue-500",
-  backend: "bg-green-500",
-  frontend: "bg-purple-500",
+  Lenguajes: "bg-blue-500",
+  Backend: "bg-green-500",
+  Frontend: "bg-purple-500",
   "DevOps & Cloud": "bg-orange-500",
-  databases: "bg-cyan-500",
-  tools: "bg-pink-500",
+  "Bases de Datos": "bg-cyan-500",
+  Herramientas: "bg-pink-500",
 }
 
 const categoryBorders: Record<string, string> = {
-  languages: "border-blue-500/20",
-  backend: "border-green-500/20",
-  frontend: "border-purple-500/20",
+  Lenguajes: "border-blue-500/20",
+  Backend: "border-green-500/20",
+  Frontend: "border-purple-500/20",
   "DevOps & Cloud": "border-orange-500/20",
-  databases: "border-cyan-500/20",
-  tools: "border-pink-500/20",
+  "Bases de Datos": "border-cyan-500/20",
+  Herramientas: "border-pink-500/20",
 }
 
 export default function Skills() {
@@ -34,11 +34,11 @@ export default function Skills() {
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              SYSTEM_RESOURCES
+              RECURSOS DEL SISTEMA
             </p>
           </div>
           <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-12">
-            TECH <span className="text-primary">STACK</span>
+            STACK <span className="text-primary">TECNOLÓGICO</span>
           </h2>
         </motion.div>
 

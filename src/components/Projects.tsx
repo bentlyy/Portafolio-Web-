@@ -26,16 +26,15 @@ export default function Projects() {
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              STATION_GRID v4.0
+              PROYECTOS v4.0
             </p>
           </div>
           <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-6">
-            STATIONS{" "}
-            <span className="text-primary">(PROJECTS)</span>
+            PROYECTOS
           </h2>
           <p className="font-body text-[16px] md:text-[18px] text-on-surface-variant max-w-2xl mb-12">
-            Real-time monitoring of active project instances. Each entry represents a
-            live-deployed environment with dedicated orbital resources.
+            Monitoreo en tiempo real de proyectos activos. Cada entrada representa un
+            entorno desplegado con recursos dedicados.
           </p>
         </motion.div>
 
@@ -65,7 +64,7 @@ export default function Projects() {
                 />
                 <div className="absolute top-3 right-3 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full border border-white/10">
                   <p className="font-mono text-[10px] text-secondary tracking-wider uppercase">
-                    ACTIVE_DEPLOYMENT
+                    DESPLIEGUE ACTIVO
                   </p>
                 </div>
               </div>
@@ -80,7 +79,7 @@ export default function Projects() {
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
                   </span>
                   <p className="font-mono text-[10px] text-secondary tracking-widest uppercase">
-                    LIVE
+                    EN VIVO
                   </p>
                 </div>
 

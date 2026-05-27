@@ -17,11 +17,11 @@ export default function Experience() {
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              SYSTEM_LOGS v1.0
+              EXPERIENCIA v1.0
             </p>
           </div>
           <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-12">
-            MISSION <span className="text-primary">LOGS</span>
+            EXPERIENCIA
           </h2>
         </motion.div>
 
@@ -48,7 +48,7 @@ export default function Experience() {
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
                       </span>
                       <p className="font-mono text-[10px] text-secondary tracking-widest uppercase">
-                        ACTIVE_MISSION
+                        EXPERIENCIA ACTIVA
                       </p>
                     </div>
                     <h3 className="font-sans text-xl md:text-2xl font-semibold text-on-surface mt-2">

@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Alejandro Muñoz Garay",
   title: "Ingeniero Civil en Informática",
-  tagline: "Full-Stack Developer | DevOps | ML",
+  tagline: "Desarrollador Full-Stack | DevOps | ML",
   email: "muñozgarayalejandro@gmail.com",
   phone: "+56 9 5381 8617",
   location: "San Pablo, Santiago, Chile",
@@ -100,19 +100,19 @@ export const projects = [
 ]
 
 export const skills = {
-  languages: [
+  Lenguajes: [
     { name: "TypeScript", level: 90 },
     { name: "JavaScript", level: 90 },
     { name: "Python", level: 80 },
     { name: "SQL", level: 85 },
   ],
-  backend: [
+  Backend: [
     { name: "Node.js", level: 90 },
     { name: "Express", level: 90 },
     { name: "REST APIs", level: 95 },
     { name: "JWT / OAuth", level: 85 },
   ],
-  frontend: [
+  Frontend: [
     { name: "React", level: 90 },
     { name: "Next.js", level: 70 },
     { name: "Tailwind CSS", level: 85 },
@@ -124,13 +124,13 @@ export const skills = {
     { name: "AWS", level: 70 },
     { name: "CI/CD", level: 80 },
   ],
-  databases: [
+  "Bases de Datos": [
     { name: "PostgreSQL", level: 85 },
     { name: "MySQL", level: 85 },
     { name: "Prisma ORM", level: 80 },
     { name: "Prometheus", level: 75 },
   ],
-  tools: [
+  Herramientas: [
     { name: "Git", level: 90 },
     { name: "Linux", level: 85 },
     { name: "Ansible", level: 65 },

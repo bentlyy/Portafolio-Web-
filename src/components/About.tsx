@@ -17,11 +17,11 @@ export default function About() {
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              SYSTEM_BIO v2.0
+              SISTEMA v2.0
             </p>
           </div>
           <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-8">
-            NODE <span className="text-primary">BIO</span>
+            SOBRE <span className="text-primary">MÍ</span>
           </h2>
         </motion.div>
 
@@ -82,7 +82,7 @@ export default function About() {
                     {personalInfo.location}
                   </p>
                   <p className="font-mono text-[10px] text-secondary mt-1 tracking-wider">
-                    STATUS: AVAILABLE
+                    DISPONIBLE
                   </p>
                 </div>
               </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Alejandro Muñoz | Full-Stack Developer",
+  title: "Alejandro Muñoz | Desarrollador Full-Stack",
   description:
     "Portafolio de Alejandro Muñoz Garay — Ingeniero Civil en Informática, Full-Stack Developer, DevOps & ML.",
 }

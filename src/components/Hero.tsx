@@ -7,10 +7,10 @@ import { personalInfo } from "@/lib/data"
 export default function Hero() {
 
   const navItems = [
-    { label: "BIO", href: "#about" },
-    { label: "STATIONS", href: "#projects" },
-    { label: "LOGS", href: "#experience" },
-    { label: "SIGNAL", href: "#contact" },
+    { label: "SOBRE MÍ", href: "#about" },
+    { label: "PROYECTOS", href: "#projects" },
+    { label: "EXPERIENCIA", href: "#experience" },
+    { label: "CONTACTO", href: "#contact" },
   ]
 
   return (
@@ -35,7 +35,7 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary" />
               </span>
               <span className="font-mono text-[10px] text-secondary tracking-[0.3em] uppercase">
-                STATUS: AVAILABLE
+                DISPONIBLE
               </span>
             </div>
           </motion.div>
@@ -103,7 +103,7 @@ export default function Hero() {
             </a>
             <a
               href="/cv.pdf"
-              download
+              download="AlejandroMuñozCV.pdf"
               className="glass-panel w-12 h-12 rounded-full inline-flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all duration-300"
             >
               <Download size={16} />
@@ -113,7 +113,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="font-mono text-[8px] text-on-surface-variant/30 tracking-[0.4em] uppercase">SCROLL</span>
+        <span className="font-mono text-[8px] text-on-surface-variant/30 tracking-[0.4em] uppercase">DESPLAZA</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -124,8 +124,8 @@ export default function Hero() {
 
       <div className="absolute top-1/2 -translate-y-1/2 left-8 md:left-24 hidden lg:flex flex-col gap-3">
         {[
-          { label: "01 / ROLE", value: "Full-Stack" },
-          { label: "02 / FOCUS", value: "DevOps & ML" },
+          { label: "01 / ROL", value: "Full-Stack" },
+          { label: "02 / ENFOQUE", value: "DevOps & ML" },
         ].map((item, i) => (
           <motion.div
             key={item.label}
@@ -149,14 +149,14 @@ export default function Hero() {
           className="group cursor-default"
         >
           <p className="font-mono text-[9px] text-primary/30 tracking-[0.2em] uppercase mb-0.5 group-hover:text-primary/60 transition-colors">
-            03 / STATUS
+            03 / ESTADO
           </p>
           <p className="font-sans text-sm text-secondary font-medium flex items-center gap-1.5">
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary" />
             </span>
-            AVAILABLE
+            DISPONIBLE
           </p>
         </motion.div>
       </div>
