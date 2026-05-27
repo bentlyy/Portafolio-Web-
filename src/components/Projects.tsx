@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Terminal } from "lucide-react"
+import { Github, ExternalLink } from "lucide-react"
 import { projects } from "@/lib/data"
 
 export default function Projects() {
@@ -109,8 +109,8 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="pill-gradient flex-1 py-3.5 rounded-full flex items-center justify-center gap-2 font-mono text-xs text-on-primary uppercase tracking-widest"
                 >
-                  <Terminal size={16} />
-                  VER PROYECTO
+                  <ExternalLink size={16} />
+                  SITIO
                 </a>
                 <a
                   href={project.github}
