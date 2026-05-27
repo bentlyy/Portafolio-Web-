@@ -107,7 +107,7 @@ export default function Projects() {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="pill-gradient w-full py-3.5 rounded-full flex items-center justify-center gap-2 font-mono text-xs text-on-primary uppercase tracking-widest"
+                  className="pill-gradient flex-1 py-3.5 rounded-full flex items-center justify-center gap-2 font-mono text-xs text-on-primary uppercase tracking-widest"
                 >
                   <Terminal size={16} />
                   VER PROYECTO
@@ -116,9 +116,10 @@ export default function Projects() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full glass-panel inline-flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all"
+                  className="glass-panel flex-1 py-3.5 rounded-full flex items-center justify-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/40 uppercase tracking-widest transition-all duration-300"
                 >
                   <Github size={16} />
+                  CÓDIGO
                 </a>
               </div>
             </motion.div>
