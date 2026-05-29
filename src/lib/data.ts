@@ -74,7 +74,7 @@ export const projects = [
     description: "Sistema multi-tenant para gestión de talleres mecánicos. Administra clientes, vehículos, órdenes de reparación, inventario de piezas, facturación y roles con monitoreo Prometheus.",
     tech: ["React 18", "Node.js", "TypeScript", "PostgreSQL", "Prisma", "Docker", "Prometheus", "Grafana"],
     github: "https://github.com/bentlyy/TallerMecanico",
-    demo: "https://tallerpro.amgdeveloper.cl",
+    demo: "https://taller.amgdeveloper.cl",
     image: "/images/tallerpro.png",
     features: [
       "Multi-tenencia con aislamiento completo de datos por empresa",
