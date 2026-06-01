@@ -1,4 +1,4 @@
-$projectPath = "C:\Users\garay\OneDrive\Escritorio\Nueva carpeta\portafolio"
+$projectPath = "C:\Users\garay\OneDrive\Escritorio\Nueva carpeta\Proyectos\portafolio"
 $containerName = "portfolio"
 $hostPort = 8080
 
@@ -32,6 +32,8 @@ docker run -d `
     --name $containerName `
     -p "${hostPort}:80" `
     --restart unless-stopped `
+    --memory 64m `
+    --cpus 0.5 `
     portfolio:latest
 
 if ($?) {
