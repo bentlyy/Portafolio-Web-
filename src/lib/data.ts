@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Alejandro Muñoz Garay",
   title: "Ingeniero Civil en Informática",
   tagline: "Desarrollador Full-Stack | DevOps | ML",
-  email: "muñozgarayalejandro@gmail.com",
+  email: "munozgarayalejandro@gmail.com",
   phone: "+56 9 5381 8617",
   location: "San Pablo, Santiago, Chile",
   linkedin: "https://linkedin.com/in/alejandro-munoz-garay-668324347",
