@@ -6,3 +6,6 @@ dist/
 .env.local
 *.tsbuildinfo
 next-env.d.ts
+dev-error.txt
+dev-output.txt
+docs/
