@@ -4,39 +4,10 @@ import { personalInfo } from "@/lib/data"
 
 export default function Footer() {
   return (
-    <footer className="w-full py-6 px-8 md:px-24 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/10 bg-surface-container-lowest">
-      <div className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
-        PORTAFOLIO
-      </div>
-      <div className="font-mono text-xs text-on-surface-variant/60 text-center tracking-wider">
-        © {new Date().getFullYear()} {personalInfo.name} • TODOS LOS SISTEMAS OPERATIVOS
-      </div>
-      <div className="flex gap-6">
-        <a
-          href="#hero"
-          className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
-        >
-          INICIO
-        </a>
-        <a
-          href="#about"
-          className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
-        >
-          SOBRE MÍ
-        </a>
-        <a
-          href="#projects"
-          className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
-        >
-          PROYECTOS
-        </a>
-        <a
-          href="#contact"
-          className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
-        >
-          CONTACTO
-        </a>
-      </div>
+    <footer className="w-full py-8 px-8 border-t border-border">
+      <p className="text-xs text-text-secondary/50 text-center">
+        {personalInfo.name.split(" ").slice(0, 2).join(" ")} &copy; {new Date().getFullYear()}
+      </p>
     </footer>
   )
 }
