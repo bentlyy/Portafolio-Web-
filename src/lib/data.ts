@@ -18,7 +18,7 @@ export const experience = [
   {
     role: "Desarrollador Full-Stack Autónomo",
     company: "Clínica Salud Vital · TallerPro · ML-Portafolio",
-    period: "Abr 2025 - Presente",
+    period: "Abr 2026 - Presente",
     description: "Diseño, desarrollo y despliegue de sistemas completos para clientes — desde el frontend hasta la nube. Proyecto insignia: Clínica Salud Vital, un sistema de gestión clínica con 16 módulos, inteligencia artificial predictiva y arquitectura multi-tenant.",
     highlights: [
       "Clínica Salud Vital: 16 módulos (booking, facturación, laboratorio, HCE), 4 modelos ML con TensorFlow.js, multi-tenencia SaaS, 2FA, RBAC, i18n en 4 idiomas, webhooks con HMAC-SHA256",
