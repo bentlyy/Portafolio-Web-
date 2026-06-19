@@ -45,8 +45,8 @@ const infra = [
 
 export default function Infra() {
   return (
-    <section id="infra" className="relative w-full h-full flex items-center justify-center overflow-y-auto">
-      <div className="max-w-7xl mx-auto px-8 md:px-24 py-12 md:py-20 w-full">
+    <section id="infra" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-20 md:pt-24">
+      <div className="max-w-7xl mx-auto px-8 md:px-24 py-8 md:py-12 w-full">
         <div className="md:pl-16 lg:pl-24">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
