@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Github, ExternalLink } from "lucide-react"
 import { projects } from "@/lib/data"
 
@@ -14,15 +13,9 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-24 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-8 md:px-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="md:pl-16 lg:pl-24"
-        >
+    <section id="projects" className="relative w-full h-full flex items-center justify-center overflow-y-auto">
+      <div className="max-w-7xl mx-auto px-8 md:px-24 py-12 md:py-20 w-full">
+        <div className="md:pl-16 lg:pl-24">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
@@ -36,16 +29,12 @@ export default function Projects() {
             Monitoreo en tiempo real de proyectos activos. Cada entrada representa un
             entorno desplegado con recursos dedicados.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="glass-card p-8 rounded-xl flex flex-col group"
               onMouseMove={(e) => handleGlow(e, e.currentTarget)}
             >
@@ -122,7 +111,7 @@ export default function Projects() {
                   CÓDIGO
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

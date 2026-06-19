@@ -1,20 +1,13 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Mail, MapPin, Github, Linkedin, Download, FileText } from "lucide-react"
 import { personalInfo } from "@/lib/data"
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
-      <div className="max-w-4xl mx-auto px-8 md:px-0">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+    <section id="contact" className="relative w-full h-full flex items-center justify-center overflow-y-auto">
+      <div className="max-w-4xl mx-auto px-8 md:px-0 py-12 md:py-20 w-full">
+        <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
@@ -30,15 +23,9 @@ export default function Contact() {
             un proyecto, una idea o simplemente quieres conversar — estaré encantado de
             escucharte.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="glass-card rounded-2xl p-8 md:p-12"
-        >
+        <div className="glass-card rounded-2xl p-8 md:p-12">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-5">
               <div className="flex items-center gap-4">
@@ -131,7 +118,42 @@ export default function Contact() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
+
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
+            PORTAFOLIO
+          </div>
+          <div className="font-mono text-xs text-on-surface-variant/60 text-center tracking-wider">
+            © {new Date().getFullYear()} {personalInfo.name} • TODOS LOS SISTEMAS OPERATIVOS
+          </div>
+          <div className="flex gap-6">
+            <a
+              href="#hero"
+              className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
+            >
+              INICIO
+            </a>
+            <a
+              href="#about"
+              className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
+            >
+              SOBRE MÍ
+            </a>
+            <a
+              href="#projects"
+              className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
+            >
+              PROYECTOS
+            </a>
+            <a
+              href="#contact"
+              className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
+            >
+              CONTACTO
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -1,38 +1,26 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Briefcase } from "lucide-react"
 import { experience } from "@/lib/data"
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 md:py-32 relative">
-      <div className="max-w-4xl mx-auto px-8 md:px-0">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-12 h-[1px] bg-secondary" />
-            <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              EXPERIENCIA v1.0
-            </p>
-          </div>
-          <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-12">
-            EXPERIENCIA
-          </h2>
-        </motion.div>
+    <section id="experience" className="relative w-full h-full flex items-center justify-center overflow-y-auto">
+      <div className="max-w-4xl mx-auto px-8 md:px-0 py-12 md:py-20 w-full">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-12 h-[1px] bg-secondary" />
+          <p className="font-mono text-xs text-secondary tracking-widest uppercase">
+            EXPERIENCIA v1.0
+          </p>
+        </div>
+        <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-12">
+          EXPERIENCIA
+        </h2>
 
         <div className="space-y-8">
           {experience.map((exp, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="relative pl-8 border-l border-white/10"
             >
               <div className="absolute left-[-12px] top-0 bg-primary-container rounded-full p-2 shadow-[0_0_10px_rgba(135,129,255,0.3)]">
@@ -79,7 +67,7 @@ export default function Experience() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

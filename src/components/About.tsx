@@ -1,38 +1,24 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { GraduationCap, MapPin } from "lucide-react"
 import { personalInfo } from "@/lib/data"
 
 export default function About() {
   return (
-    <section id="about" className="py-24 md:py-32 relative">
-      <div className="max-w-4xl mx-auto px-8 md:px-0">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-12 h-[1px] bg-secondary" />
-            <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              SISTEMA v2.0
-            </p>
-          </div>
-          <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-8">
-            SOBRE <span className="text-primary">MÍ</span>
-          </h2>
-        </motion.div>
+    <section id="about" className="relative w-full h-full flex items-center justify-center overflow-y-auto">
+      <div className="max-w-4xl mx-auto px-8 md:px-0 py-12 md:py-20 w-full">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-12 h-[1px] bg-secondary" />
+          <p className="font-mono text-xs text-secondary tracking-widest uppercase">
+            SISTEMA v2.0
+          </p>
+        </div>
+        <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-8">
+          SOBRE <span className="text-primary">MÍ</span>
+        </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="md:col-span-2 space-y-4"
-          >
+          <div className="md:col-span-2 space-y-4">
             {personalInfo.about.map((paragraph, i) => (
               <p
                 key={i}
@@ -41,15 +27,9 @@ export default function About() {
                 {paragraph}
               </p>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-4"
-          >
+          <div className="space-y-4">
             <div className="glass-card p-6 rounded-xl">
               <div className="flex items-start gap-4 mb-3">
                 <div className="bg-primary/10 p-3 rounded-lg">
@@ -87,7 +67,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

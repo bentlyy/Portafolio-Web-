@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Linkedin, Download, ArrowDown } from "lucide-react"
+import { Github, Linkedin, Download, ChevronRight } from "lucide-react"
 import { personalInfo } from "@/lib/data"
 
 export default function Hero() {
@@ -14,13 +14,11 @@ export default function Hero() {
   ]
 
   return (
-    <section id="hero" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative w-full h-full flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px]" />
       </div>
-
-
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-24 w-full">
         <div className="flex flex-col items-center text-center">
@@ -72,7 +70,7 @@ export default function Hero() {
                 className="group flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel hover:border-primary/40 hover:text-primary transition-all duration-300"
               >
                 <span className="font-mono text-xs tracking-widest uppercase">{item.label}</span>
-                <ArrowDown size={12} className="opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
+                <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
               </a>
             ))}
           </motion.div>
@@ -111,16 +109,6 @@ export default function Hero() {
             </a>
           </motion.div>
         </div>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="font-mono text-[8px] text-on-surface-variant/30 tracking-[0.4em] uppercase">DESPLAZA</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <ArrowDown size={14} className="text-on-surface-variant/30" />
-        </motion.div>
       </div>
 
       <div className="absolute top-1/2 -translate-y-1/2 left-8 md:left-24 hidden lg:flex flex-col gap-3">

@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Cloud, Server, Rocket } from "lucide-react"
 
 const infra = [
@@ -46,15 +45,9 @@ const infra = [
 
 export default function Infra() {
   return (
-    <section id="infra" className="py-24 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-8 md:px-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="md:pl-16 lg:pl-24"
-        >
+    <section id="infra" className="relative w-full h-full flex items-center justify-center overflow-y-auto">
+      <div className="max-w-7xl mx-auto px-8 md:px-24 py-12 md:py-20 w-full">
+        <div className="md:pl-16 lg:pl-24">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
@@ -68,18 +61,14 @@ export default function Infra() {
             Distribución de los servicios en producción. Cada plataforma corre
             en un entorno aislado con recursos y estrategia de deploy independientes.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {infra.map((item, idx) => {
             const Icon = item.icon
             return (
-              <motion.div
+              <div
                 key={item.provider}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`glass-card p-6 rounded-xl ${item.color}`}
               >
                 <div className="flex items-center gap-3 mb-5">
@@ -136,7 +125,7 @@ export default function Infra() {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             )
           })}
         </div>

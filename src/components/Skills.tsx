@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { skills } from "@/lib/data"
 
 const categoryAccents: Record<string, string> = {
@@ -23,33 +22,22 @@ const categoryBorders: Record<string, string> = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-8 md:px-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-12 h-[1px] bg-secondary" />
-            <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              RECURSOS DEL SISTEMA
-            </p>
-          </div>
-          <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-12">
-            STACK <span className="text-primary">TECNOLÓGICO</span>
-          </h2>
-        </motion.div>
+    <section id="skills" className="relative w-full h-full flex items-center justify-center overflow-y-auto">
+      <div className="max-w-7xl mx-auto px-8 md:px-24 py-12 md:py-20 w-full">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-12 h-[1px] bg-secondary" />
+          <p className="font-mono text-xs text-secondary tracking-widest uppercase">
+            RECURSOS DEL SISTEMA
+          </p>
+        </div>
+        <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-12">
+          STACK <span className="text-primary">TECNOLÓGICO</span>
+        </h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Object.entries(skills).map(([category, items], catIdx) => (
-            <motion.div
+            <div
               key={category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: catIdx * 0.08 }}
               className={`glass-card p-5 rounded-xl ${categoryBorders[category] || "border-white/10"}`}
             >
               <div className="flex items-center gap-2.5 mb-4">
@@ -72,18 +60,15 @@ export default function Skills() {
                       </span>
                     </div>
                     <div className="h-1 bg-surface-container-high rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: catIdx * 0.08 + 0.2 }}
+                      <div
                         className="h-full rounded-full bg-gradient-to-r from-primary/60 to-primary"
+                        style={{ width: `${skill.level}%` }}
                       />
                     </div>
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
