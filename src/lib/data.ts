@@ -16,6 +16,19 @@ export const personalInfo = {
 
 export const experience = [
   {
+    role: "Desarrollador Full-Stack Autónomo",
+    company: "Clínica Salud Vital · TallerPro · ML-Portafolio",
+    period: "Oct 2024 - Presente",
+    description: "Diseño, desarrollo y despliegue de sistemas completos para clientes — desde el frontend hasta la nube. Proyecto insignia: Clínica Salud Vital, un sistema de gestión clínica con 16 módulos, inteligencia artificial predictiva y arquitectura multi-tenant.",
+    highlights: [
+      "Clínica Salud Vital: 16 módulos (booking, facturación, laboratorio, HCE), 4 modelos ML con TensorFlow.js, multi-tenencia SaaS, 2FA, RBAC, i18n en 4 idiomas, webhooks con HMAC-SHA256",
+      "TallerPro: Sistema multi-tenant para gestión de talleres mecánicos con RBAC, monitoreo Prometheus/Grafana, aislamiento de datos por empresa y bloqueo por intentos fallidos",
+      "ML-Portafolio: Plataforma interactiva con 12 modelos ML (clasificación, regresión, clustering, MLP), carga de datasets CSV y métricas en tiempo real",
+      "Stack unificado: React 19, Node.js/TypeScript, PostgreSQL, Docker, CI/CD, AWS EC2, Cloudflare Pages, Render",
+    ],
+    demoUrl: "https://clinica-salud-vital.onrender.com",
+  },
+  {
     role: "Desarrollador Full-Stack — Plataforma IoT",
     company: "Geotrace (Proyecto INIA)",
     period: "Jun 2024 - Nov 2024",
