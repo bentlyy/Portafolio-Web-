@@ -114,7 +114,7 @@ export default function Hero() {
       <div className="absolute top-1/2 -translate-y-1/2 left-8 md:left-24 hidden lg:flex flex-col gap-3">
         {[
           { label: "01 / ROL", value: "Full-Stack" },
-          { label: "02 / ENFOQUE", value: "DevOps & ML" },
+          { label: "02 / ENFOQUE", value: "TypeScript" },
         ].map((item, i) => (
           <motion.div
             key={item.label}

@@ -6,18 +6,20 @@ const categoryAccents: Record<string, string> = {
   Lenguajes: "bg-blue-500",
   Backend: "bg-green-500",
   Frontend: "bg-purple-500",
-  "DevOps & Cloud": "bg-orange-500",
+  DevOps: "bg-orange-500",
   "Bases de Datos": "bg-cyan-500",
-  Herramientas: "bg-pink-500",
+  Testing: "bg-pink-500",
+  Seguridad: "bg-red-500",
 }
 
 const categoryBorders: Record<string, string> = {
   Lenguajes: "border-blue-500/20",
   Backend: "border-green-500/20",
   Frontend: "border-purple-500/20",
-  "DevOps & Cloud": "border-orange-500/20",
+  DevOps: "border-orange-500/20",
   "Bases de Datos": "border-cyan-500/20",
-  Herramientas: "border-pink-500/20",
+  Testing: "border-pink-500/20",
+  Seguridad: "border-red-500/20",
 }
 
 export default function Skills() {
