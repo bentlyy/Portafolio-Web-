@@ -2,15 +2,17 @@
 
 import { motion } from "framer-motion"
 import { Github, Linkedin, Download, ChevronRight } from "lucide-react"
+import { useLanguage } from "@/lib/LanguageProvider"
 import { personalInfo } from "@/lib/data"
 
 export default function Hero() {
+  const { t } = useLanguage()
 
   const navItems = [
-    { label: "SOBRE MÍ", href: "#about" },
-    { label: "PROYECTOS", href: "#projects" },
-    { label: "EXPERIENCIA", href: "#experience" },
-    { label: "CONTACTO", href: "#contact" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.experience, href: "#experience" },
+    { label: t.nav.contact, href: "#contact" },
   ]
 
   return (
@@ -33,7 +35,7 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary" />
               </span>
               <span className="font-mono text-[10px] text-secondary tracking-[0.3em] uppercase">
-                DISPONIBLE
+                {t.hero.available}
               </span>
             </div>
           </motion.div>
@@ -105,7 +107,7 @@ export default function Hero() {
               className="glass-panel px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/40 uppercase tracking-widest transition-all duration-300"
             >
               <Download size={16} />
-              DESCARGAR CV
+              {t.hero.downloadCv}
             </a>
           </motion.div>
         </div>
@@ -113,8 +115,8 @@ export default function Hero() {
 
       <div className="absolute top-1/2 -translate-y-1/2 left-8 md:left-24 hidden lg:flex flex-col gap-3">
         {[
-          { label: "01 / ROL", value: "Full-Stack" },
-          { label: "02 / ENFOQUE", value: "TypeScript" },
+          { label: t.hero.role, value: "Full-Stack" },
+          { label: t.hero.focus, value: "TypeScript" },
         ].map((item, i) => (
           <motion.div
             key={item.label}
@@ -138,14 +140,14 @@ export default function Hero() {
           className="group cursor-default"
         >
           <p className="font-mono text-[9px] text-primary/30 tracking-[0.2em] uppercase mb-0.5 group-hover:text-primary/60 transition-colors">
-            03 / ESTADO
+            {t.hero.status}
           </p>
           <p className="font-sans text-sm text-secondary font-medium flex items-center gap-1.5">
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary" />
             </span>
-            DISPONIBLE
+            {t.hero.available}
           </p>
         </motion.div>
       </div>

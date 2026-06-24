@@ -1,9 +1,12 @@
 "use client"
 
 import { Mail, MapPin, Github, Linkedin, Download, FileText } from "lucide-react"
+import { useLanguage } from "@/lib/LanguageProvider"
 import { personalInfo } from "@/lib/data"
 
 export default function Contact() {
+  const { t } = useLanguage()
+
   return (
     <section id="contact" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-20 md:pt-24">
       <div className="max-w-4xl mx-auto px-8 md:px-0 py-8 md:py-12 w-full">
@@ -11,17 +14,15 @@ export default function Contact() {
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              CONTACTO
+              {t.contact.subtitle}
             </p>
             <span className="w-12 h-[1px] bg-secondary" />
           </div>
           <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-4">
-            ENVÍA UN <span className="text-primary">MENSAJE</span>
+            {t.contact.titleStart} <span className="text-primary">{t.contact.titleEnd}</span>
           </h2>
           <p className="font-body text-on-surface-variant max-w-xl mx-auto">
-            Estoy en búsqueda activa de nuevas oportunidades profesionales. Si tienes
-            un proyecto, una idea o simplemente quieres conversar — estaré encantado de
-            escucharte.
+            {t.contact.description}
           </p>
         </div>
 
@@ -34,7 +35,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">
-                     Correo
+                    {t.contact.email}
                   </p>
                   <a
                     href={`mailto:${personalInfo.email}`}
@@ -51,7 +52,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">
-                    Ubicación
+                    {t.contact.location}
                   </p>
                   <p className="font-body text-sm text-on-surface-variant">
                     {personalInfo.location}
@@ -102,10 +103,10 @@ export default function Contact() {
               <div className="text-center">
                 <FileText size={36} className="text-primary mx-auto mb-3" />
                 <h3 className="font-sans font-semibold text-on-surface mb-1">
-                  Descargar CV
+                  {t.contact.downloadCv}
                 </h3>
                 <p className="font-body text-xs text-on-surface-variant/60 mb-5">
-                  Registro completo con experiencia, proyectos y formación.
+                  {t.contact.cvDesc}
                 </p>
                 <a
                   href="/cv.pdf"
@@ -113,7 +114,7 @@ export default function Contact() {
                   className="pill-gradient inline-flex items-center gap-2 text-on-primary px-6 py-3.5 rounded-full font-mono text-xs uppercase tracking-widest"
                 >
                   <Download size={16} />
-                  Descargar
+                  {t.contact.download}
                 </a>
               </div>
             </div>
@@ -122,35 +123,35 @@ export default function Contact() {
 
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
-            PORTAFOLIO
+            {t.contact.portfolio}
           </div>
           <div className="font-mono text-xs text-on-surface-variant/60 text-center tracking-wider">
-            © {new Date().getFullYear()} {personalInfo.name} • TODOS LOS SISTEMAS OPERATIVOS
+            © {new Date().getFullYear()} {personalInfo.name} • {t.contact.allSystems}
           </div>
           <div className="flex gap-6">
             <a
               href="#hero"
               className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
             >
-              INICIO
+              {t.nav.home}
             </a>
             <a
               href="#about"
               className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
             >
-              SOBRE MÍ
+              {t.nav.about}
             </a>
             <a
               href="#projects"
               className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
             >
-              PROYECTOS
+              {t.nav.projects}
             </a>
             <a
               href="#contact"
               className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
             >
-              CONTACTO
+              {t.nav.contact}
             </a>
           </div>
         </div>

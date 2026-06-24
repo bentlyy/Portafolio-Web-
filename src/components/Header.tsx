@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Languages } from "lucide-react"
+import { useLanguage } from "@/lib/LanguageProvider"
 
 interface Section {
   id: string
@@ -15,7 +16,12 @@ interface HeaderProps {
 }
 
 export default function Header({ currentSection, onNavigate, sections }: HeaderProps) {
+  const { lang, setLang, t } = useLanguage()
   const [open, setOpen] = useState(false)
+
+  const toggleLang = () => {
+    setLang(lang === "es" ? "en" : "es")
+  }
 
   return (
     <header
@@ -47,15 +53,33 @@ export default function Header({ currentSection, onNavigate, sections }: HeaderP
               {link.label}
             </button>
           ))}
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 font-mono text-[10px] text-on-surface-variant/60 hover:text-primary tracking-widest uppercase transition-colors ml-4 px-3 py-1.5 rounded-full border border-white/10 hover:border-primary/40"
+            aria-label="Switch language"
+          >
+            <Languages size={14} />
+            {lang === "es" ? "EN" : "ES"}
+          </button>
         </nav>
 
-        <button
-          className="md:hidden text-primary hover:bg-white/5 p-2 rounded-full transition-all duration-300"
-          onClick={() => setOpen(!open)}
-          aria-label="Menú"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1 font-mono text-[10px] text-on-surface-variant/60 hover:text-primary tracking-widest uppercase transition-colors px-2.5 py-1.5 rounded-full border border-white/10 hover:border-primary/40"
+            aria-label="Switch language"
+          >
+            <Languages size={14} />
+            {lang === "es" ? "EN" : "ES"}
+          </button>
+          <button
+            className="text-primary hover:bg-white/5 p-2 rounded-full transition-all duration-300"
+            onClick={() => setOpen(!open)}
+            aria-label={t.page.menu}
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {open && (

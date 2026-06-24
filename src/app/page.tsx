@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useLanguage } from "@/lib/LanguageProvider"
 import Header from "@/components/Header"
 import Hero from "@/components/Hero"
 import About from "@/components/About"
@@ -13,19 +14,20 @@ import Contact from "@/components/Contact"
 import NebulaParticles from "@/components/NebulaParticles"
 import ScrollIndicator from "@/components/ScrollIndicator"
 
-const SECTIONS = [
-  { id: "hero", label: "INICIO", Component: Hero },
-  { id: "about", label: "SOBRE MÍ", Component: About },
-  { id: "experience", label: "EXPERIENCIA", Component: Experience },
-  { id: "projects", label: "PROYECTOS", Component: Projects },
-  { id: "skills", label: "STACK", Component: Skills },
-  { id: "infra", label: "INFRAESTRUCTURA", Component: Infra },
-  { id: "contact", label: "CONTACTO", Component: Contact },
-]
-
 export default function Home() {
+  const { t } = useLanguage()
   const [current, setCurrent] = useState(0)
   const touchStart = useRef<number | null>(null)
+
+  const SECTIONS = [
+    { id: "hero", label: t.nav.home, Component: Hero },
+    { id: "about", label: t.nav.about, Component: About },
+    { id: "experience", label: t.nav.experience, Component: Experience },
+    { id: "projects", label: t.nav.projects, Component: Projects },
+    { id: "skills", label: t.nav.skills, Component: Skills },
+    { id: "infra", label: t.nav.infra, Component: Infra },
+    { id: "contact", label: t.nav.contact, Component: Contact },
+  ]
 
   const goTo = useCallback((index: number) => {
     setCurrent(index)
@@ -95,7 +97,7 @@ export default function Home() {
         <button
           onClick={prev}
           className="fixed left-3 md:left-6 top-1/2 -translate-y-1/2 z-40 p-2.5 md:p-3 rounded-full glass-panel hover:border-primary/50 hover:text-primary hover:scale-110 transition-all duration-300 text-on-surface-variant/60"
-          aria-label="Anterior"
+          aria-label={t.page.prev}
         >
           <ChevronLeft size={22} />
         </button>
@@ -105,7 +107,7 @@ export default function Home() {
         <button
           onClick={next}
           className="fixed right-3 md:right-6 top-1/2 -translate-y-1/2 z-40 p-2.5 md:p-3 rounded-full glass-panel hover:border-primary/50 hover:text-primary hover:scale-110 transition-all duration-300 text-on-surface-variant/60"
-          aria-label="Siguiente"
+          aria-label={t.page.next}
         >
           <ChevronRight size={22} />
         </button>

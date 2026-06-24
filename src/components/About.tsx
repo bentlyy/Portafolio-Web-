@@ -1,25 +1,28 @@
 "use client"
 
 import { GraduationCap, MapPin } from "lucide-react"
+import { useLanguage } from "@/lib/LanguageProvider"
 import { personalInfo } from "@/lib/data"
 
 export default function About() {
+  const { t } = useLanguage()
+
   return (
     <section id="about" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-20 md:pt-24">
       <div className="max-w-4xl mx-auto px-8 md:px-0 py-8 md:py-12 w-full">
         <div className="flex items-center gap-3 mb-4">
           <span className="w-12 h-[1px] bg-secondary" />
           <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-            SISTEMA v2.0
+            {t.about.system}
           </p>
         </div>
         <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-8">
-          SOBRE <span className="text-primary">MÍ</span>
+          {t.about.title} <span className="text-primary">{t.about.titleAccent}</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-6">
           <div className="md:col-span-2 space-y-4">
-            {personalInfo.about.map((paragraph, i) => (
+            {t.aboutText.map((paragraph, i) => (
               <p
                 key={i}
                 className="font-body text-[16px] md:text-[18px] text-on-surface-variant leading-relaxed"
@@ -37,10 +40,10 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="font-sans font-semibold text-on-surface text-sm">
-                    Formación
+                    {t.about.education}
                   </h3>
                   <p className="font-body text-sm text-on-surface-variant mt-1">
-                    Ingeniería Civil en Informática
+                    {t.about.degree}
                   </p>
                   <p className="font-mono text-[10px] text-on-surface-variant/60 mt-1 tracking-wider">
                     Universidad Adventista de Chile · 2019-2024
@@ -56,13 +59,13 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="font-sans font-semibold text-on-surface text-sm">
-                    Ubicación
+                    {t.about.location}
                   </h3>
                   <p className="font-body text-sm text-on-surface-variant mt-1">
                     {personalInfo.location}
                   </p>
                   <p className="font-mono text-[10px] text-secondary mt-1 tracking-wider">
-                    DISPONIBLE
+                    {t.about.available}
                   </p>
                 </div>
               </div>

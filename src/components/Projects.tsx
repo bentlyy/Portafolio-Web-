@@ -1,9 +1,12 @@
 "use client"
 
 import { Github, ExternalLink } from "lucide-react"
+import { useLanguage } from "@/lib/LanguageProvider"
 import { projects } from "@/lib/data"
 
 export default function Projects() {
+  const { t } = useLanguage()
+
   const handleGlow = (e: React.MouseEvent<HTMLDivElement>, element: HTMLDivElement) => {
     const rect = element.getBoundingClientRect()
     const x = e.clientX - rect.left
@@ -19,15 +22,14 @@ export default function Projects() {
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              PROYECTOS v4.0
+              {t.projects.subtitle}
             </p>
           </div>
           <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-6">
-            PROYECTOS
+            {t.projects.title}
           </h2>
           <p className="font-body text-[16px] md:text-[18px] text-on-surface-variant max-w-2xl mb-12">
-            Monitoreo en tiempo real de proyectos activos. Cada entrada representa un
-            entorno desplegado con recursos dedicados.
+            {t.projects.description}
           </p>
         </div>
 
@@ -53,7 +55,7 @@ export default function Projects() {
                 />
                 <div className="absolute top-3 right-3 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full border border-white/10">
                   <p className="font-mono text-[10px] text-secondary tracking-wider uppercase">
-                    DESPLIEGUE ACTIVO
+                    {t.projects.activeDeployment}
                   </p>
                 </div>
               </div>
@@ -68,7 +70,7 @@ export default function Projects() {
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
                   </span>
                   <p className="font-mono text-[10px] text-secondary tracking-widest uppercase">
-                    EN VIVO
+                    {t.projects.live}
                   </p>
                 </div>
 
@@ -76,16 +78,16 @@ export default function Projects() {
                   {project.title}
                 </h3>
                 <p className="font-body text-sm text-on-surface-variant mb-4 line-clamp-2">
-                  {project.description}
+                  {t.projectDescriptions[idx]}
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 mb-5">
-                  {project.tech.map((t) => (
+                  {project.tech.map((tch) => (
                     <span
-                      key={t}
+                      key={tch}
                       className="font-mono text-[10px] text-primary/80 bg-primary/10 px-2 py-1 rounded-full tracking-wider"
                     >
-                      {t}
+                      {tch}
                     </span>
                   ))}
                 </div>
@@ -99,7 +101,7 @@ export default function Projects() {
                   className="pill-gradient flex-1 py-3.5 rounded-full flex items-center justify-center gap-2 font-mono text-xs text-on-primary uppercase tracking-widest"
                 >
                   <ExternalLink size={16} />
-                  SITIO
+                  {t.projects.site}
                 </a>
                 <a
                   href={project.github}
@@ -108,7 +110,7 @@ export default function Projects() {
                   className="glass-panel flex-1 py-3.5 rounded-full flex items-center justify-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/40 uppercase tracking-widest transition-all duration-300"
                 >
                   <Github size={16} />
-                  CÓDIGO
+                  {t.projects.code}
                 </a>
               </div>
             </div>

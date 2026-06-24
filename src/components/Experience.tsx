@@ -1,24 +1,26 @@
 "use client"
 
 import { Briefcase, ExternalLink } from "lucide-react"
-import { experience } from "@/lib/data"
+import { useLanguage } from "@/lib/LanguageProvider"
 
 export default function Experience() {
+  const { t } = useLanguage()
+
   return (
     <section id="experience" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-20 md:pt-24">
       <div className="max-w-4xl mx-auto px-8 md:px-0 py-8 md:py-12 w-full">
         <div className="flex items-center gap-3 mb-4">
           <span className="w-12 h-[1px] bg-secondary" />
           <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-            EXPERIENCIA v1.0
+            {t.experience.subtitle}
           </p>
         </div>
         <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-12">
-          EXPERIENCIA
+          {t.experience.title}
         </h2>
 
         <div className="space-y-8">
-          {experience.map((exp, idx) => (
+          {t.experienceData.map((exp, idx) => (
             <div
               key={idx}
               className="relative pl-8 border-l border-white/10"
@@ -36,7 +38,7 @@ export default function Experience() {
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
                       </span>
                       <p className="font-mono text-[10px] text-secondary tracking-widest uppercase">
-                        EXPERIENCIA ACTIVA
+                        {t.experience.active}
                       </p>
                     </div>
                     <h3 className="font-sans text-xl md:text-2xl font-semibold text-on-surface mt-2">
@@ -67,9 +69,9 @@ export default function Experience() {
                   ))}
                 </ul>
 
-                {"demoUrl" in exp && exp.demoUrl && (
+                {idx === 0 && (
                   <a
-                    href={exp.demoUrl}
+                    href="https://github.com/bentlyy"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel hover:border-primary/40 hover:text-primary hover:scale-[1.02] transition-all duration-300 font-mono text-xs tracking-widest uppercase"

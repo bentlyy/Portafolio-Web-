@@ -1,5 +1,6 @@
 "use client"
 
+import { useLanguage } from "@/lib/LanguageProvider"
 import { skills } from "@/lib/data"
 
 const categoryAccents: Record<string, string> = {
@@ -23,21 +24,23 @@ const categoryBorders: Record<string, string> = {
 }
 
 export default function Skills() {
+  const { t } = useLanguage()
+
   return (
     <section id="skills" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-20 md:pt-24">
       <div className="max-w-7xl mx-auto px-8 md:px-24 py-8 md:py-12 w-full">
         <div className="flex items-center gap-3 mb-4">
           <span className="w-12 h-[1px] bg-secondary" />
           <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-            RECURSOS DEL SISTEMA
+            {t.skills.subtitle}
           </p>
         </div>
         <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-12">
-          STACK <span className="text-primary">TECNOLÓGICO</span>
+          {t.skills.titleStart} <span className="text-primary">{t.skills.titleEnd}</span>
         </h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Object.entries(skills).map(([category, items], catIdx) => (
+          {Object.entries(skills).map(([category, items]) => (
             <div
               key={category}
               className={`glass-card p-5 rounded-xl ${categoryBorders[category] || "border-white/10"}`}
@@ -47,7 +50,7 @@ export default function Skills() {
                   className={`w-2 h-2 rounded-full ${categoryAccents[category] || "bg-primary"}`}
                 />
                 <h3 className="font-sans text-sm font-semibold text-on-surface capitalize">
-                  {category}
+                  {t.skillCategories[category]}
                 </h3>
               </div>
               <div className="space-y-3">
@@ -55,7 +58,7 @@ export default function Skills() {
                   <div key={skill.name}>
                     <div className="flex justify-between items-center mb-1">
                       <span className="font-body text-xs text-on-surface-variant">
-                        {skill.name}
+                        {t.skillNames[skill.name] || skill.name}
                       </span>
                       <span className="font-mono text-[10px] text-on-surface-variant/40">
                         {skill.level}%

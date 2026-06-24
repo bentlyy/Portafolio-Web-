@@ -1,6 +1,7 @@
 "use client"
 
 import { Cloud, Server, Rocket } from "lucide-react"
+import { useLanguage } from "@/lib/LanguageProvider"
 
 const infra = [
   {
@@ -44,6 +45,8 @@ const infra = [
 ]
 
 export default function Infra() {
+  const { t } = useLanguage()
+
   return (
     <section id="infra" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-20 md:pt-24">
       <div className="max-w-7xl mx-auto px-8 md:px-24 py-8 md:py-12 w-full">
@@ -51,15 +54,14 @@ export default function Infra() {
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
             <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              ARQUITECTURA v1.0
+              {t.infra.subtitle}
             </p>
           </div>
           <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-6">
-            INFRAESTRUCTURA
+            {t.infra.title}
           </h2>
           <p className="font-body text-[16px] md:text-[18px] text-on-surface-variant max-w-2xl mb-12">
-            Distribución de los servicios en producción. Cada plataforma corre
-            en un entorno aislado con recursos y estrategia de deploy independientes.
+            {t.infra.description}
           </p>
         </div>
 
@@ -80,7 +82,7 @@ export default function Infra() {
                       {item.provider}
                     </h3>
                     <p className="font-mono text-[10px] text-on-surface-variant/40 tracking-wider">
-                      PROVEEDOR
+                      {t.infra.provider}
                     </p>
                   </div>
                   <div className="ml-auto flex gap-1">
@@ -116,12 +118,12 @@ export default function Infra() {
                 </div>
 
                 <div className="flex flex-wrap gap-1.5">
-                  {item.tech.map((t) => (
+                  {item.tech.map((tch) => (
                     <span
-                      key={t}
+                      key={tch}
                       className="font-mono text-[9px] text-on-surface-variant/60 bg-surface-container-high px-2 py-1 rounded-full tracking-wider"
                     >
-                      {t}
+                      {tch}
                     </span>
                   ))}
                 </div>
