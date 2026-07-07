@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Portafolio de Alejandro Muñoz Garay — Ingeniero Civil en Informática, Full-Stack Developer, DevOps & ML.",
   icons: {
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='56' font-family='system-ui, sans-serif' font-size='56' font-weight='700' fill='%23c4c0ff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E",
+    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='50' font-family='system-ui, sans-serif' font-size='48' font-weight='700' fill='%23c4c0ff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E",
   },
 }
 
