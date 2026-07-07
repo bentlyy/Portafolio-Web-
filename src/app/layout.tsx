@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Alejandro Muñoz | Desarrollador Full-Stack",
   description:
     "Portafolio de Alejandro Muñoz Garay — Ingeniero Civil en Informática, Full-Stack Developer, DevOps & ML.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 }
 
 export default function RootLayout({
