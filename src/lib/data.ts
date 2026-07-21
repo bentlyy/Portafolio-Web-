@@ -113,45 +113,11 @@ export const projects = [
 ]
 
 export const skills = {
-  Lenguajes: [
-    { name: "TypeScript", level: 92 },
-    { name: "JavaScript", level: 90 },
-    { name: "Python", level: 70 },
-    { name: "SQL", level: 85 },
-  ],
-  Backend: [
-    { name: "Node.js / Express", level: 92 },
-    { name: "Prisma ORM", level: 85 },
-    { name: "REST API Design", level: 90 },
-    { name: "JWT / Autenticación", level: 88 },
-  ],
-  Frontend: [
-    { name: "React", level: 88 },
-    { name: "Next.js", level: 70 },
-    { name: "Tailwind CSS / MUI", level: 85 },
-    { name: "TypeScript", level: 92 },
-  ],
-  DevOps: [
-    { name: "Docker / Compose", level: 88 },
-    { name: "CI/CD (GitHub Actions)", level: 85 },
-    { name: "AWS (EC2)", level: 70 },
-    { name: "Linux / Nginx", level: 80 },
-  ],
-  "Bases de Datos": [
-    { name: "PostgreSQL", level: 88 },
-    { name: "MySQL", level: 85 },
-    { name: "Prisma ORM", level: 85 },
-    { name: "SQL Avanzado", level: 80 },
-  ],
-  Testing: [
-    { name: "Jest / Vitest", level: 88 },
-    { name: "Supertest", level: 85 },
-    { name: "Test Coverage (89%)", level: 85 },
-  ],
-  Seguridad: [
-    { name: "JWT + Refresh Tokens", level: 88 },
-    { name: "Helmet / CORS / Rate Limit", level: 85 },
-    { name: "TOTP 2FA", level: 80 },
-    { name: "RBAC / Auditoría", level: 85 },
-  ],
+  Lenguajes: ["TypeScript", "JavaScript", "Python", "SQL"],
+  Backend: ["Node.js", "Express", "Prisma ORM", "REST API", "JWT"],
+  Frontend: ["React", "Next.js", "Tailwind CSS", "MUI"],
+  DevOps: ["Docker", "GitHub Actions", "AWS EC2", "Nginx", "Linux"],
+  "Bases de Datos": ["PostgreSQL", "MySQL", "Prisma ORM", "SQL Avanzado"],
+  Testing: ["Jest", "Vitest", "Supertest", "Cobertura 89%"],
+  Seguridad: ["JWT + Refresh Tokens", "Helmet / CORS", "TOTP 2FA", "RBAC", "Auditoría"],
 }

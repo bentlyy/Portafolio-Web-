@@ -4,13 +4,13 @@ import { useLanguage } from "@/lib/LanguageProvider"
 import { skills } from "@/lib/data"
 
 const categoryAccents: Record<string, string> = {
-  Lenguajes: "bg-blue-500",
-  Backend: "bg-green-500",
-  Frontend: "bg-purple-500",
-  DevOps: "bg-orange-500",
-  "Bases de Datos": "bg-cyan-500",
-  Testing: "bg-pink-500",
-  Seguridad: "bg-red-500",
+  Lenguajes: "bg-blue-500/15 text-blue-400 border-blue-500/20",
+  Backend: "bg-green-500/15 text-green-400 border-green-500/20",
+  Frontend: "bg-purple-500/15 text-purple-400 border-purple-500/20",
+  DevOps: "bg-orange-500/15 text-orange-400 border-orange-500/20",
+  "Bases de Datos": "bg-cyan-500/15 text-cyan-400 border-cyan-500/20",
+  Testing: "bg-pink-500/15 text-pink-400 border-pink-500/20",
+  Seguridad: "bg-red-500/15 text-red-400 border-red-500/20",
 }
 
 const categoryBorders: Record<string, string> = {
@@ -21,6 +21,16 @@ const categoryBorders: Record<string, string> = {
   "Bases de Datos": "border-cyan-500/20",
   Testing: "border-pink-500/20",
   Seguridad: "border-red-500/20",
+}
+
+const categoryDots: Record<string, string> = {
+  Lenguajes: "bg-blue-500",
+  Backend: "bg-green-500",
+  Frontend: "bg-purple-500",
+  DevOps: "bg-orange-500",
+  "Bases de Datos": "bg-cyan-500",
+  Testing: "bg-pink-500",
+  Seguridad: "bg-red-500",
 }
 
 export default function Skills() {
@@ -47,30 +57,22 @@ export default function Skills() {
             >
               <div className="flex items-center gap-2.5 mb-4">
                 <span
-                  className={`w-2 h-2 rounded-full ${categoryAccents[category] || "bg-primary"}`}
+                  className={`w-2 h-2 rounded-full ${categoryDots[category] || "bg-primary"}`}
                 />
                 <h3 className="font-sans text-sm font-semibold text-on-surface capitalize">
                   {t.skillCategories[category]}
                 </h3>
               </div>
-              <div className="space-y-3">
+              <div className="flex flex-wrap gap-2">
                 {items.map((skill) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="font-body text-xs text-on-surface-variant">
-                        {t.skillNames[skill.name] || skill.name}
-                      </span>
-                      <span className="font-mono text-[10px] text-on-surface-variant/40">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="h-1 bg-surface-container-high rounded-full overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-primary/60 to-primary"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
+                  <span
+                    key={skill}
+                    className={`font-mono text-[10px] tracking-wide px-2.5 py-1.5 rounded-lg border ${
+                      categoryAccents[category] || "bg-primary/15 text-primary border-primary/20"
+                    }`}
+                  >
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>

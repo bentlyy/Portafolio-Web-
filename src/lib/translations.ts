@@ -86,7 +86,7 @@ export const translations: Record<Lang, TranslationSet> = {
       ["Dashboard en tiempo real con mapa Leaflet y gráficos Recharts", "Motor de alertas automáticas con prevención de duplicados (15 min)", "Notificaciones multicanal: Email (Nodemailer) + WhatsApp (Twilio)", "Roles admin/usuario, JWT, rate limiting, mock API para desarrollo"],
     ],
     skillCategories: { Lenguajes: "Lenguajes", Backend: "Backend", Frontend: "Frontend", DevOps: "DevOps", "Bases de Datos": "Bases de Datos", Testing: "Testing", Seguridad: "Seguridad" },
-    skillNames: { "JWT / Autenticación": "JWT / Autenticación", "SQL Avanzado": "SQL Avanzado", "RBAC / Auditoría": "RBAC / Auditoría" },
+    skillNames: {},
   },
 
   en: {
@@ -155,6 +155,6 @@ export const translations: Record<Lang, TranslationSet> = {
       ["Real-time dashboard with Leaflet map and Recharts charts", "Automatic alert engine with duplicate prevention (15 min)", "Multi-channel notifications: Email (Nodemailer) + WhatsApp (Twilio)", "Admin/user roles, JWT, rate limiting, mock API for development"],
     ],
     skillCategories: { Lenguajes: "Languages", Backend: "Backend", Frontend: "Frontend", DevOps: "DevOps", "Bases de Datos": "Databases", Testing: "Testing", Seguridad: "Security" },
-    skillNames: { "JWT / Autenticación": "JWT / Authentication", "SQL Avanzado": "Advanced SQL", "RBAC / Auditoría": "RBAC / Audit" },
+    skillNames: {},
   },
 }
