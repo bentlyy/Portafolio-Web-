@@ -18,6 +18,7 @@ export default function Home() {
   const { t } = useLanguage()
   const [current, setCurrent] = useState(0)
   const touchStart = useRef<number | null>(null)
+  const wheelCooldown = useRef(0)
 
   useEffect(() => {
     const saved = sessionStorage.getItem("currentSection")
@@ -60,7 +61,10 @@ export default function Home() {
       if (e.key === "ArrowLeft" || e.key === "ArrowUp") prev()
     }
     const handleWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 20) {
+      const now = Date.now()
+      if (now - wheelCooldown.current < 800) return
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 60) {
+        wheelCooldown.current = now
         e.preventDefault()
         if (e.deltaX > 0) next()
         else prev()
