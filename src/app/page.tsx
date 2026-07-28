@@ -19,6 +19,15 @@ export default function Home() {
   const [current, setCurrent] = useState(0)
   const touchStart = useRef<number | null>(null)
 
+  useEffect(() => {
+    const saved = sessionStorage.getItem("currentSection")
+    if (saved) setCurrent(Number(saved))
+  }, [])
+
+  useEffect(() => {
+    sessionStorage.setItem("currentSection", String(current))
+  }, [current])
+
   const SECTIONS = [
     { id: "hero", label: t.nav.home, Component: Hero },
     { id: "about", label: t.nav.about, Component: About },
@@ -50,8 +59,19 @@ export default function Home() {
       if (e.key === "ArrowRight" || e.key === "ArrowDown") next()
       if (e.key === "ArrowLeft" || e.key === "ArrowUp") prev()
     }
+    const handleWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 20) {
+        e.preventDefault()
+        if (e.deltaX > 0) next()
+        else prev()
+      }
+    }
     window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
+    window.addEventListener("wheel", handleWheel, { passive: false })
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+      window.removeEventListener("wheel", handleWheel)
+    }
   }, [next, prev])
 
   const handleTouchStart = (e: React.TouchEvent) => {
