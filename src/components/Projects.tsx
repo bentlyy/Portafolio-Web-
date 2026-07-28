@@ -52,11 +52,21 @@ export default function Projects() {
               <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-5 bg-surface-container-highest">
                 {project.images ? (
                   <>
-                    <img
-                      src={project.images[imgIndex[idx] ?? 0]}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                    <button
+                      onClick={() =>
+                        setImgIndex((prev) => ({
+                          ...prev,
+                          [idx]: ((prev[idx] ?? 0) + 1) % project.images!.length,
+                        }))
+                      }
+                      className="w-full h-full cursor-pointer text-left"
+                    >
+                      <img
+                        src={project.images[imgIndex[idx] ?? 0]}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
+                      />
+                    </button>
                     <div className="absolute inset-x-0 bottom-2 flex items-center justify-center gap-2 z-10">
                       {project.images.map((_, i) => (
                         <button
