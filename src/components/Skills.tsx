@@ -6,7 +6,7 @@ import { skills } from "@/lib/data"
 const categoryAccents: Record<string, string> = {
   Lenguajes: "bg-blue-500/15 text-blue-400 border-blue-500/20",
   Backend: "bg-green-500/15 text-green-400 border-green-500/20",
-  Frontend: "bg-purple-500/15 text-purple-400 border-purple-500/20",
+  Frontend: "bg-green-500/15 text-green-400 border-green-500/20",
   DevOps: "bg-orange-500/15 text-orange-400 border-orange-500/20",
   "Bases de Datos": "bg-cyan-500/15 text-cyan-400 border-cyan-500/20",
   Testing: "bg-pink-500/15 text-pink-400 border-pink-500/20",
@@ -16,7 +16,7 @@ const categoryAccents: Record<string, string> = {
 const categoryBorders: Record<string, string> = {
   Lenguajes: "border-blue-500/20",
   Backend: "border-green-500/20",
-  Frontend: "border-purple-500/20",
+  Frontend: "border-green-500/20",
   DevOps: "border-orange-500/20",
   "Bases de Datos": "border-cyan-500/20",
   Testing: "border-pink-500/20",
@@ -26,7 +26,7 @@ const categoryBorders: Record<string, string> = {
 const categoryDots: Record<string, string> = {
   Lenguajes: "bg-blue-500",
   Backend: "bg-green-500",
-  Frontend: "bg-purple-500",
+  Frontend: "bg-green-500",
   DevOps: "bg-orange-500",
   "Bases de Datos": "bg-cyan-500",
   Testing: "bg-pink-500",

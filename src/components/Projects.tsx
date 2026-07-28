@@ -44,7 +44,7 @@ export default function Projects() {
                 className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
                   background:
-                    "radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(135, 129, 255, 0.15), transparent 50%)",
+                    "radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(47, 157, 92, 0.15), transparent 50%)",
                 }}
               />
               <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-5 bg-surface-container-highest">

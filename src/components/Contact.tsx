@@ -61,8 +61,8 @@ export default function Contact() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="bg-purple-500/10 p-3 rounded-lg">
-                  <Github size={18} className="text-purple-400" />
+                <div className="bg-green-500/10 p-3 rounded-lg">
+                  <Github size={18} className="text-green-400" />
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">

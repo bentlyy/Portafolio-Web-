@@ -25,7 +25,7 @@ export default function Experience() {
               key={idx}
               className="relative pl-8 border-l border-white/10"
             >
-              <div className="absolute left-[-12px] top-0 bg-primary-container rounded-full p-2 shadow-[0_0_10px_rgba(135,129,255,0.3)]">
+              <div className="absolute left-[-12px] top-0 bg-primary-container rounded-full p-2 shadow-[0_0_10px_rgba(47,157,92,0.3)]">
                 <Briefcase size={14} className="text-on-primary" />
               </div>
 

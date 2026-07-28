@@ -27,7 +27,7 @@ export default function Header({ currentSection, onNavigate, sections }: HeaderP
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         currentSection > 0
-          ? "bg-surface/5 backdrop-blur-xl border-b border-white/15 shadow-[0_0_20px_rgba(196,192,255,0.1)]"
+          ? "bg-surface/5 backdrop-blur-xl border-b border-white/15 shadow-[0_0_20px_rgba(125,219,158,0.1)]"
           : "bg-transparent"
       }`}
     >
