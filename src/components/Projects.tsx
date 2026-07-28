@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Github, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
+import { Github, ExternalLink } from "lucide-react"
 import { useLanguage } from "@/lib/LanguageProvider"
 import { projects } from "@/lib/data"
 
@@ -50,44 +50,34 @@ export default function Projects() {
                 }}
               />
               <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-5 bg-surface-container-highest">
-                {project.images ? (
-                  <>
-                    <button
-                      onClick={() =>
-                        setImgIndex((prev) => ({
-                          ...prev,
-                          [idx]: ((prev[idx] ?? 0) + 1) % project.images!.length,
-                        }))
-                      }
-                      className="w-full h-full cursor-pointer text-left"
-                    >
-                      <img
-                        src={project.images[imgIndex[idx] ?? 0]}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
-                      />
-                    </button>
-                    <div className="absolute inset-x-0 bottom-2 flex items-center justify-center gap-2 z-10">
-                      {project.images.map((_, i) => (
-                        <button
-                          key={i}
-                          onClick={() => setImgIndex((prev) => ({ ...prev, [idx]: i }))}
-                          className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                            (imgIndex[idx] ?? 0) === i
-                              ? "bg-primary w-3"
-                              : "bg-white/40 hover:bg-white/70"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </>
-                ) : (
+                <button
+                  onClick={() =>
+                    setImgIndex((prev) => ({
+                      ...prev,
+                      [idx]: ((prev[idx] ?? 0) + 1) % project.images.length,
+                    }))
+                  }
+                  className="w-full h-full cursor-pointer text-left"
+                >
                   <img
-                    src={project.image}
+                    src={project.images[imgIndex[idx] ?? 0]}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 pointer-events-none"
                   />
-                )}
+                </button>
+                <div className="absolute inset-x-0 bottom-2 flex items-center justify-center gap-2 z-10">
+                  {project.images.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setImgIndex((prev) => ({ ...prev, [idx]: i }))}
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                        (imgIndex[idx] ?? 0) === i
+                          ? "bg-primary w-3"
+                          : "bg-white/40 hover:bg-white/70"
+                      }`}
+                    />
+                  ))}
+                </div>
                 <div className="absolute top-3 right-3 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full border border-white/10">
                   <p className="font-mono text-[10px] text-secondary tracking-wider uppercase">
                     {t.projects.activeDeployment}

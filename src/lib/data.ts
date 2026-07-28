@@ -59,7 +59,6 @@ export const projects = [
     tech: ["TypeScript", "Express 5", "React 19", "PostgreSQL 15", "Docker", "JWT + 2FA", "i18n", "GitHub Actions"],
     github: "https://github.com/bentlyy/Clinica-Salud-Vital",
     demo: "https://clinica-salud-vital.onrender.com",
-    image: "/images/clinic02.png",
     images: ["/images/clinic02.png", "/images/clinic03.png"],
     features: [
       "16 módulos con arquitectura modular monolith",
@@ -74,7 +73,7 @@ export const projects = [
     tech: ["Node.js", "Express 5", "Prisma 6", "React 18", "PostgreSQL 15", "Docker", "Prometheus", "Grafana"],
     github: "https://github.com/bentlyy/TallerMecanico",
     demo: "https://taller.amgdeveloper.cl",
-    image: "/images/tallerpro.png",
+    images: ["/images/tallerpro.png"],
     features: [
       "Arquitectura hexagonal con separación domain/application/infra",
       "Multi-tenencia con aislamiento por empresa (10 tablas)",
@@ -88,7 +87,7 @@ export const projects = [
     tech: ["Node.js", "TypeScript", "Commander", "Inquirer", "Handlebars", "npm"],
     github: "https://github.com/bentlyy/typeforge",
     demo: "https://www.npmjs.com/package/typeforge",
-    image: "/images/typeforge.png",
+    images: ["/images/typeforge.png"],
     features: [
       "CLI interactivo con Commander + Inquirer",
       "Templates con Handlebars para personalización",
@@ -102,7 +101,7 @@ export const projects = [
     tech: ["React 18", "Node.js", "Express 4", "MySQL 8", "Docker", "Leaflet", "Twilio", "Recharts"],
     github: "https://github.com/bentlyy/agrobot-alert",
     demo: "https://agrobot.amgdeveloper.cl",
-    image: "/images/agrobot.png",
+    images: ["/images/agrobot.png"],
     features: [
       "Dashboard en tiempo real con mapa Leaflet y gráficos Recharts",
       "Motor de alertas automáticas con prevención de duplicados (15 min)",
