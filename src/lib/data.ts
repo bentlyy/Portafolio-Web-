@@ -59,7 +59,8 @@ export const projects = [
     tech: ["TypeScript", "Express 5", "React 19", "PostgreSQL 15", "Docker", "JWT + 2FA", "i18n", "GitHub Actions"],
     github: "https://github.com/bentlyy/Clinica-Salud-Vital",
     demo: "https://clinica-salud-vital.onrender.com",
-    image: "/images/clinic.png",
+    image: "/images/clinic02.png",
+    images: ["/images/clinic02.png", "/images/clinic03.png"],
     features: [
       "16 módulos con arquitectura modular monolith",
       "1122 tests, ~89% cobertura (Vitest + Supertest)",
