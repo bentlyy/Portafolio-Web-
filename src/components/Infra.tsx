@@ -5,11 +5,11 @@ import { useLanguage } from "@/lib/LanguageProvider"
 
 type ServiceStatus = "online" | "maintenance" | "updating" | "error"
 
-const statusConfig: Record<ServiceStatus, { label: string; dot: string; ping: string }> = {
-  online: { label: "EN LÍNEA", dot: "bg-emerald-400", ping: "bg-emerald-400" },
-  maintenance: { label: "MANTENIMIENTO", dot: "bg-amber-400", ping: "bg-amber-400" },
-  updating: { label: "ACTUALIZANDO", dot: "bg-sky-400", ping: "bg-sky-400" },
-  error: { label: "FUERA DE LÍNEA", dot: "bg-red-400", ping: "bg-red-400" },
+const statusConfig: Record<ServiceStatus, { labelKey: string; dot: string; ping: string }> = {
+  online: { labelKey: "statusOnline", dot: "bg-emerald-400", ping: "bg-emerald-400" },
+  maintenance: { labelKey: "statusMaintenance", dot: "bg-amber-400", ping: "bg-amber-400" },
+  updating: { labelKey: "statusUpdating", dot: "bg-sky-400", ping: "bg-sky-400" },
+  error: { labelKey: "statusError", dot: "bg-red-400", ping: "bg-red-400" },
 }
 
 const infra = [
@@ -128,7 +128,7 @@ export default function Infra() {
                               s.status === "updating" ? "bg-sky-500/10 text-sky-400" :
                               "bg-red-500/10 text-red-400"
                             }`}>
-                              {st.label}
+                              {t.infra[st.labelKey as keyof typeof t.infra]}
                             </span>
                           </div>
                           <p className="font-mono text-[9px] text-on-surface-variant/40 tracking-wider truncate">
