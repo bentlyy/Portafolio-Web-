@@ -8,8 +8,8 @@ export default function Contact() {
   const { t } = useLanguage()
 
   return (
-    <section id="contact" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-20 md:pt-24">
-      <div className="max-w-4xl mx-auto px-8 md:px-0 py-8 md:py-12 w-full">
+    <section id="contact" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-[61px] md:pt-[69px]">
+      <div className="max-w-4xl mx-auto px-8 md:px-0 py-4 md:py-8 w-full">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />

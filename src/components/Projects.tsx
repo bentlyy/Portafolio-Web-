@@ -16,8 +16,8 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-20 md:pt-24">
-      <div className="max-w-7xl mx-auto px-8 md:px-24 py-8 md:py-12 w-full">
+    <section id="projects" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-[61px] md:pt-[69px]">
+      <div className="max-w-7xl mx-auto px-8 md:px-24 py-4 md:py-8 w-full">
         <div className="md:pl-16 lg:pl-24">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-secondary" />
