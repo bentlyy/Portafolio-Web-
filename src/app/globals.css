@@ -21,10 +21,10 @@
   --color-primary-container: #2f9d5c;
   --color-on-primary-container: #00210e;
   --color-inverse-primary: #1f7a3e;
-  --color-secondary: #62d8d5;
-  --color-on-secondary: #003736;
-  --color-secondary-container: #11a19e;
-  --color-on-secondary-container: #00302f;
+  --color-secondary: #4ade80;
+  --color-on-secondary: #003918;
+  --color-secondary-container: #1fa855;
+  --color-on-secondary-container: #00210c;
   --color-tertiary: #c5c5d4;
   --color-on-tertiary: #2e303b;
   --color-tertiary-container: #8f909d;
@@ -37,10 +37,10 @@
   --color-primary-fixed-dim: #7ddb9e;
   --color-on-primary-fixed: #00210e;
   --color-on-primary-fixed-variant: #1f7a3e;
-  --color-secondary-fixed: #81f5f1;
-  --color-secondary-fixed-dim: #62d8d5;
-  --color-on-secondary-fixed: #00201f;
-  --color-on-secondary-fixed-variant: #00504e;
+  --color-secondary-fixed: #a8f5c0;
+  --color-secondary-fixed-dim: #4ade80;
+  --color-on-secondary-fixed: #00210c;
+  --color-on-secondary-fixed-variant: #007a30;
   --color-tertiary-fixed: #e1e1f0;
   --color-tertiary-fixed-dim: #c5c5d4;
   --color-on-tertiary-fixed: #191b26;
@@ -137,7 +137,7 @@ body {
 .nebula-bg {
   background-image:
     radial-gradient(circle at 20% 30%, rgba(125, 219, 158, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(98, 216, 213, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 80% 70%, rgba(74, 222, 128, 0.05) 0%, transparent 50%);
 }
 
 .glass-panel {
@@ -187,7 +187,7 @@ body {
   height: 100%;
   background:
     radial-gradient(circle at 20% 30%, rgba(47, 157, 92, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(98, 216, 213, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 80% 70%, rgba(74, 222, 128, 0.08) 0%, transparent 40%);
   z-index: -1;
   pointer-events: none;
 }
