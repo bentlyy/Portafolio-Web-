@@ -33,8 +33,8 @@ const infra = [
     color: "border-amber-500/20",
     accent: "bg-amber-500",
     services: [
-      { name: "AgroBot-Alert", url: "https://agrobot.amgdeveloper.cl", status: "maintenance" as ServiceStatus },
-      { name: "TallerPro", url: "https://taller.amgdeveloper.cl", status: "maintenance" as ServiceStatus },
+      { name: "AgroBot-Alert", url: "https://agrobot.amgdeveloper.cl", status: "online" as ServiceStatus },
+      { name: "TallerPro", url: "https://taller.amgdeveloper.cl", status: "online" as ServiceStatus },
     ],
     tech: ["Docker Compose", "Nginx Gateway", "Oracle Ubuntu", "GitHub Actions CI/CD"],
   },
