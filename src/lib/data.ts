@@ -115,7 +115,7 @@ export const skills = {
   Lenguajes: ["TypeScript", "JavaScript", "Python", "SQL"],
   Backend: ["Node.js", "Express", "Prisma ORM", "REST API", "JWT"],
   Frontend: ["React", "Next.js", "Tailwind CSS", "MUI"],
-  DevOps: ["Docker", "GitHub Actions", "AWS EC2", "Nginx", "Linux"],
+  DevOps: ["Docker", "GitHub Actions", "Oracle Cloud", "Nginx", "Linux"],
   "Bases de Datos": ["PostgreSQL", "MySQL", "Prisma ORM", "SQL Avanzado"],
   Testing: ["Jest", "Vitest", "Supertest", "Cobertura de tests"],
   Seguridad: ["JWT + Refresh Tokens", "Helmet / CORS", "TOTP 2FA", "RBAC", "Auditoría"],

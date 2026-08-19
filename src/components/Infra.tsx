@@ -26,17 +26,17 @@ const infra = [
     tech: ["Next.js SSG", "Cloudflare Pages", "Wrangler CLI"],
   },
   {
-    provider: "AWS EC2",
+    provider: "Oracle Cloud",
     icon: Server,
     iconBg: "bg-amber-500/10",
     iconColor: "text-amber-400",
     color: "border-amber-500/20",
     accent: "bg-amber-500",
     services: [
-      { name: "AgroBot-Alert", url: "https://agrobot.amgdeveloper.cl", status: "error" as ServiceStatus },
-      { name: "TallerPro", url: "https://taller.amgdeveloper.cl", status: "error" as ServiceStatus },
+      { name: "AgroBot-Alert", url: "https://agrobot.amgdeveloper.cl", status: "maintenance" as ServiceStatus },
+      { name: "TallerPro", url: "https://taller.amgdeveloper.cl", status: "maintenance" as ServiceStatus },
     ],
-    tech: ["Docker Compose", "Nginx Gateway", "EC2 Ubuntu", "GitHub Actions CI/CD"],
+    tech: ["Docker Compose", "Nginx Gateway", "Oracle Ubuntu", "GitHub Actions CI/CD"],
   },
   {
     provider: "Render",
