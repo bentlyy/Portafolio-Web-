@@ -68,20 +68,6 @@ export const projects = [
     ],
   },
   {
-    title: "TallerPro",
-    description: "Sistema para talleres mecánicos con arquitectura hexagonal. Gestiona clientes, vehículos, órdenes de reparación, inventario y facturación, con monitoreo integrado.",
-    tech: ["Node.js", "Express 5", "Prisma 6", "React 18", "PostgreSQL 15", "Docker", "Prometheus", "Grafana"],
-    github: "https://github.com/bentlyy/TallerMecanico",
-    demo: "https://taller.amgdeveloper.cl",
-    images: ["/images/tallerpro.png"],
-    features: [
-      "Arquitectura hexagonal con separación domain/application/infra",
-      "Multi-tenencia con aislamiento por empresa (10 tablas)",
-      "RBAC 3 roles, bloqueo por intentos, JWT + bcrypt",
-      "Stack de monitoreo: Prometheus + Grafana + Pino logging",
-    ],
-  },
-  {
     title: "AgroBot-Alert",
     description: "Plataforma IoT para monitoreo agrícola con alertas automáticas, notificaciones por WhatsApp y Email, mapas interactivos y gráficos en tiempo real.",
     tech: ["React 18", "Node.js", "Express 4", "MySQL 8", "Docker", "Leaflet", "Twilio", "Recharts"],
@@ -93,6 +79,20 @@ export const projects = [
       "Motor de alertas automáticas con prevención de duplicados (15 min)",
       "Notificaciones multicanal: Email (Nodemailer) + WhatsApp (Twilio)",
       "Roles admin/usuario, JWT, rate limiting, mock API para desarrollo",
+    ],
+  },
+  {
+    title: "TallerPro",
+    description: "Sistema para talleres mecánicos con arquitectura hexagonal. Gestiona clientes, vehículos, órdenes de reparación, inventario y facturación, con monitoreo integrado.",
+    tech: ["Node.js", "Express 5", "Prisma 6", "React 18", "PostgreSQL 15", "Docker", "Prometheus", "Grafana"],
+    github: "https://github.com/bentlyy/TallerMecanico",
+    demo: "https://taller.amgdeveloper.cl",
+    images: ["/images/tallerpro.png"],
+    features: [
+      "Arquitectura hexagonal con separación domain/application/infra",
+      "Multi-tenencia con aislamiento por empresa (10 tablas)",
+      "RBAC 3 roles, bloqueo por intentos, JWT + bcrypt",
+      "Stack de monitoreo: Prometheus + Grafana + Pino logging",
     ],
   },
   {
