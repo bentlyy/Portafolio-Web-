@@ -82,20 +82,6 @@ export const projects = [
     ],
   },
   {
-    title: "TypeForge",
-    description: "CLI publicado en npm que genera APIs TypeScript listas para usar en segundos. Incluye Express, Prisma, autenticación JWT, Docker y CI/CD listos para usar.",
-    tech: ["Node.js", "TypeScript", "Commander", "Inquirer", "Handlebars", "npm"],
-    github: "https://github.com/bentlyy/typeforge",
-    demo: "https://www.npmjs.com/package/typeforge",
-    images: ["/images/typeforge.png"],
-    features: [
-      "CLI interactivo con Commander + Inquirer",
-      "Templates con Handlebars para personalización",
-      "Genera proyectos con Docker multi-stage + CI/CD",
-      "Autenticación JWT opcional, tests incluidos",
-    ],
-  },
-  {
     title: "AgroBot-Alert",
     description: "Plataforma IoT para monitoreo agrícola con alertas automáticas, notificaciones por WhatsApp y Email, mapas interactivos y gráficos en tiempo real.",
     tech: ["React 18", "Node.js", "Express 4", "MySQL 8", "Docker", "Leaflet", "Twilio", "Recharts"],
@@ -107,6 +93,20 @@ export const projects = [
       "Motor de alertas automáticas con prevención de duplicados (15 min)",
       "Notificaciones multicanal: Email (Nodemailer) + WhatsApp (Twilio)",
       "Roles admin/usuario, JWT, rate limiting, mock API para desarrollo",
+    ],
+  },
+  {
+    title: "TypeForge",
+    description: "CLI publicado en npm que genera APIs TypeScript listas para usar en segundos. Incluye Express, Prisma, autenticación JWT, Docker y CI/CD listos para usar.",
+    tech: ["Node.js", "TypeScript", "Commander", "Inquirer", "Handlebars", "npm"],
+    github: "https://github.com/bentlyy/typeforge",
+    demo: "https://www.npmjs.com/package/typeforge",
+    images: ["/images/typeforge.png"],
+    features: [
+      "CLI interactivo con Commander + Inquirer",
+      "Templates con Handlebars para personalización",
+      "Genera proyectos con Docker multi-stage + CI/CD",
+      "Autenticación JWT opcional, tests incluidos",
     ],
   },
 ]
