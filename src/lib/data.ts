@@ -54,12 +54,12 @@ export const experience = [
 
 export const projects = [
   {
-    title: "Clinic-Backend",
+    title: "Vitaria",
     description: "Sistema SaaS para gestión clínica con 16 módulos: agenda médica, historias clínicas, facturación, laboratorio, analítica y panel de administración. Incluye más de 1100 tests automatizados.",
     tech: ["TypeScript", "Express 5", "React 19", "PostgreSQL 15", "Docker", "JWT + 2FA", "i18n", "GitHub Actions"],
     github: "https://github.com/bentlyy/Clinica-Salud-Vital",
     demo: "https://clinica-salud-vital.onrender.com",
-    images: ["/images/clinic02.png", "/images/clinic03.png"],
+    images: ["/images/clinic02.png", "/images/clinic03.png", "/images/clinic04.png"],
     features: [
       "16 módulos con arquitectura modular monolith",
       "1122 tests, ~89% cobertura (Vitest + Supertest)",
