@@ -39,14 +39,14 @@ export const translations: Record<Lang, TranslationSet> = {
     experienceData: [
       {
         role: "Desarrollador Full Stack — Proyectos Autónomos",
-        company: "Clinic-Backend · AgroBot-Alert · TallerPro · Transallendes · TypeForge",
+        company: "Clinic-Backend · AgroBot-Alert · TallerPro · Transporte · TypeForge",
         period: "2024 - Presente",
         description: "Desarrollé sistemas completos para mi portafolio, aplicando buenas prácticas de arquitectura, testing, DevOps y seguridad. El más completo es un sistema de gestión clínica SaaS con 16 módulos, multi-tenancy y más de 1100 tests automatizados.",
         highlights: [
           "Clinic-Backend: sistema SaaS con 16 módulos (agenda, EHR, facturación, laboratorio, analítica), 1122 tests automatizados (89% cobertura), autenticación 2FA y soporte multilenguaje.",
           "AgroBot-Alert: plataforma IoT con monitoreo agrícola en tiempo real, alertas por WhatsApp y Email, y dashboards con mapa Leaflet.",
           "TallerPro: sistema multi-tenant con arquitectura hexagonal, monitoreo con Prometheus y Grafana, CI/CD automatizado en 5 etapas.",
-          "Transallendes: TMS para flota de carga internacional con tracking GPS en tiempo real, geocercas y facturación.",
+          "Transporte: TMS para flota de carga internacional con tracking GPS en tiempo real, geocercas y facturación.",
           "TypeForge: CLI publicado en npm que genera APIs TypeScript listas para producción en segundos.",
           "Stack principal: TypeScript, Node.js, React, PostgreSQL, Docker, GitHub Actions.",
         ],
@@ -111,14 +111,14 @@ export const translations: Record<Lang, TranslationSet> = {
     experienceData: [
       {
         role: "Full Stack Developer — Independent Projects",
-        company: "Clinic-Backend · AgroBot-Alert · TallerPro · Transallendes · TypeForge",
+        company: "Clinic-Backend · AgroBot-Alert · TallerPro · Transporte · TypeForge",
         period: "2024 - Present",
         description: "I built complete systems for my portfolio, applying solid practices in architecture, testing, DevOps and security. The most comprehensive one is a SaaS clinical management system with 16 modules, multi-tenancy and over 1100 automated tests.",
         highlights: [
           "Clinic-Backend: SaaS system with 16 modules (scheduling, EHR, billing, laboratory, analytics), 1122 automated tests (89% coverage), 2FA authentication and multi-language support.",
           "AgroBot-Alert: IoT platform with real-time agricultural monitoring, WhatsApp and Email alerts, and Leaflet map dashboards.",
           "TallerPro: multi-tenant system with hexagonal architecture, Prometheus and Grafana monitoring, automated CI/CD with 5 stages.",
-          "Transallendes: TMS for international freight fleets with real-time GPS tracking, geofences and invoicing.",
+          "Transporte: TMS for international freight fleets with real-time GPS tracking, geofences and invoicing.",
           "TypeForge: npm CLI that generates production-ready TypeScript APIs in seconds.",
           "Main stack: TypeScript, Node.js, React, PostgreSQL, Docker, GitHub Actions.",
         ],
