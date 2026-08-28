@@ -77,7 +77,7 @@ export default function Experience() {
                     className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel hover:border-primary/40 hover:text-primary hover:scale-[1.02] transition-all duration-300 font-mono text-xs tracking-widest uppercase"
                   >
                     <ExternalLink size={14} />
-                    Clínica Salud Vital — Demo
+                    Vitaria — Demo
                   </a>
                 )}
               </div>

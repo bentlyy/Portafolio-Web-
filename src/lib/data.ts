@@ -17,11 +17,11 @@ export const personalInfo = {
 export const experience = [
   {
     role: "Desarrollador Full Stack — Proyectos Autónomos",
-    company: "Clinic-Backend · AgroBot-Alert · TallerPro · Transporte · TypeForge",
+    company: "Vitaria · AgroBot-Alert · TallerPro · Transporte · TypeForge",
     period: "2024 - Presente",
     description: "Desarrollé sistemas completos para mi portafolio, aplicando buenas prácticas de arquitectura, testing, DevOps y seguridad. El más completo es un sistema de gestión clínica SaaS con 16 módulos, multi-tenancy y más de 1100 tests automatizados.",
     highlights: [
-      "Clinic-Backend: sistema SaaS con 16 módulos (agenda, EHR, facturación, laboratorio, analítica), 1122 tests automatizados (89% cobertura), autenticación 2FA y soporte multilenguaje.",
+      "Vitaria: sistema SaaS con 16 módulos (agenda, EHR, facturación, laboratorio, analítica), 1122 tests automatizados (89% cobertura), autenticación 2FA y soporte multilenguaje.",
       "AgroBot-Alert: plataforma IoT con monitoreo agrícola en tiempo real, alertas por WhatsApp y Email, y dashboards con mapa Leaflet.",
       "TallerPro: sistema multi-tenant con arquitectura hexagonal, monitoreo con Prometheus y Grafana, CI/CD automatizado en 5 etapas.",
       "Transporte: TMS para flota de carga internacional con tracking GPS en tiempo real, geocercas y facturación.",

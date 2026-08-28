@@ -47,7 +47,7 @@ const infra = [
     color: "border-cyan-500/20",
     accent: "bg-cyan-500",
     services: [
-      { name: "Clínica Salud Vital", url: "https://clinica-salud-vital.onrender.com", status: "online" as ServiceStatus },
+      { name: "Vitaria", url: "https://clinica-salud-vital.onrender.com", status: "online" as ServiceStatus },
     ],
     tech: ["Web Service", "PostgreSQL", "Auto Deploy", "Docker"],
   },
