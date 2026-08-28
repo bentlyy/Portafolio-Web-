@@ -35,6 +35,7 @@ const infra = [
     services: [
       { name: "AgroBot-Alert", url: "https://agrobot.amgdeveloper.cl", status: "online" as ServiceStatus },
       { name: "TallerPro", url: "https://taller.amgdeveloper.cl", status: "online" as ServiceStatus },
+      { name: "Transallendes", url: "https://transporte.amgdeveloper.cl", status: "online" as ServiceStatus },
     ],
     tech: ["Docker Compose", "Nginx Gateway", "Oracle Ubuntu", "GitHub Actions CI/CD"],
   },
