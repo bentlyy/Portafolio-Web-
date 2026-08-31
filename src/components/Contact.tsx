@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, MapPin, Github, Linkedin, Download, FileText } from "lucide-react"
+import { Mail, MapPin, Download, Github, Linkedin } from "lucide-react"
 import { useLanguage } from "@/lib/LanguageProvider"
 import { personalInfo } from "@/lib/data"
 
@@ -8,153 +8,93 @@ export default function Contact() {
   const { t } = useLanguage()
 
   return (
-    <section id="contact" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-[61px] md:pt-[69px]">
+    <section
+      id="contact"
+      className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-[61px] md:pt-[69px]"
+    >
       <div className="max-w-4xl mx-auto px-8 md:px-0 py-4 md:py-8 w-full">
-        <div className="text-center mb-10">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="w-12 h-[1px] bg-secondary" />
-            <p className="font-mono text-xs text-secondary tracking-widest uppercase">
-              {t.contact.subtitle}
-            </p>
-            <span className="w-12 h-[1px] bg-secondary" />
-          </div>
-          <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-4">
-            {t.contact.titleStart} <span className="text-primary">{t.contact.titleEnd}</span>
-          </h2>
-          <p className="font-body text-on-surface-variant max-w-xl mx-auto">
-            {t.contact.description}
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-12 h-[1px] bg-primary" />
+          <p className="font-mono text-xs text-primary tracking-widest uppercase font-bold">
+            {t.contact.subtitle}
           </p>
         </div>
+        <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-6">
+          {t.contact.titleStart} <span className="text-primary">{t.contact.titleEnd}</span>
+        </h2>
+        <p className="font-body text-[15px] md:text-base text-on-surface-variant max-w-xl leading-relaxed mb-10">
+          {t.contact.description}
+        </p>
 
-        <div className="glass-card rounded-2xl p-8 md:p-12">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-5">
-              <div className="flex items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-lg">
-                  <Mail size={18} className="text-primary" />
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">
-                    {t.contact.email}
-                  </p>
-                  <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="font-body text-sm text-on-surface-variant hover:text-primary transition-colors"
-                  >
-                    {personalInfo.email}
-                  </a>
-                </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="glass-card p-6 rounded-2xl">
+            <div className="flex items-start gap-4">
+              <div className="bg-primary-container p-3 rounded-lg">
+                <Mail size={20} className="text-primary" />
               </div>
-
-              <div className="flex items-center gap-4">
-                <div className="bg-secondary/10 p-3 rounded-lg">
-                  <MapPin size={18} className="text-secondary" />
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">
-                    {t.contact.location}
-                  </p>
-                  <p className="font-body text-sm text-on-surface-variant">
-                    {personalInfo.location}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="bg-green-500/10 p-3 rounded-lg">
-                  <Github size={18} className="text-green-400" />
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">
-                    GitHub
-                  </p>
-                  <a
-                    href={personalInfo.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-body text-sm text-on-surface-variant hover:text-primary transition-colors"
-                  >
-                    @bentlyy
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="bg-blue-500/10 p-3 rounded-lg">
-                  <Linkedin size={18} className="text-blue-400" />
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">
-                    LinkedIn
-                  </p>
-                  <a
-                    href={personalInfo.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-body text-sm text-on-surface-variant hover:text-primary transition-colors line-clamp-1"
-                  >
-                    Alejandro Muñoz Garay
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center justify-center gap-6 border-t md:border-t-0 md:border-l border-white/10 md:pl-8 pt-8 md:pt-0">
-              <div className="text-center">
-                <FileText size={36} className="text-primary mx-auto mb-3" />
-                <h3 className="font-sans font-semibold text-on-surface mb-1">
-                  {t.contact.downloadCv}
+              <div>
+                <h3 className="font-mono text-[10px] uppercase tracking-widest text-outline mb-1">
+                  {t.contact.email}
                 </h3>
-                <p className="font-body text-xs text-on-surface-variant/60 mb-5">
-                  {t.contact.cvDesc}
-                </p>
                 <a
-                  href="/cv.pdf"
-                  download="AlejandroMuñozCV.pdf"
-                  className="pill-gradient inline-flex items-center gap-2 text-on-primary px-6 py-3.5 rounded-full font-mono text-xs uppercase tracking-widest"
+                  href={`mailto:${personalInfo.email}`}
+                  className="font-sans text-on-surface font-medium hover:text-primary transition-colors break-all"
                 >
-                  <Download size={16} />
-                  {t.contact.download}
+                  {personalInfo.email}
                 </a>
               </div>
             </div>
           </div>
+
+          <div className="glass-card p-6 rounded-2xl">
+            <div className="flex items-start gap-4">
+              <div className="bg-secondary-container p-3 rounded-lg">
+                <MapPin size={20} className="text-secondary" />
+              </div>
+              <div>
+                <h3 className="font-mono text-[10px] uppercase tracking-widest text-outline mb-1">
+                  {t.contact.location}
+                </h3>
+                <p className="font-sans text-on-surface font-medium">
+                  {personalInfo.location}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="font-mono text-xs tracking-[0.2em] text-primary uppercase">
-            {t.contact.portfolio}
-          </div>
-          <div className="font-mono text-xs text-on-surface-variant/60 text-center tracking-wider">
-            © {new Date().getFullYear()} {personalInfo.name} • {t.contact.allSystems}
-          </div>
-          <div className="flex gap-6">
-            <a
-              href="#hero"
-              className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
-            >
-              {t.nav.home}
-            </a>
-            <a
-              href="#about"
-              className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
-            >
-              {t.nav.about}
-            </a>
-            <a
-              href="#projects"
-              className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
-            >
-              {t.nav.projects}
-            </a>
-            <a
-              href="#contact"
-              className="font-mono text-xs text-on-surface-variant/60 hover:text-secondary transition-colors tracking-wider uppercase"
-            >
-              {t.nav.contact}
-            </a>
-          </div>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="/cv.pdf"
+            download="AlejandroMuñozCV.pdf"
+            className="pill-gradient px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs text-on-primary uppercase tracking-widest"
+          >
+            <Download size={16} />
+            {t.contact.downloadCv}
+          </a>
+          <a
+            href={personalInfo.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-panel px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/50 uppercase tracking-widest transition-all duration-300"
+          >
+            <Github size={16} />
+            GitHub
+          </a>
+          <a
+            href={personalInfo.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-panel px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/50 uppercase tracking-widest transition-all duration-300"
+          >
+            <Linkedin size={16} />
+            LinkedIn
+          </a>
         </div>
+
+        <p className="mt-12 font-mono text-[9px] text-outline tracking-[0.2em] uppercase">
+          {t.contact.portfolio} · {t.contact.allSystems} · © 2024 {personalInfo.name}
+        </p>
       </div>
     </section>
   )

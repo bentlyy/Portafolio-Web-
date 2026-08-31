@@ -5,9 +5,9 @@ import { LanguageProvider } from "@/lib/LanguageProvider"
 export const metadata: Metadata = {
   title: "Alejandro Muñoz | Desarrollador Full-Stack",
   description:
-    "Portafolio de Alejandro Muñoz Garay — Ingeniero Civil en Informática y Desarrollador Full-Stack.",
+    "Portafolio v2 de Alejandro Muñoz Garay — Ingeniero Civil en Informática y Desarrollador Full-Stack.",
   icons: {
-    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6 L6 56 L18 56 L24 40 L40 40 L46 56 L58 56 Z' fill='%237ddb9e'/%3E%3C/svg%3E",
+    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 6 L6 56 L18 56 L24 40 L40 40 L46 56 L58 56 Z' fill='%23581cff'/%3E%3C/svg%3E",
   },
 }
 
@@ -17,12 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className="dark">
+    <html lang="es">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Hanken+Grotesk:wght@300..600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..700&family=JetBrains+Mono:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
       </head>

@@ -11,8 +11,8 @@ export default function About() {
     <section id="about" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-[61px] md:pt-[69px]">
       <div className="max-w-4xl mx-auto px-8 md:px-0 py-4 md:py-8 w-full">
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-12 h-[1px] bg-secondary" />
-          <p className="font-mono text-xs text-secondary tracking-widest uppercase">
+          <span className="w-12 h-[1px] bg-primary" />
+          <p className="font-mono text-xs text-primary tracking-widest uppercase font-bold">
             {t.about.system}
           </p>
         </div>
@@ -33,9 +33,9 @@ export default function About() {
           </div>
 
           <div className="space-y-4">
-            <div className="glass-card p-6 rounded-xl">
+            <div className="glass-card p-6 rounded-2xl">
               <div className="flex items-start gap-4 mb-3">
-                <div className="bg-primary/10 p-3 rounded-lg">
+                <div className="bg-primary-container p-3 rounded-lg">
                   <GraduationCap size={20} className="text-primary" />
                 </div>
                 <div>
@@ -45,16 +45,16 @@ export default function About() {
                   <p className="font-body text-sm text-on-surface-variant mt-1">
                     {t.about.degree}
                   </p>
-                  <p className="font-mono text-[10px] text-on-surface-variant/60 mt-1 tracking-wider">
+                  <p className="font-mono text-[10px] text-outline mt-1 tracking-wider">
                     Universidad Adventista de Chile · 2019-2024
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="glass-card p-6 rounded-xl">
+            <div className="glass-card p-6 rounded-2xl">
               <div className="flex items-start gap-4">
-                <div className="bg-secondary/10 p-3 rounded-lg">
+                <div className="bg-secondary-container p-3 rounded-lg">
                   <MapPin size={20} className="text-secondary" />
                 </div>
                 <div>
@@ -64,7 +64,7 @@ export default function About() {
                   <p className="font-body text-sm text-on-surface-variant mt-1">
                     {personalInfo.location}
                   </p>
-                  <p className="font-mono text-[10px] text-secondary mt-1 tracking-wider">
+                  <p className="font-mono text-[10px] text-primary mt-1 tracking-wider">
                     {t.about.available}
                   </p>
                 </div>

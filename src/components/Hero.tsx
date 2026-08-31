@@ -19,7 +19,7 @@ export default function Hero() {
     <section id="hero" className="relative w-full h-full flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-primary-container/40 rounded-full blur-[120px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-24 w-full">
@@ -29,12 +29,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary-container/60 mb-8">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
               </span>
-              <span className="font-mono text-[10px] text-secondary tracking-[0.3em] uppercase">
+              <span className="font-mono text-[10px] text-primary tracking-[0.3em] uppercase font-bold">
                 {t.hero.available}
               </span>
             </div>
@@ -54,7 +54,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-body text-lg md:text-xl text-on-surface-variant/80 max-w-2xl mb-10"
+            className="font-body text-lg md:text-xl text-on-surface-variant max-w-2xl mb-10"
           >
             {personalInfo.tagline}
           </motion.p>
@@ -69,9 +69,9 @@ export default function Hero() {
               <a
                 key={item.href}
                 href={item.href}
-                className="group flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel hover:border-primary/40 hover:text-primary transition-all duration-300"
+                className="group flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel hover:border-primary/50 hover:text-primary transition-all duration-300"
               >
-                <span className="font-mono text-xs tracking-widest uppercase">{item.label}</span>
+                <span className="font-mono text-xs tracking-widest uppercase font-medium">{item.label}</span>
                 <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
               </a>
             ))}
@@ -96,7 +96,7 @@ export default function Hero() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-panel px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/40 uppercase tracking-widest transition-all duration-300"
+              className="glass-panel px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/50 uppercase tracking-widest transition-all duration-300"
             >
               <Linkedin size={16} />
               LinkedIn
@@ -104,7 +104,7 @@ export default function Hero() {
             <a
               href="/cv.pdf"
               download="AlejandroMuñozCV.pdf"
-              className="glass-panel px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/40 uppercase tracking-widest transition-all duration-300"
+              className="glass-panel px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/50 uppercase tracking-widest transition-all duration-300"
             >
               <Download size={16} />
               {t.hero.downloadCv}
@@ -125,10 +125,10 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
             className="group cursor-default"
           >
-            <p className="font-mono text-[9px] text-primary/30 tracking-[0.2em] uppercase mb-0.5 group-hover:text-primary/60 transition-colors">
+            <p className="font-mono text-[9px] text-primary/50 tracking-[0.2em] uppercase mb-0.5 group-hover:text-primary/70 transition-colors">
               {item.label}
             </p>
-            <p className="font-sans text-sm text-on-surface/60 font-medium group-hover:text-on-surface transition-colors">
+            <p className="font-sans text-sm text-on-surface-variant font-medium group-hover:text-on-surface transition-colors">
               {item.value}
             </p>
           </motion.div>
@@ -139,13 +139,13 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="group cursor-default"
         >
-          <p className="font-mono text-[9px] text-primary/30 tracking-[0.2em] uppercase mb-0.5 group-hover:text-primary/60 transition-colors">
+          <p className="font-mono text-[9px] text-primary/50 tracking-[0.2em] uppercase mb-0.5 group-hover:text-primary/70 transition-colors">
             {t.hero.status}
           </p>
-          <p className="font-sans text-sm text-secondary font-medium flex items-center gap-1.5">
+          <p className="font-sans text-sm text-primary font-medium flex items-center gap-1.5">
             <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
             </span>
             {t.hero.available}
           </p>

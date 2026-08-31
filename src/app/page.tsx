@@ -120,7 +120,7 @@ export default function Home() {
       {current > 0 && (
         <button
           onClick={prev}
-          className="fixed left-3 md:left-6 top-1/2 -translate-y-1/2 z-40 p-2.5 md:p-3 rounded-full glass-panel hover:border-primary/50 hover:text-primary hover:scale-110 transition-all duration-300 text-on-surface-variant/60"
+          className="fixed left-3 md:left-6 top-1/2 -translate-y-1/2 z-40 p-2.5 md:p-3 rounded-full glass-panel hover:border-primary/50 hover:text-primary hover:scale-110 transition-all duration-300 text-outline"
           aria-label={t.page.prev}
         >
           <ChevronLeft size={22} />
@@ -130,7 +130,7 @@ export default function Home() {
       {current < SECTIONS.length - 1 && (
         <button
           onClick={next}
-          className="fixed right-3 md:right-6 top-1/2 -translate-y-1/2 z-40 p-2.5 md:p-3 rounded-full glass-panel hover:border-primary/50 hover:text-primary hover:scale-110 transition-all duration-300 text-on-surface-variant/60"
+          className="fixed right-3 md:right-6 top-1/2 -translate-y-1/2 z-40 p-2.5 md:p-3 rounded-full glass-panel hover:border-primary/50 hover:text-primary hover:scale-110 transition-all duration-300 text-outline"
           aria-label={t.page.next}
         >
           <ChevronRight size={22} />
@@ -145,7 +145,7 @@ export default function Home() {
             className={`rounded-full transition-all duration-500 ${
               i === current
                 ? "w-7 h-1.5 bg-primary"
-                : "w-1.5 h-1.5 bg-white/20 hover:bg-white/40"
+                : "w-1.5 h-1.5 bg-outline-variant hover:bg-outline"
             }`}
             aria-label={label}
           />

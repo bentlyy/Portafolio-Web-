@@ -1,88 +1,88 @@
 "use client"
 
-import { Briefcase, ExternalLink } from "lucide-react"
+import { motion } from "framer-motion"
+import { Briefcase, ExternalLink, ChevronDown } from "lucide-react"
 import { useLanguage } from "@/lib/LanguageProvider"
 
 export default function Experience() {
   const { t } = useLanguage()
 
   return (
-    <section id="experience" className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-[61px] md:pt-[69px]">
+    <section
+      id="experience"
+      className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-[61px] md:pt-[69px]"
+    >
       <div className="max-w-4xl mx-auto px-8 md:px-0 py-4 md:py-8 w-full">
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-12 h-[1px] bg-secondary" />
-          <p className="font-mono text-xs text-secondary tracking-widest uppercase">
+          <span className="w-12 h-[1px] bg-primary" />
+          <p className="font-mono text-xs text-primary tracking-widest uppercase font-bold">
             {t.experience.subtitle}
           </p>
         </div>
-        <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-12">
+        <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-8">
           {t.experience.title}
         </h2>
 
-        <div className="space-y-8">
-          {t.experienceData.map((exp, idx) => (
-            <div
-              key={idx}
-              className="relative pl-8 border-l border-white/10"
+        <div className="relative space-y-6">
+          <div className="absolute left-[15px] md:left-[17px] top-2 bottom-2 w-px bg-outline-variant" />
+
+          {t.experienceData.map((job, i) => (
+            <motion.div
+              key={job.role}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="relative pl-12 md:pl-14"
             >
-              <div className="absolute left-[-12px] top-0 bg-primary-container rounded-full p-2 shadow-[0_0_10px_rgba(47,157,92,0.3)]">
-                <Briefcase size={14} className="text-on-primary" />
+              <div className="absolute left-0 top-1.5 flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary-container border border-primary/30">
+                <Briefcase size={15} className="text-primary" />
               </div>
 
-              <div className="glass-card p-6 md:p-8 rounded-xl">
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+              <div className="glass-card p-6 rounded-2xl">
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-2">
                   <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
-                      </span>
-                      <p className="font-mono text-[10px] text-secondary tracking-widest uppercase">
-                        {t.experience.active}
-                      </p>
-                    </div>
-                    <h3 className="font-sans text-xl md:text-2xl font-semibold text-on-surface mt-2">
-                      {exp.role}
+                    <h3 className="font-sans font-semibold text-on-surface text-lg leading-snug">
+                      {job.role}
                     </h3>
-                    <p className="font-body text-sm text-on-surface-variant/80 mt-1">
-                      {exp.company}
+                    <p className="font-mono text-xs text-primary mt-1 tracking-wide">
+                      {job.company}
                     </p>
                   </div>
-                  <span className="font-mono text-[10px] text-on-surface-variant/50 bg-surface-container-high px-3 py-1.5 rounded-full tracking-wider whitespace-nowrap border border-white/5">
-                    {exp.period}
+                  <span className="font-mono text-[10px] text-outline border border-outline-variant px-3 py-1 rounded-full tracking-wider">
+                    {job.period}
                   </span>
                 </div>
 
-                <p className="font-body text-sm text-on-surface-variant mb-5 leading-relaxed">
-                  {exp.description}
+                <p className="font-body text-[15px] text-on-surface-variant leading-relaxed mt-3">
+                  {job.description}
                 </p>
 
-                <ul className="space-y-2.5">
-                  {exp.highlights.map((h, i) => (
-                    <li
-                      key={i}
-                      className="font-body text-sm text-on-surface-variant/80 flex items-start gap-2.5"
-                    >
-                      <span className="text-primary mt-1 select-none text-xs">✦</span>
-                      {h}
+                <ul className="mt-4 space-y-2.5">
+                  {job.highlights.map((h, j) => (
+                    <li key={j} className="flex items-start gap-2.5">
+                      <span className="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="font-body text-sm text-on-surface-variant leading-relaxed">
+                        {h}
+                      </span>
                     </li>
                   ))}
                 </ul>
-
-                {idx === 0 && (
-                  <a
-                    href="https://github.com/bentlyy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel hover:border-primary/40 hover:text-primary hover:scale-[1.02] transition-all duration-300 font-mono text-xs tracking-widest uppercase"
-                  >
-                    <ExternalLink size={14} />
-                    Vitaria — Demo
-                  </a>
-                )}
               </div>
-            </div>
+            </motion.div>
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <a
+            href="https://github.com/bentlyy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-mono text-xs text-primary uppercase tracking-widest hover:gap-3 transition-all"
+          >
+            {t.experience.active}
+            <ExternalLink size={14} />
+          </a>
         </div>
       </div>
     </section>
