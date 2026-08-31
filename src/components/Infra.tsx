@@ -107,10 +107,9 @@ export default function Infra() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Ir al repositorio en GitHub de ${item.title}`}
-                      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-outline-variant bg-surface-container-high text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-primary-container/60 transition-all duration-200 font-mono text-[9px] uppercase tracking-wider"
+                      className="text-outline hover:text-primary transition-colors duration-200"
                     >
-                      <Github size={13} />
-                      Repo
+                      <Github size={18} />
                     </a>
                   </div>
                 </div>
