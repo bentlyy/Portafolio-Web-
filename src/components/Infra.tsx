@@ -136,7 +136,7 @@ export default function Infra() {
       desc: t.infra.render.desc,
       icon: Rocket,
       items: [
-        { label: "Clínica Salud Vital", meta: "React · Express", github: projects[0].github },
+        { label: "Vitaria", meta: "React · Express", github: projects[0].github },
         { label: "Postgres (Oracle)", meta: ":5432 · SSL" },
       ],
     },
@@ -269,7 +269,7 @@ export default function Infra() {
               <DiagramNode x={472} y={336} width={180} height={64} num="05" tag="TAL" title="Taller Mec." meta="app :3002 · web :3043 · pg :5433" tone="compute" metaSize={7.5} />
               <DiagramNode x={720} y={128} width={204} height={64} num="06" tag="TRA" title="Transporte" meta="api :3004 · postgis" tone="compute" />
               <DiagramNode x={720} y={336} width={204} height={64} num="07" tag="CLI" title="Clinic DB" meta="postgres :5432 · SSL" tone="focal" />
-              <DiagramNode x={40} y={424} width={200} height={64} num="08" tag="RND" title="Render" meta="clinica-salud-vital" tone="edge" />
+              <DiagramNode x={40} y={424} width={200} height={64} num="08" tag="RND" title="Render" meta="vitaria" tone="edge" />
 
               {/* Legend */}
               <line x1={40} y1={512} x2={960} y2={512} stroke={RULE} strokeWidth={0.8} />
