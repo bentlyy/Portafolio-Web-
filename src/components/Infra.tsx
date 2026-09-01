@@ -267,7 +267,7 @@ export default function Infra() {
               <DiagramNode x={472} y={128} width={136} height={64} num="03" tag="GW" title="Nginx" meta=":80 · :443" tone="compute" />
               <DiagramNode x={472} y={228} width={180} height={64} num="04" tag="AGB" title="AgroBot" meta="web :5173 · api :3000 · mysql :3306" tone="compute" metaSize={7.5} />
               <DiagramNode x={472} y={336} width={180} height={64} num="05" tag="TAL" title="Taller Mec." meta="app :3002 · web :3043 · pg :5433" tone="compute" metaSize={7.5} />
-              <DiagramNode x={720} y={128} width={204} height={64} num="06" tag="TRA" title="Transallendes" meta="api :3004 · postgis" tone="compute" />
+              <DiagramNode x={720} y={128} width={204} height={64} num="06" tag="TRA" title="Transporte" meta="api :3004 · postgis" tone="compute" />
               <DiagramNode x={720} y={336} width={204} height={64} num="07" tag="CLI" title="Clinic DB" meta="postgres :5432 · SSL" tone="focal" />
               <DiagramNode x={40} y={424} width={200} height={64} num="08" tag="RND" title="Render" meta="clinica-salud-vital" tone="edge" />
 
