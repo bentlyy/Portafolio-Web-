@@ -61,7 +61,7 @@ export const projects = [
     tech: ["TypeScript", "Express 5", "React 19", "PostgreSQL 15", "Docker", "JWT + 2FA", "i18n", "GitHub Actions"],
     github: "https://github.com/bentlyy/Clinica-Salud-Vital",
     demo: "https://clinica-salud-vital.onrender.com",
-    images: ["/images/clinic02.png", "/images/clinic03.png", "/images/clinic04.png"],
+    images: ["/images01/clinic02.jpg", "/images01/clinic03.jpg", "/images01/clinic04.jpg"],
     features: [
       "16 módulos con arquitectura modular monolith",
       "1122 tests, ~89% cobertura (Vitest + Supertest)",
@@ -75,7 +75,7 @@ export const projects = [
     tech: ["React 18", "Node.js", "Express 4", "MySQL 8", "Docker", "Leaflet", "Twilio", "Recharts"],
     github: "https://github.com/bentlyy/agrobot-alert",
     demo: "https://agrobot.amgdeveloper.cl",
-    images: ["/images/agrobot.png"],
+    images: ["/images01/agrobot.jpg"],
     features: [
       "Dashboard en tiempo real con mapa Leaflet y gráficos Recharts",
       "Motor de alertas automáticas con prevención de duplicados (15 min)",
@@ -89,7 +89,7 @@ export const projects = [
     tech: ["Node.js", "Express 5", "Prisma 6", "React 18", "PostgreSQL 15", "Docker", "Prometheus", "Grafana"],
     github: "https://github.com/bentlyy/TallerMecanico",
     demo: "https://taller.amgdeveloper.cl",
-    images: ["/images/tallerpro.png"],
+    images: ["/images01/tallerpro.jpg"],
     features: [
       "Arquitectura hexagonal con separación domain/application/infra",
       "Multi-tenencia con aislamiento por empresa (10 tablas)",
@@ -103,7 +103,7 @@ export const projects = [
     tech: ["React 19", "Vite", "Express 4", "Node.js", "PostgreSQL + PostGIS", "Leaflet", "WebSocket", "Docker"],
     github: "https://github.com/bentlyy/Transallendes",
     demo: "https://transporte.amgdeveloper.cl",
-    images: ["/images/transporte.png"],
+    images: ["/images01/transporte.jpg"],
     features: [
       "Tracking GPS en tiempo real con mapa Leaflet y alertas por geocercas",
       "Gestión de flota multi-tenant: clientes, conductores, camiones y viajes",
