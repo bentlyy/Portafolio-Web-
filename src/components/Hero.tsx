@@ -1,9 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Linkedin, Download, ChevronRight } from "lucide-react"
+import { Github, Linkedin, Download, ChevronRight, Layers } from "lucide-react"
 import { useLanguage } from "@/lib/LanguageProvider"
-import { personalInfo } from "@/lib/data"
+import { personalInfo, suite } from "@/lib/data"
 
 export default function Hero() {
   const { t } = useLanguage()
@@ -83,6 +83,15 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex items-center gap-4"
           >
+            <a
+              href={suite.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-inverse-surface text-inverse-on-surface px-6 py-3 rounded-full inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest hover:shadow-[0_0_20px_rgba(26,27,33,0.35)] hover:scale-[1.02] transition-all duration-300"
+            >
+              <Layers size={16} />
+              Suite AMG
+            </a>
             <a
               href={personalInfo.github}
               target="_blank"

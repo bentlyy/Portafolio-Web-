@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Github, ExternalLink } from "lucide-react"
 import { useLanguage } from "@/lib/LanguageProvider"
 import { projects } from "@/lib/data"
+import Suite from "@/components/Suite"
 
 export default function Projects() {
   const { t } = useLanguage()
@@ -33,10 +34,12 @@ export default function Projects() {
           <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-6">
             {t.projects.title}
           </h2>
-          <p className="font-body text-[16px] md:text-[18px] text-on-surface-variant max-w-2xl mb-12">
+          <p className="font-body text-[16px] md:text-[18px] text-on-surface-variant max-w-2xl mb-6">
             {t.projects.description}
           </p>
         </div>
+
+        <Suite />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, idx) => (

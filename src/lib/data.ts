@@ -127,6 +127,20 @@ export const projects = [
   },
 ]
 
+export const suite = {
+  url: "https://desarrollo.amgdeveloper.cl",
+  products: [
+    { id: "Agenda de Citas", url: "https://agenda.amgdeveloper.cl", icon: "calendar" },
+    { id: "Reserva de Canchas", url: "https://canchas.amgdeveloper.cl", icon: "trophy" },
+    { id: "Órdenes de Trabajo", url: "https://ordenes.amgdeveloper.cl", icon: "clipboard" },
+    { id: "Inventario y Stock", url: "https://stock.amgdeveloper.cl", icon: "package" },
+    { id: "Cotizaciones y Presupuestos", url: "https://presupuestos.amgdeveloper.cl", icon: "calculator" },
+    { id: "Documentos Studio", url: "https://docs.amgdeveloper.cl", icon: "file" },
+    { id: "Recordatorios", url: "https://recordatorios.amgdeveloper.cl", icon: "bell" },
+    { id: "Gestión de Clientes", url: "https://clientes.amgdeveloper.cl", icon: "users" },
+  ],
+}
+
 export const skills = {
   Lenguajes: ["TypeScript", "JavaScript", "Python", "SQL"],
   Backend: ["Node.js", "Express", "Prisma ORM", "REST API", "JWT"],
