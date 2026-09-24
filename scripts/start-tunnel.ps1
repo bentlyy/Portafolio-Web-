@@ -18,7 +18,7 @@ if ($InstallService) {
     Write-Host "Iniciando Cloudflare Tunnel..." -ForegroundColor Cyan
     Write-Host "Subdominios configurados:" -ForegroundColor Yellow
     Write-Host "  agrobot.amgdeveloper.cl  -> localhost:5173" -ForegroundColor Gray
-    Write-Host "  tallerpro.amgdeveloper.cl -> localhost:3043" -ForegroundColor Gray
+    Write-Host "  taller.amgdeveloper.cl     -> localhost:3043" -ForegroundColor Gray
     Write-Host "  ml.amgdeveloper.cl       -> localhost:3001" -ForegroundColor Gray
     Write-Host ""
     Write-Host "Presiona Ctrl+C para detener el túnel" -ForegroundColor Cyan

@@ -129,6 +129,7 @@ export const projects = [
 
 export const suite = {
   url: "https://desarrollo.amgdeveloper.cl",
+  github: "https://github.com/bentlyy/SaaSs",
   products: [
     { id: "Agenda de Citas", url: "https://agenda.amgdeveloper.cl", icon: "calendar" },
     { id: "Reserva de Canchas", url: "https://canchas.amgdeveloper.cl", icon: "trophy" },

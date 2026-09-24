@@ -23,22 +23,23 @@ export default function Projects() {
       id="projects"
       className="relative w-full h-full flex items-start justify-center overflow-y-auto pt-[61px] md:pt-[69px]"
     >
-      <div className="max-w-7xl mx-auto px-8 md:px-24 py-4 md:py-8 w-full">
-        <div className="md:pl-16 lg:pl-24">
+      <div className="max-w-7xl mx-auto px-8 md:px-0 py-4 md:py-8 w-full">
+        <div className="max-w-5xl mx-auto px-8 md:px-0">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-[1px] bg-primary" />
             <p className="font-mono text-xs text-primary tracking-widest uppercase font-bold">
               {t.projects.subtitle}
             </p>
           </div>
-          <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight mb-6">
+          <h2 className="font-sans text-[32px] md:text-[48px] font-semibold text-on-surface leading-tight">
             {t.projects.title}
           </h2>
-          <p className="font-body text-[16px] md:text-[18px] text-on-surface-variant max-w-2xl mb-6">
+          <p className="font-body text-[15px] md:text-base text-on-surface-variant max-w-2xl mb-8 leading-relaxed">
             {t.projects.description}
           </p>
         </div>
 
+        <div className="max-w-6xl mx-auto">
         <Suite />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -146,6 +147,7 @@ export default function Projects() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>
