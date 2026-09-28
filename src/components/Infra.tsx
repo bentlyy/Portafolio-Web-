@@ -109,10 +109,10 @@ const SUITE_CHIPS: Array<{ name: string; port: string }> = [
   { name: "solicitudes", port: ":3102" },
   { name: "inventario", port: ":3103" },
   { name: "cotizaciones", port: ":3104" },
-  { name: "clientes", port: ":3107" },
-  { name: "activos", port: ":3109" },
-  { name: "checklists", port: ":3110" },
-  { name: "pagos", port: ":3111" },
+  { name: "clientes", port: ":3105" },
+  { name: "activos", port: ":3106" },
+  { name: "checklists", port: ":3107" },
+  { name: "pagos", port: ":3109" },
 ]
 
 export default function Infra() {
@@ -181,7 +181,7 @@ export default function Infra() {
       desc: t.infra.suite.oracle.desc,
       icon: Server,
       items: [
-        { label: "Suite AMG · 9 apps + core", meta: ":3100–:3111", github: suite.github, focal: true },
+        { label: "Suite AMG · 9 apps + core", meta: ":3100–:3109", github: suite.github, focal: true },
       ],
     },
     {
