@@ -3,13 +3,14 @@
 import { useState } from "react"
 import {
   CalendarDays,
-  Trophy,
+  DoorOpen,
   ClipboardList,
   Package,
   Calculator,
-  FileText,
-  Bell,
   Users,
+  Boxes,
+  ListChecks,
+  Wallet,
   ArrowUpRight,
   Layers,
   ChevronDown,
@@ -20,13 +21,14 @@ import type { LucideIcon } from "lucide-react"
 
 const icons: Record<string, LucideIcon> = {
   calendar: CalendarDays,
-  trophy: Trophy,
+  spaces: DoorOpen,
   clipboard: ClipboardList,
   package: Package,
   calculator: Calculator,
-  file: FileText,
-  bell: Bell,
   users: Users,
+  assets: Boxes,
+  checklists: ListChecks,
+  wallet: Wallet,
 }
 
 export default function Suite() {

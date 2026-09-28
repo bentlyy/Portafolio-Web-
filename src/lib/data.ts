@@ -131,14 +131,15 @@ export const suite = {
   url: "https://desarrollo.amgdeveloper.cl",
   github: "https://github.com/bentlyy/SaaSs",
   products: [
-    { id: "Agenda de Citas", url: "https://agenda.amgdeveloper.cl", icon: "calendar" },
-    { id: "Reserva de Canchas", url: "https://canchas.amgdeveloper.cl", icon: "trophy" },
-    { id: "Órdenes de Trabajo", url: "https://ordenes.amgdeveloper.cl", icon: "clipboard" },
-    { id: "Inventario y Stock", url: "https://stock.amgdeveloper.cl", icon: "package" },
-    { id: "Cotizaciones y Presupuestos", url: "https://presupuestos.amgdeveloper.cl", icon: "calculator" },
-    { id: "Documentos Studio", url: "https://docs.amgdeveloper.cl", icon: "file" },
-    { id: "Recordatorios", url: "https://recordatorios.amgdeveloper.cl", icon: "bell" },
+    { id: "Reserva de Citas", url: "https://citas.amgdeveloper.cl", icon: "calendar" },
+    { id: "Reserva de Espacios", url: "https://espacios.amgdeveloper.cl", icon: "spaces" },
+    { id: "Solicitudes y Órdenes", url: "https://solicitudes.amgdeveloper.cl", icon: "clipboard" },
+    { id: "Inventario", url: "https://inventario.amgdeveloper.cl", icon: "package" },
+    { id: "Cotizaciones", url: "https://cotizaciones.amgdeveloper.cl", icon: "calculator" },
     { id: "Gestión de Clientes", url: "https://clientes.amgdeveloper.cl", icon: "users" },
+    { id: "Control de Activos", url: "https://activos.amgdeveloper.cl", icon: "assets" },
+    { id: "Checklists e Inspecciones", url: "https://checklists.amgdeveloper.cl", icon: "checklists" },
+    { id: "Control de Pagos", url: "https://pagos.amgdeveloper.cl", icon: "wallet" },
   ],
 }
 

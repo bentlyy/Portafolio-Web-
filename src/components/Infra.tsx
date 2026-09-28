@@ -104,15 +104,15 @@ interface Provider {
 }
 
 const SUITE_CHIPS: Array<{ name: string; port: string }> = [
-  { name: "agenda", port: ":3100" },
-  { name: "canchas", port: ":3101" },
-  { name: "ordenes", port: ":3102" },
-  { name: "stock", port: ":3103" },
+  { name: "citas", port: ":3100" },
+  { name: "espacios", port: ":3101" },
+  { name: "solicitudes", port: ":3102" },
+  { name: "inventario", port: ":3103" },
   { name: "cotizaciones", port: ":3104" },
-  { name: "documentos", port: ":3105" },
-  { name: "recordatorios", port: ":3106" },
   { name: "clientes", port: ":3107" },
-  { name: "landing", port: ":3108" },
+  { name: "activos", port: ":3109" },
+  { name: "checklists", port: ":3110" },
+  { name: "pagos", port: ":3111" },
 ]
 
 export default function Infra() {
@@ -181,7 +181,7 @@ export default function Infra() {
       desc: t.infra.suite.oracle.desc,
       icon: Server,
       items: [
-        { label: "Suite AMG · 8 apps", meta: ":3100–:3107", github: suite.github, focal: true },
+        { label: "Suite AMG · 9 apps + core", meta: ":3100–:3111", github: suite.github, focal: true },
       ],
     },
     {
@@ -500,15 +500,14 @@ export default function Infra() {
               </div>
               <div className="rounded-2xl bg-surface-container-lowest border border-outline-variant p-4 md:p-5 overflow-x-auto">
                 <svg
-                  viewBox="0 0 1000 620"
+                  viewBox="0 0 1000 576"
                   className="w-full min-w-[900px] block"
                   role="img"
-                  aria-label="Cloudflare proxea los subdominios de la Suite AMG hacia Nginx en Oracle Cloud; el stack Docker Compose publica 8 apps y la landing, y SQLite persiste por producto en un volumen local."
+                  aria-labelledby="suite-topology-title suite-topology-desc"
                 >
+                  <title id="suite-topology-title">Topología de la Suite AMG</title>
+                  <desc id="suite-topology-desc">Cloudflare proxea los subdominios de la Suite AMG hacia Nginx en Oracle Cloud; el stack Docker Compose publica 9 productos y un núcleo Core (SSO, auth y landing), y SQLite persiste por producto en un volumen local.</desc>
                   <defs>
-                    <pattern id="infra-dots-s" width="22" height="22" patternUnits="userSpaceOnUse">
-                      <circle cx="1" cy="1" r="0.9" fill="rgba(88,28,255,0.08)" />
-                    </pattern>
                     <marker id="arrow-sp" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
                       <polygon points="0 0, 8 3, 0 6" fill={PRIMARY} />
                     </marker>
@@ -518,92 +517,109 @@ export default function Infra() {
                   </defs>
 
                   <rect width="100%" height="100%" fill={PAPER} />
-                  <rect width="100%" height="100%" fill="url(#infra-dots-s)" opacity="0.5" />
 
                   {/* Zone: Cloudflare */}
-                  <rect x={50} y={120} width={221} height={256} rx={8} fill={PRIMARY_SOFT} stroke={RULE} strokeWidth={0.8} />
-                  <rect x={66} y={124} width={112} height={12} rx={2} fill={PAPER} />
-                  <text x={122} y={135} fill={SOFT} fontSize={7} fontFamily={MONO} textAnchor="middle" letterSpacing="0.12em">
+                  <rect x={44} y={112} width={224} height={236} rx={8} fill="rgba(26,27,33,0.02)" stroke="rgba(26,27,33,0.20)" strokeWidth={0.8} strokeDasharray="4,4" />
+                  <rect x={60} y={116} width={96} height={12} rx={2} fill={PAPER} />
+                  <text x={64} y={125} fill={SOFT} fontSize={7} fontFamily={MONO} letterSpacing="0.14em">
                     CLOUDFLARE · EDGE
                   </text>
 
                   {/* Zone: Oracle Cloud */}
-                  <rect x={299} y={48} width={456} height={510} rx={8} fill={PRIMARY_SOFT} stroke={RULE} strokeWidth={0.8} />
-                  <rect x={315} y={52} width={264} height={12} rx={2} fill={PAPER} />
-                  <text x={447} y={63} fill={SOFT} fontSize={7} fontFamily={MONO} textAnchor="middle" letterSpacing="0.12em">
+                  <rect x={296} y={40} width={480} height={436} rx={8} fill="rgba(26,27,33,0.02)" stroke="rgba(26,27,33,0.20)" strokeWidth={0.8} strokeDasharray="4,4" />
+                  <rect x={304} y={44} width={200} height={12} rx={2} fill={PAPER} />
+                  <text x={308} y={53} fill={SOFT} fontSize={7} fontFamily={MONO} letterSpacing="0.12em">
                     ORACLE CLOUD · SA-SANTIAGO-1
+                  </text>
+                  <text x={760} y={53} fill={SOFT} fontSize={7} fontFamily={MONO} textAnchor="end" letterSpacing="0.12em">
+                    146.181.55.59
                   </text>
 
                   {/* Zone: Data */}
-                  <rect x={775} y={120} width={186} height={240} rx={8} fill={PRIMARY_SOFT} stroke={RULE} strokeWidth={0.8} />
-                  <rect x={791} y={124} width={56} height={12} rx={2} fill={PAPER} />
-                  <text x={819} y={135} fill={SOFT} fontSize={7} fontFamily={MONO} textAnchor="middle" letterSpacing="0.14em">
+                  <rect x={800} y={112} width={156} height={252} rx={8} fill="rgba(26,27,33,0.02)" stroke="rgba(26,27,33,0.20)" strokeWidth={0.8} strokeDasharray="4,4" />
+                  <rect x={816} y={116} width={48} height={12} rx={2} fill={PAPER} />
+                  <text x={820} y={125} fill={SOFT} fontSize={7} fontFamily={MONO} letterSpacing="0.14em">
                     DATA
                   </text>
 
                   {/* Arrows behind boxes */}
-                  <line x1={114} y1={72} x2={114} y2={176} stroke={PRIMARY} strokeWidth={1.2} markerEnd="url(#arrow-sp)" />
-                  <line x1={249} y1={200} x2={284} y2={200} stroke={PRIMARY} strokeWidth={1.2} />
-                  <line x1={284} y1={200} x2={284} y2={164} stroke={PRIMARY} strokeWidth={1.2} />
-                  <line x1={284} y1={164} x2={320} y2={164} stroke={PRIMARY} strokeWidth={1.2} markerEnd="url(#arrow-sp)" />
-
-                  <line x1={392} y1={204} x2={392} y2={244} stroke={MUTED} strokeWidth={1.2} markerEnd="url(#arrow-sm)" />
-                  <line x1={505} y1={160} x2={606} y2={160} stroke={MUTED} strokeWidth={1.2} markerEnd="url(#arrow-sm)" />
-
-                  <line x1={733} y1={360} x2={775} y2={360} stroke={PRIMARY} strokeWidth={1.4} />
-                  <line x1={775} y1={360} x2={775} y2={222} stroke={PRIMARY} strokeWidth={1.4} />
-                  <line x1={775} y1={222} x2={801} y2={222} stroke={PRIMARY} strokeWidth={1.4} markerEnd="url(#arrow-sp)" />
+                  <line x1={164} y1={80} x2={164} y2={176} stroke={PRIMARY} strokeWidth={1.2} markerEnd="url(#arrow-sp)" />
+                  <path
+                    d="M 252 248 H 292 Q 300 248 300 240 V 148 Q 300 140 308 140 H 316"
+                    fill="none"
+                    stroke={PRIMARY}
+                    strokeWidth={1.2}
+                    markerEnd="url(#arrow-sp)"
+                  />
+                  <line x1={408} y1={164} x2={408} y2={196} stroke={MUTED} strokeWidth={1.2} markerEnd="url(#arrow-sm)" />
+                  <line x1={500} y1={104} x2={576} y2={104} stroke={MUTED} strokeWidth={1.2} markerEnd="url(#arrow-sm)" />
+                  <path
+                    d="M 760 148 H 788 Q 796 148 796 156 V 208 Q 804 208 812 208 H 832"
+                    fill="none"
+                    stroke={PRIMARY}
+                    strokeWidth={1.2}
+                    markerEnd="url(#arrow-sp)"
+                  />
+                  <path
+                    d="M 760 408 H 808 Q 816 408 816 400 V 248 Q 816 248 824 248 H 832"
+                    fill="none"
+                    stroke={PRIMARY}
+                    strokeWidth={1.2}
+                    markerEnd="url(#arrow-sp)"
+                  />
 
                   {/* Arrow labels */}
-                  <rect x={82} y={138} width={66} height={12} rx={2} fill={PAPER} />
-                  <text x={115} y={149} fill={PRIMARY} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.08em">
+                  <rect x={96} y={140} width={60} height={12} rx={2} fill={PAPER} />
+                  <text x={126} y={149} fill={PRIMARY} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.06em">
                     HTTPS :443
                   </text>
-                  <rect x={268} y={170} width={52} height={12} rx={2} fill={PAPER} />
-                  <text x={294} y={181} fill={PRIMARY} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.08em">
-                    HTTPS
+                  <rect x={244} y={130} width={48} height={12} rx={2} fill={PAPER} />
+                  <text x={268} y={139} fill={PRIMARY} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.06em">
+                    HTTPS :443
                   </text>
-                  <rect x={536} y={146} width={70} height={12} rx={2} fill={PAPER} />
-                  <text x={571} y={157} fill={MUTED} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.06em">
-                    renew :80
+                  <rect x={364} y={172} width={36} height={12} rx={2} fill={PAPER} />
+                  <text x={382} y={181} fill={MUTED} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.06em">
+                    PROXY
                   </text>
-                  <rect x={742} y={246} width={56} height={12} rx={2} fill={PAPER} />
-                  <text x={770} y={258} fill={PRIMARY} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.08em">
-                    sqlite
+                  <rect x={514} y={84} width={48} height={12} rx={2} fill={PAPER} />
+                  <text x={538} y={93} fill={MUTED} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.06em">
+                    SSO
+                  </text>
+                  <rect x={792} y={188} width={32} height={12} rx={2} fill={PAPER} />
+                  <text x={808} y={197} fill={PRIMARY} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.06em">
+                    AUTH
+                  </text>
+                  <rect x={768} y={320} width={40} height={12} rx={2} fill={PAPER} />
+                  <text x={788} y={329} fill={PRIMARY} fontSize={8} fontFamily={MONO} textAnchor="middle" letterSpacing="0.06em">
+                    SQLITE
                   </text>
 
                   {/* Nodes */}
-                  <DiagramNode x={71} y={16} width={90} height={56} num="01" tag="USR" title="Clientes" meta="Browser · App" tone="external" />
-                  <DiagramNode x={71} y={176} width={178} height={92} num="02" tag="CDN" title="Cloudflare" meta="proxy · WAF · DNS" tone="edge" />
-                  <DiagramNode x={320} y={120} width={185} height={84} num="03" tag="GW" title="Nginx" meta=":80 · :443" tone="compute" />
-                  <DiagramNode x={610} y={120} width={142} height={80} num="05" tag="TLS" title="Certbot" meta="letsencrypt" tone="compute" />
-                  <DiagramNode x={320} y={244} width={413} height={304} num="04" tag="VM" title="saas-mini" meta="docker compose" tone="compute" />
-                  <DiagramNode x={801} y={180} width={142} height={84} num="06" tag="DATA" title="SQLite" meta="volumen · DB/app" tone="focal" metaSize={7} />
+                  <DiagramNode x={116} y={16} width={96} height={64} num="01" tag="USR" title="Clientes" meta="Browser · App" tone="external" />
+                  <DiagramNode x={60} y={176} width={192} height={96} num="02" tag="CDN" title="Cloudflare" meta="proxy · WAF · DNS" tone="edge" />
+                  <DiagramNode x={316} y={80} width={184} height={84} num="03" tag="GW" title="Nginx" meta=":80 · :443 · tls" tone="compute" />
+                  <DiagramNode x={576} y={80} width={184} height={84} num="04" tag="AUTH" title="Core" meta="auth · sso · landing" tone="compute" />
+                  <DiagramNode x={316} y={196} width={444} height={264} num="05" tag="VM" title="saas-mini" meta="docker compose" tone="compute" />
+                  <DiagramNode x={832} y={192} width={124} height={96} num="06" tag="DB" title="SQLite" meta="1 DB · producto" tone="focal" metaSize={7} />
 
                   {/* Node extras */}
-                  <text x={412} y={188} fill={MUTED} fontSize={9} fontFamily={MONO} textAnchor="middle">
-                    reverse_proxy
-                  </text>
-                  <text x={681} y={188} fill={MUTED} fontSize={9} fontFamily={MONO} textAnchor="middle">
-                    renewal cron
-                  </text>
-                  <text x={160} y={244} fill={MUTED} fontSize={9} fontFamily={MONO} textAnchor="middle">
-                    amgdeveloper.cl
-                  </text>
-                  <text x={872} y={248} fill={MUTED} fontSize={8} fontFamily={MONO} textAnchor="middle">
-                    saasmini_data
+                  <text x={668} y={180} fill={MUTED} fontSize={9} fontFamily={MONO} textAnchor="middle">
+                    SSO · JWT · :3108
                   </text>
 
                   {/* Product chips */}
                   {SUITE_CHIPS.map((chip, i) => {
-                    const y = 302 + i * 24
+                    const col = i < 5 ? 0 : 1
+                    const row = i < 5 ? i : i - 5
+                    const x = col === 0 ? 332 : 544
+                    const y = 292 + row * 32
                     return (
                       <g key={chip.name}>
-                        <rect x={334} y={y} width={372} height={20} rx={4} fill="rgba(26,27,33,0.03)" stroke={RULE} strokeWidth={0.8} />
-                        <text x={342} y={y + 14} fill={INK} fontSize={12} fontFamily={SANS}>
+                        <rect x={x} y={y} width={200} height={24} rx={4} fill="rgba(26,27,33,0.05)" stroke={MUTED} strokeWidth={0.8} />
+                        <text x={x + 12} y={y + 16} fill={INK} fontSize={12} fontWeight={600} fontFamily={SANS}>
                           {chip.name}
                         </text>
-                        <text x={698} y={y + 14} fill={MUTED} fontSize={9} fontFamily={MONO} textAnchor="end">
+                        <text x={x + 192} y={y + 16} fill={MUTED} fontSize={9} fontFamily={MONO} textAnchor="end">
                           {chip.port}
                         </text>
                       </g>
@@ -611,43 +627,43 @@ export default function Infra() {
                   })}
 
                   {/* Legend */}
-                  <line x1={60} y1={568} x2={940} y2={568} stroke={RULE} strokeWidth={0.8} />
-                  <text x={50} y={584} fill={MUTED} fontSize={8} fontFamily={MONO} letterSpacing="0.18em">
+                  <line x1={44} y1={530} x2={956} y2={530} stroke={RULE} strokeWidth={0.8} />
+                  <text x={44} y={546} fill={MUTED} fontSize={8} fontFamily={MONO} letterSpacing="0.18em">
                     LEGEND
                   </text>
 
-                  <rect x={50} y={596} width={14} height={10} rx={2} fill={PRIMARY_TINT} stroke={PRIMARY} strokeWidth={1} />
-                  <text x={70} y={608} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
+                  <rect x={44} y={548} width={14} height={10} rx={2} fill={PRIMARY_TINT} stroke={PRIMARY} strokeWidth={1} />
+                  <text x={64} y={560} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
                     {t.infra.suite.legend.focal}
                   </text>
 
-                  <rect x={190} y={596} width={14} height={10} rx={2} fill="#ffffff" stroke={INK} strokeWidth={1} />
-                  <text x={210} y={608} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
+                  <rect x={190} y={548} width={14} height={10} rx={2} fill="#ffffff" stroke={INK} strokeWidth={1} />
+                  <text x={210} y={560} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
                     {t.infra.suite.legend.gateway}
                   </text>
 
-                  <rect x={350} y={596} width={14} height={10} rx={2} fill={PRIMARY_SOFT} stroke={EDGE_STROKE} strokeWidth={1} />
-                  <text x={370} y={608} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
+                  <rect x={344} y={548} width={14} height={10} rx={2} fill={PRIMARY_SOFT} stroke={EDGE_STROKE} strokeWidth={1} />
+                  <text x={364} y={560} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
                     {t.infra.suite.legend.edge}
                   </text>
 
-                  <rect x={490} y={596} width={14} height={10} rx={2} fill={EXTERNAL_FILL} stroke={SOFT} strokeWidth={1} />
-                  <text x={510} y={608} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
+                  <rect x={470} y={548} width={14} height={10} rx={2} fill={EXTERNAL_FILL} stroke={SOFT} strokeWidth={1} />
+                  <text x={490} y={560} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
                     {t.infra.suite.legend.external}
                   </text>
 
-                  <line x1={622} y1={602} x2={650} y2={602} stroke={PRIMARY} strokeWidth={1.2} markerEnd="url(#arrow-sp)" />
-                  <text x={658} y={608} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
+                  <line x1={606} y1={554} x2={634} y2={554} stroke={PRIMARY} strokeWidth={1.2} markerEnd="url(#arrow-sp)" />
+                  <text x={640} y={560} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
                     {t.infra.suite.legend.https}
                   </text>
 
-                  <line x1={744} y1={602} x2={772} y2={602} stroke={PRIMARY} strokeWidth={1.4} markerEnd="url(#arrow-sp)" />
-                  <text x={780} y={608} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
+                  <line x1={716} y1={554} x2={744} y2={554} stroke={PRIMARY} strokeWidth={1.2} markerEnd="url(#arrow-sp)" />
+                  <text x={750} y={560} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
                     {t.infra.suite.legend.sqlite}
                   </text>
 
-                  <line x1={850} y1={602} x2={878} y2={602} stroke={MUTED} strokeWidth={1.2} markerEnd="url(#arrow-sm)" />
-                  <text x={886} y={608} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
+                  <line x1={838} y1={554} x2={866} y2={554} stroke={MUTED} strokeWidth={1.2} markerEnd="url(#arrow-sm)" />
+                  <text x={872} y={560} fill={MUTED} fontSize={8.5} fontFamily={SANS}>
                     {t.infra.suite.legend.docker}
                   </text>
                 </svg>
