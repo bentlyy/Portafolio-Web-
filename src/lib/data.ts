@@ -127,10 +127,13 @@ export const projects = [
   },
 ]
 
+const SUITE_URL = "https://desarrollo.amgdeveloper.cl"
+
 export const suite = {
-  url: "https://desarrollo.amgdeveloper.cl",
+  url: SUITE_URL,
   github: "https://github.com/bentlyy/SaaSs",
   products: [
+    { id: "Suite AMG · Plataforma", url: SUITE_URL, icon: "platform", featured: true },
     { id: "Reserva de Citas", url: "https://citas.amgdeveloper.cl", icon: "calendar" },
     { id: "Reserva de Espacios", url: "https://espacios.amgdeveloper.cl", icon: "spaces" },
     { id: "Solicitudes y Órdenes", url: "https://solicitudes.amgdeveloper.cl", icon: "clipboard" },

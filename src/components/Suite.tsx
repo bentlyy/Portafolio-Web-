@@ -13,6 +13,7 @@ import {
   Wallet,
   ArrowUpRight,
   Layers,
+  LayoutGrid,
   ChevronDown,
 } from "lucide-react"
 import { useLanguage } from "@/lib/LanguageProvider"
@@ -20,6 +21,7 @@ import { suite } from "@/lib/data"
 import type { LucideIcon } from "lucide-react"
 
 const icons: Record<string, LucideIcon> = {
+  platform: LayoutGrid,
   calendar: CalendarDays,
   spaces: DoorOpen,
   clipboard: ClipboardList,
@@ -81,16 +83,27 @@ export default function Suite() {
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 mb-6">
                 {suite.products.map((product) => {
                   const Icon = icons[product.icon] ?? Layers
+                  const featured = "featured" in product && product.featured === true
                   return (
                     <a
                       key={product.id}
                       href={product.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="glass-panel rounded-xl px-3.5 py-3 flex items-center gap-2.5 text-left hover:text-primary hover:border-primary/40 transition-all duration-300"
+                      className={`glass-panel rounded-xl px-3.5 py-3 flex items-center gap-2.5 text-left transition-all duration-300 ${
+                        featured
+                          ? "col-span-2 lg:col-span-4 border-primary/40 bg-primary/10 hover:bg-primary/15"
+                          : "hover:text-primary hover:border-primary/40"
+                      }`}
                     >
                       <Icon size={16} className="text-primary flex-shrink-0" />
-                      <span className="font-mono text-[11px] text-on-surface-variant hover:text-primary transition-colors leading-tight">
+                      <span
+                        className={`font-mono text-[11px] leading-tight ${
+                          featured
+                            ? "text-primary font-bold tracking-wide uppercase"
+                            : "text-on-surface-variant hover:text-primary transition-colors"
+                        }`}
+                      >
                         {product.id}
                       </span>
                     </a>

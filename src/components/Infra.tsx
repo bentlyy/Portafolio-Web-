@@ -115,6 +115,11 @@ const SUITE_CHIPS: Array<{ name: string; port: string }> = [
   { name: "pagos", port: ":3109" },
 ]
 
+const suiteHost = (slug: string) => {
+  const url = `https://${slug}.amgdeveloper.cl`
+  return { label: `${slug}.amgdeveloper.cl`, meta: "HTTPS", link: url }
+}
+
 export default function Infra() {
   const { t } = useLanguage()
   const [view, setView] = useState<"prod" | "suite">("prod")
@@ -170,9 +175,9 @@ export default function Infra() {
       icon: Cloud,
       items: [
         { label: "Proxy · WAF · DNS", meta: "edge global" },
-        { label: suite.url.replace("https://", ""), meta: "HTTPS", link: suite.url },
-        { label: suite.products[0].url.replace("https://", ""), meta: "HTTPS", link: suite.products[0].url },
-        { label: suite.products[1].url.replace("https://", ""), meta: "HTTPS", link: suite.products[1].url },
+        { label: suite.url.replace("https://", ""), meta: "HTTPS", link: suite.url, focal: true },
+        suiteHost("citas"),
+        suiteHost("espacios"),
       ],
     },
     {
