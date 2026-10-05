@@ -10,3 +10,6 @@ dev-error.txt
 dev-output.txt
 docs/
 portfolio-redesign/
+landing-pages/
+*.exe
+*.winmd
