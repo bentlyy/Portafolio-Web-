@@ -139,7 +139,7 @@ export const suite = {
     { id: "Solicitudes y Órdenes", url: "https://solicitudes.amgdeveloper.cl", icon: "clipboard" },
     { id: "Inventario", url: "https://inventario.amgdeveloper.cl", icon: "package" },
     { id: "Cotizaciones", url: "https://cotizaciones.amgdeveloper.cl", icon: "calculator" },
-    { id: "Gestión de Clientes", url: "https://cmr.amgdeveloper.cl", icon: "users" },
+    { id: "Gestión de Clientes", url: "https://crm.amgdeveloper.cl", icon: "users" },
     { id: "Control de Activos", url: "https://activos.amgdeveloper.cl", icon: "assets" },
     { id: "Checklists e Inspecciones", url: "https://checklists.amgdeveloper.cl", icon: "checklists" },
     { id: "Control de Pagos", url: "https://pagos.amgdeveloper.cl", icon: "wallet" },

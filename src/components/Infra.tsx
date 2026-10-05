@@ -109,7 +109,7 @@ const SUITE_CHIPS: Array<{ name: string; port: string }> = [
   { name: "solicitudes", port: ":3102" },
   { name: "inventario", port: ":3103" },
   { name: "cotizaciones", port: ":3104" },
-  { name: "cmr", port: ":3105" },
+  { name: "crm", port: ":3105" },
   { name: "activos", port: ":3106" },
   { name: "checklists", port: ":3107" },
   { name: "pagos", port: ":3109" },
