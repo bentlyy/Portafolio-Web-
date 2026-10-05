@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro Munoz Garay | Terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --green: #00ff41; --dim: #008f11; --bg: #0a0a0a; --amber: #ffb000; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--green); font-family: 'Fira Code', monospace; font-size: 14px; min-height: 100vh; overflow-x: hidden; }
+
+  .scanlines { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 1px, transparent 1px, transparent 2px); }
+
+  .crt-flicker { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999;
+    animation: flicker 0.15s infinite; opacity: 0.02; background: var(--green); }
+  @keyframes flicker { 50% { opacity: 0; } }
+
+  .terminal { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; }
+
+  .terminal-header { border: 1px solid var(--dim); padding: 8px 16px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+  .terminal-header span { color: var(--dim); font-size: 11px; }
+
+  .section { margin-bottom: 30px; border: 1px solid rgba(0,255,65,0.1); padding: 16px; position: relative; }
+  .section::before { content: attr(data-label); position: absolute; top: -10px; left: 12px; background: var(--bg); padding: 0 8px; color: var(--amber); font-size: 11px; }
+
+  .prompt { color: var(--amber); }
+  .path { color: #555; }
+  .cmd { color: var(--green); }
+  .output { color: #aaa; margin-top: 8px; line-height: 1.8; }
+  .highlight { color: var(--green); font-weight: 700; }
+  .dim { color: #555; }
+  .error { color: #ff4444; }
+
+  .typing-cursor { display: inline-block; width: 8px; height: 16px; background: var(--green); animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  .project-card { border: 1px solid rgba(0,255,65,0.2); padding: 12px; transition: all 0.3s; cursor: pointer; }
+  .project-card:hover { border-color: var(--green); background: rgba(0,255,65,0.05); box-shadow: 0 0 20px rgba(0,255,65,0.1); }
+  .project-card .name { color: var(--green); font-weight: 700; margin-bottom: 4px; }
+  .project-card .desc { color: #777; font-size: 12px; }
+  .project-card .tags { margin-top: 6px; }
+  .project-card .tag { color: var(--amber); font-size: 10px; border: 1px solid rgba(255,176,0,0.3); padding: 2px 6px; display: inline-block; margin-right: 4px; }
+
+  .progress-bar { margin-top: 12px; }
+  .bar-track { background: #222; height: 6px; position: relative; overflow: hidden; }
+  .bar-fill { background: var(--green); height: 100%; transition: width 2s ease; }
+
+  .ascii-art { color: var(--dim); font-size: 10px; line-height: 1.2; margin-bottom: 20px; white-space: pre; overflow: hidden; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .contact-item { border: 1px solid rgba(0,255,65,0.2); padding: 10px; text-align: center; transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+  .contact-item:hover { border-color: var(--green); background: rgba(0,255,65,0.05); }
+  .contact-item .label { color: var(--dim); font-size: 10px; }
+  .contact-item .value { color: var(--green); font-size: 12px; margin-top: 4px; }
+
+  .matrix-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.03; }
+
+  .nav-commands { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .nav-cmd { color: var(--dim); border: 1px solid rgba(0,255,65,0.15); padding: 6px 14px; cursor: pointer; transition: all 0.2s; font-size: 12px; }
+  .nav-cmd:hover { border-color: var(--green); color: var(--green); }
+
+  .status-line { display: flex; justify-content: space-between; border-top: 1px solid rgba(0,255,65,0.1); padding-top: 8px; margin-top: 30px; color: var(--dim); font-size: 11px; }
+
+  @media (max-width: 700px) {
+    .project-grid, .contact-grid { grid-template-columns: 1fr; }
+    .terminal { padding: 10px; }
+  }
+</style>
+</head>
+<body>
+<canvas class="matrix-bg" id="matrix"></canvas>
+<div class="scanlines"></div>
+<div class="crt-flicker"></div>
+
+<div class="terminal">
+  <div class="terminal-header">
+    <span>terminal ~ amgdeveloper</span>
+    <span id="clock"></span>
+  </div>
+
+  <div class="ascii-art">
+ ╔═══════════════════════════════════════════════════════════════╗
+ ║  ___  __   __  ___   ___  __    ____  ____  _  _  ____  ___  ║
+ ║ / __) ) )  / / )_  )/ __)(  )  (  _ \(  _ \( \/ )(_  _) __/ ║
+ ║( (_ \ )__( / /  )(( (__  )__(   ) _ < )   / \  /  ( )(  _)\ ║
+ ╚═══════════════════════════════════════════════════════════════╝
+  </div>
+
+  <div class="section" data-label="[ SYSTEM ]">
+    <div><span class="prompt">alejandro@dev</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> <span class="cmd">whoami</span></div>
+    <div class="output">
+      <span class="highlight">Alejandro Munoz Garay</span><br>
+      <span class="dim">Ingeniero Civil en Informatica | Full Stack Developer</span><br>
+      <span class="dim">TypeScript &middot; Node.js &middot; React &middot; PostgreSQL</span><br>
+      <span class="dim">San Pablo, Santiago, Chile</span> <span style="color:#00ff41">&#9679;</span> <span class="dim">AVAILABLE FOR HIRE</span>
+    </div>
+
+    <div class="nav-commands">
+      <div class="nav-cmd" onclick="scrollTo('#projects')">$ ls ./projects</div>
+      <div class="nav-cmd" onclick="scrollTo('#skills')">$ cat skills.json</div>
+      <div class="nav-cmd" onclick="scrollTo('#infra')">$ docker ps</div>
+      <div class="nav-cmd" onclick="scrollTo('#contact')">$ ping amgdeveloper</div>
+      <div class="nav-cmd" onclick="window.open('https://linkedin.com/in/alejandro-munoz-garay-668324347','_blank')">$ curl linkedin</div>
+      <div class="nav-cmd" onclick="window.open('https://github.com/bentlyy','_blank')">$ git clone github</div>
+    </div>
+  </div>
+
+  <div class="section" data-label="[ PROJECTS ]" id="projects">
+    <div><span class="prompt">alejandro@dev</span><span class="dim">:</span><span class="path">~/projects</span><span class="dim">$</span> <span class="cmd">ls -la --sort=rating</span><span class="typing-cursor"></span></div>
+    <div class="project-grid">
+      <div class="project-card" onclick="window.open('https://clinica-salud-vital.onrender.com','_blank')">
+        <div class="name">vitaria/</div>
+        <div class="desc">SaaS clinico de gestion - 16 modulos, 1122 tests, 89% cobertura, 2FA, multi-idioma</div>
+        <div class="tags"><span class="tag">Express 5</span><span class="tag">React 19</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+      </div>
+      <div class="project-card" onclick="window.open('https://agrobot.amgdeveloper.cl','_blank')">
+        <div class="name">agrobot-alert/</div>
+        <div class="desc">Monitoreo agricola IoT con alertas WhatsApp/Email y mapas Leaflet</div>
+        <div class="tags"><span class="tag">React 18</span><span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">Twilio</span></div>
+      </div>
+      <div class="project-card" onclick="window.open('https://taller.amgdeveloper.cl','_blank')">
+        <div class="name">tallerpro/</div>
+        <div class="desc">Gestion de taller mecanico, arquitectura hexagonal, Prometheus/Grafana</div>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Prisma 6</span><span class="tag">Prometheus</span></div>
+      </div>
+      <div class="project-card" onclick="window.open('https://transporte.amgdeveloper.cl','_blank')">
+        <div class="name">transporte/</div>
+        <div class="desc">TMS internacional con GPS tracking, geofencing, facturacion</div>
+        <div class="tags"><span class="tag">React 19</span><span class="tag">PostGIS</span><span class="tag">WebSocket</span></div>
+      </div>
+      <div class="project-card" onclick="window.open('https://www.npmjs.com/package/typeforge','_blank')">
+        <div class="name">typeforge/</div>
+        <div class="desc">CLI npm para generar APIs TypeScript de produccion</div>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Commander</span><span class="tag">Inquirer</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" data-label="[ SKILLS ]" id="skills">
+    <div><span class="prompt">alejandro@dev</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> <span class="cmd">cat skills.json | jq '.[] | {category, level}'</span></div>
+    <div class="output">
+      <div class="progress-bar"><span class="highlight">TypeScript</span> <span class="dim">████████████████████</span> 95%</div>
+      <div class="bar-track"><div class="bar-fill" data-width="95"></div></div>
+      <div class="progress-bar" style="margin-top:8px"><span class="highlight">Node.js</span> <span class="dim">████████████████████</span> 95%</div>
+      <div class="bar-track"><div class="bar-fill" data-width="95"></div></div>
+      <div class="progress-bar" style="margin-top:8px"><span class="highlight">React</span> <span class="dim">██████████████████</span> 90%</div>
+      <div class="bar-track"><div class="bar-fill" data-width="90"></div></div>
+      <div class="progress-bar" style="margin-top:8px"><span class="highlight">PostgreSQL</span> <span class="dim">████████████████</span> 85%</div>
+      <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
+      <div class="progress-bar" style="margin-top:8px"><span class="highlight">Docker</span> <span class="dim">███████████████</span> 80%</div>
+      <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
+      <div class="progress-bar" style="margin-top:8px"><span class="highlight">DevOps/CI</span> <span class="dim">████████████</span> 75%</div>
+      <div class="bar-track"><div class="bar-fill" data-width="75"></div></div>
+      <div class="progress-bar" style="margin-top:8px"><span class="highlight">Testing</span> <span class="dim">██████████████</span> 85%</div>
+      <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
+    </div>
+  </div>
+
+  <div class="section" data-label="[ INFRASTRUCTURE ]" id="infra">
+    <div><span class="prompt">alejandro@dev</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> <span class="cmd">docker ps --format "table {{.Names}}\t{{.Status}}"</span></div>
+    <div class="output">
+      <span class="dim">NAMES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS</span><br>
+      <span class="highlight">portfolio</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00ff41">Up 30 days</span>&nbsp;&nbsp;<span class="dim">Cloudflare Pages</span><br>
+      <span class="highlight">agrobot</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00ff41">Up 45 days</span>&nbsp;&nbsp;<span class="dim">Oracle Cloud</span><br>
+      <span class="highlight">tallerpro</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00ff41">Up 45 days</span>&nbsp;&nbsp;<span class="dim">Oracle Cloud</span><br>
+      <span class="highlight">transporte</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00ff41">Up 45 days</span>&nbsp;&nbsp;<span class="dim">Oracle Cloud</span><br>
+      <span class="highlight">vitaria</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00ff41">Up 60 days</span>&nbsp;&nbsp;<span class="dim">Render</span>
+    </div>
+  </div>
+
+  <div class="section" data-label="[ CONTACT ]" id="contact">
+    <div><span class="prompt">alejandro@dev</span><span class="dim">:</span><span class="path">~</span><span class="dim">$</span> <span class="cmd">cat /etc/contact.conf</span></div>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:munozgarayalejandro@gmail.com">
+        <div class="label">EMAIL</div>
+        <div class="value">munozgarayalejandro@gmail.com</div>
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/alejandro-munoz-garay-668324347" target="_blank">
+        <div class="label">LINKEDIN</div>
+        <div class="value">/in/alejandro-munoz-garay</div>
+      </a>
+      <a class="contact-item" href="https://github.com/bentlyy" target="_blank">
+        <div class="label">GITHUB</div>
+        <div class="value">github.com/bentlyy</div>
+      </a>
+    </div>
+    <div style="margin-top:12px; text-align:center;">
+      <a href="../public/cv.pdf" download style="color:var(--green); border:1px solid var(--green); padding:8px 24px; text-decoration:none; display:inline-block; transition:all 0.3s;" onmouseover="this.style.background='rgba(0,255,65,0.1)'" onmouseout="this.style.background='transparent'">$ wget cv.pdf</a>
+    </div>
+  </div>
+
+  <div class="status-line">
+    <span>UPTIME: <span id="uptime">00:00:00</span></span>
+    <span>MEMORY: 64MB / 64MB</span>
+    <span>SHELL: zsh 5.9</span>
+  </div>
+</div>
+
+<script>
+  // Matrix rain background
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF';
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({length: columns}, () => Math.random() * -100);
+
+  function drawMatrix() {
+    ctx.fillStyle = 'rgba(10,10,10,0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#00ff41';
+    ctx.font = fontSize + 'px monospace';
+    drops.forEach((y, i) => {
+      const text = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(text, i * fontSize, y * fontSize);
+      if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    });
+  }
+  setInterval(drawMatrix, 50);
+
+  window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+  // Clock
+  function updateClock() {
+    const now = new Date();
+    document.getElementById('clock').textContent = now.toLocaleTimeString('en-US', {hour12: false});
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // Uptime
+  const startTime = Date.now();
+  function updateUptime() {
+    const diff = Math.floor((Date.now() - startTime) / 1000);
+    const h = String(Math.floor(diff / 3600)).padStart(2, '0');
+    const m = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+    const s = String(diff % 60).padStart(2, '0');
+    document.getElementById('uptime').textContent = `${h}:${m}:${s}`;
+  }
+  setInterval(updateUptime, 1000);
+
+  // Animate progress bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+  function scrollTo(sel) {
+    document.querySelector(sel)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+</script>
+</body>
+</html>

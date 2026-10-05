@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro Munoz Garay | Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --dark: #1a1a2e; --cream: #f5f0eb; --warm: #e8ddd3; --accent: #c9a96e; --text: #2d2d2d; --muted: #8a8a8a; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--dark); color: var(--text); font-family: 'Source Sans 3', sans-serif; overflow-x: hidden; }
+
+  /* Scroll-driven sections */
+  .scroll-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 60px 40px; }
+
+  /* Chapter 1: Intro */
+  .chapter-intro { background: var(--dark); color: var(--cream); text-align: center; }
+  .chapter-intro .overline { font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; font-weight: 500; }
+  .chapter-intro h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 7vw, 6rem); font-weight: 900; line-height: 1.1; margin-bottom: 24px; }
+  .chapter-intro .subtitle { font-size: 1.3rem; color: var(--muted); font-weight: 300; max-width: 500px; margin: 0 auto; line-height: 1.8; }
+  .chapter-intro .scroll-hint { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); font-size: 12px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+  /* Chapter backgrounds */
+  .chapter-story { background: var(--cream); }
+  .chapter-dark { background: var(--dark); color: var(--cream); }
+  .chapter-warm { background: var(--warm); }
+
+  .chapter-inner { max-width: 900px; width: 100%; }
+
+  /* Story text blocks */
+  .story-block { margin-bottom: 60px; opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  .story-block.visible { opacity: 1; transform: translateY(0); }
+  .story-block .chapter-num { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; color: rgba(201,169,110,0.15); line-height: 1; margin-bottom: -20px; }
+  .story-block h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 16px; line-height: 1.3; }
+  .story-block p { font-size: 1.1rem; line-height: 2; font-weight: 300; max-width: 640px; }
+  .chapter-dark p { color: #bbb; }
+
+  /* Project cards in story */
+  .story-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+  .story-project { background: #fff; border-radius: 12px; padding: 28px; cursor: pointer; transition: all 0.4s; box-shadow: 0 2px 20px rgba(0,0,0,0.04); }
+  .chapter-dark .story-project { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
+  .story-project:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .chapter-dark .story-project:hover { box-shadow: 0 12px 40px rgba(201,169,110,0.1); border-color: var(--accent); }
+  .story-project .emoji { font-size: 2rem; margin-bottom: 12px; }
+  .story-project h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+  .story-project p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+  .chapter-dark .story-project p { color: #888; }
+  .story-project .tech { font-size: 11px; color: var(--accent); font-weight: 500; letter-spacing: 0.05em; }
+
+  /* Quote */
+  .quote-block { text-align: center; padding: 80px 40px; }
+  .quote-block blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4vw, 2.5rem); font-style: italic; line-height: 1.6; max-width: 700px; margin: 0 auto; }
+  .quote-block .attr { margin-top: 20px; font-size: 14px; color: var(--accent); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* Skills as visual timeline */
+  .skills-visual { display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+  .skill-pill { padding: 10px 24px; border-radius: 100px; font-size: 14px; font-weight: 500; transition: all 0.3s; cursor: default; }
+  .chapter-dark .skill-pill { border: 1px solid rgba(201,169,110,0.3); color: var(--cream); }
+  .chapter-story .skill-pill { border: 1px solid rgba(0,0,0,0.15); color: var(--text); }
+  .skill-pill:hover { transform: scale(1.05); }
+  .chapter-dark .skill-pill:hover { border-color: var(--accent); background: rgba(201,169,110,0.1); }
+
+  /* CTA */
+  .cta-section { text-align: center; }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: var(--cream); margin-bottom: 16px; }
+  .cta-section p { color: var(--muted); font-size: 1.1rem; margin-bottom: 36px; font-weight: 300; }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .cta-buttons a { font-size: 14px; font-weight: 600; padding: 14px 32px; text-decoration: none; transition: all 0.3s; border-radius: 4px; }
+  .cta-buttons .primary { background: var(--accent); color: var(--dark); }
+  .cta-buttons .primary:hover { background: #d4b87a; transform: translateY(-2px); }
+  .cta-buttons .secondary { border: 1px solid rgba(255,255,255,0.2); color: var(--cream); }
+  .cta-buttons .secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Progress indicator */
+  .progress-track { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 12px; }
+  .progress-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: all 0.3s; cursor: pointer; }
+  .progress-dot.active { background: var(--accent); box-shadow: 0 0 10px rgba(201,169,110,0.4); transform: scale(1.3); }
+
+  .footer { text-align: center; padding: 40px; font-size: 12px; color: #555; border-top: 1px solid rgba(255,255,255,0.05); }
+
+  @media (max-width: 700px) {
+    .scroll-section { padding: 40px 20px; }
+    .story-projects { grid-template-columns: 1fr; }
+    .progress-track { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-track" id="progressTrack">
+  <div class="progress-dot active" data-idx="0"></div>
+  <div class="progress-dot" data-idx="1"></div>
+  <div class="progress-dot" data-idx="2"></div>
+  <div class="progress-dot" data-idx="3"></div>
+  <div class="progress-dot" data-idx="4"></div>
+  <div class="progress-dot" data-idx="5"></div>
+</div>
+
+<!-- Chapter 0: Opening -->
+<div class="scroll-section chapter-intro" data-chapter="0">
+  <div>
+    <div class="overline">Una historia de codigo</div>
+    <h1>Alejandro<br>Munoz Garay</h1>
+    <p class="subtitle">Ingeniero Civil en Informatica. Full Stack Developer. De San Pablo, Chile, construyendo sistemas que conectan el campo con la tecnologia.</p>
+    <div class="scroll-hint">Scroll para explorar &darr;</div>
+  </div>
+</div>
+
+<!-- Chapter 1: The Origin -->
+<div class="scroll-section chapter-story" data-chapter="1">
+  <div class="chapter-inner">
+    <div class="story-block">
+      <div class="chapter-num">01</div>
+      <h2>El origen</h2>
+      <p>Todo empezo con curiosidad. Desde la universidad, la idea de construir sistemas completos se convirtio en una pasion. No era solo escribir codigo, era resolver problemas reales para personas reales. Me gradue en Ingenieria Civil en Informatica en la Universidad Adventista de Chile, y desde ahi, cada proyecto ha sido un laboratorio.</p>
+    </div>
+    <div class="story-block">
+      <h2>La filosofia</h2>
+      <p>Creo que el mejor software nace de la interseccion entre solidez tecnica y empatia por el usuario. Por eso cada proyecto que toco tiene tests, tiene monitoreo, tiene seguridad. No porque sea requisito, sino porque es la forma correcta de construir.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Chapter 2: The Work -->
+<div class="scroll-section chapter-dark" data-chapter="2">
+  <div class="chapter-inner">
+    <div class="story-block">
+      <div class="chapter-num">02</div>
+      <h2>Lo que he construido</h2>
+      <p>Cada proyecto nacio de una necesidad real. Desde gestion clinica hasta monitoreo agricola IoT, cada sistema esta disenado para resolver problemas complejos con arquitectura solida.</p>
+      <div class="story-projects">
+        <div class="story-project" onclick="window.open('https://clinica-salud-vital.onrender.com','_blank')">
+          <div class="emoji">&#x1F3E5;</div>
+          <h3>Vitaria</h3>
+          <p>16 modulos SaaS para clinicas. 1122 tests, 89% cobertura, 2FA, multi-idioma. El proyecto mas ambicioso.</p>
+          <div class="tech">Express 5 / React 19 / PostgreSQL / Docker</div>
+        </div>
+        <div class="story-project" onclick="window.open('https://agrobot.amgdeveloper.cl','_blank')">
+          <div class="emoji">&#x1F33E;</div>
+          <h3>AgroBot-Alert</h3>
+          <p>IoT agricola con alertas WhatsApp/Email. Sensores en tiempo real, mapas Leaflet, el campo conectado.</p>
+          <div class="tech">React / Node.js / MySQL / Twilio</div>
+        </div>
+        <div class="story-project" onclick="window.open('https://taller.amgdeveloper.cl','_blank')">
+          <div class="emoji">&#x1F527;</div>
+          <h3>TallerPro</h3>
+          <p>Gestion de talleres mecanicos. Arquitectura hexagonal, Prometheus/Grafana, CI/CD automatizado.</p>
+          <div class="tech">Node.js / Prisma 6 / Prometheus</div>
+        </div>
+        <div class="story-project" onclick="window.open('https://transporte.amgdeveloper.cl','_blank')">
+          <div class="emoji">&#x1F69B;</div>
+          <h3>Transporte</h3>
+          <p>TMS internacional. GPS tracking en tiempo real, geofencing, facturacion, WebSockets.</p>
+          <div class="tech">React 19 / PostGIS / Leaflet / WebSocket</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chapter 3: The Craft -->
+<div class="scroll-section chapter-story" data-chapter="3">
+  <div class="chapter-inner">
+    <div class="story-block">
+      <div class="chapter-num">03</div>
+      <h2>El oficio</h2>
+      <p>Detras de cada interfaz hay una infraestructura cuidada. Docker, CI/CD, monitoreo, seguridad. El 80% del trabajo invisible es lo que hace que el 20% visible funcione.</p>
+      <div class="skills-visual">
+        <span class="skill-pill">TypeScript</span>
+        <span class="skill-pill">Node.js</span>
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">PostgreSQL</span>
+        <span class="skill-pill">Docker</span>
+        <span class="skill-pill">Prisma ORM</span>
+        <span class="skill-pill">GitHub Actions</span>
+        <span class="skill-pill">Nginx</span>
+        <span class="skill-pill">Linux</span>
+        <span class="skill-pill">Jest / Vitest</span>
+        <span class="skill-pill">JWT + 2FA</span>
+        <span class="skill-pill">REST API</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chapter 4: Infra -->
+<div class="scroll-section chapter-dark" data-chapter="4">
+  <div class="chapter-inner">
+    <div class="story-block">
+      <div class="chapter-num">04</div>
+      <h2>La infraestructura</h2>
+      <p>Todos los proyectos estan desplegados y funcionando. No son prototipos, son sistemas en produccion sirviendo a usuarios reales.</p>
+      <div class="story-projects">
+        <div class="story-project">
+          <div class="emoji">&#x2601;&#xFE0F;</div>
+          <h3>Cloudflare</h3>
+          <p>Portfolio statico via Cloudflare Pages. Rendimiento global con CDN.</p>
+          <div class="tech">Next.js SSG / Wrangler / Cloudflare Pages</div>
+        </div>
+        <div class="story-project">
+          <div class="emoji">&#x2699;&#xFE0F;</div>
+          <h3>Oracle Cloud</h3>
+          <p>VM con Docker Compose. Nginx gateway, CI/CD automatizado via GitHub Actions.</p>
+          <div class="tech">Ubuntu / Docker / Nginx / GitHub Actions</div>
+        </div>
+        <div class="story-project">
+          <div class="emoji">&#x2615;</div>
+          <h3>Render</h3>
+          <p>Deploy automatico de Vitaria con PostgreSQL gestionado.</p>
+          <div class="tech">Web Service / PostgreSQL / Docker</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chapter 5: CTA -->
+<div class="scroll-section chapter-dark cta-section" data-chapter="5">
+  <div>
+    <div class="overline" style="color:var(--accent); letter-spacing:0.3em; font-size:12px; margin-bottom:20px;">EL SIGUIENTE CAPITULO</div>
+    <h2>Trabajemos juntos</h2>
+    <p>Buscando nuevas oportunidades en desarrollo web, automatizacion e infraestructura.</p>
+    <div class="cta-buttons">
+      <a href="mailto:munozgarayalejandro@gmail.com" class="primary">Enviar email</a>
+      <a href="https://linkedin.com/in/alejandro-munoz-garay-668324347" target="_blank" class="secondary">LinkedIn</a>
+      <a href="https://github.com/bentlyy" target="_blank" class="secondary">GitHub</a>
+      <a href="../public/cv.pdf" download class="secondary">Descargar CV</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer" style="background:var(--dark); color:#555;">&copy; 2026 Alejandro Munoz Garay</div>
+
+<script>
+  // Intersection Observer for story blocks
+  const blockObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.story-block').forEach(b => blockObs.observe(b));
+
+  // Progress dots
+  const chapters = document.querySelectorAll('[data-chapter]');
+  const dots = document.querySelectorAll('.progress-dot');
+
+  const chapterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = parseInt(e.target.dataset.chapter);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.5 });
+  chapters.forEach(c => chapterObs.observe(c));
+
+  dots.forEach(d => {
+    d.addEventListener('click', () => {
+      const idx = parseInt(d.dataset.idx);
+      chapters[idx]?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>

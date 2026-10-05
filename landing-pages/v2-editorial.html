@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro Munoz Garay | Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #f7f3ec; --paper2: #efe9de; --ink: #1c1a17; --muted: #9a8f7e; --accent: #a83a2a; --line: #d9d0c0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Sans 3', sans-serif; font-size: 16px; line-height: 1.7; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+  /* Editorial nav */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,243,236,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  nav .container { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+  nav .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 800; }
+  nav .tagline { font-size: 11px; text-transform: uppercase; letter-spacing: 0.3em; color: var(--muted); }
+  nav .links { display: flex; gap: 32px; }
+  nav .links a { color: var(--ink); text-decoration: none; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 400; transition: color 0.2s; }
+  nav .links a:hover { color: var(--accent); }
+
+  /* Hero - magazine masthead */
+  .hero { padding: 150px 0 90px; }
+  .hero .kicker { font-size: 11px; text-transform: uppercase; letter-spacing: 0.35em; color: var(--accent); font-weight: 600; margin-bottom: 20px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 9vw, 6.5rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.02em; }
+  .hero h1 em { font-style: italic; font-weight: 400; color: var(--muted); }
+  .hero .deck { font-size: 1.25rem; color: #5a534a; max-width: 560px; line-height: 1.8; margin-top: 28px; font-weight: 300; }
+  .hero .rule { width: 80px; height: 3px; background: var(--accent); margin-top: 36px; }
+  .hero .byline { margin-top: 20px; font-size: 13px; color: var(--muted); letter-spacing: 0.05em; }
+
+  /* Projects - editorial columns */
+  .projects { padding: 70px 0; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--ink); padding-top: 16px; margin-bottom: 48px; }
+  .section-head h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+  .section-head .num { font-family: 'Playfair Display', serif; font-style: italic; color: var(--muted); }
+  .projects-list { display: flex; flex-direction: column; }
+  .project-item { display: grid; grid-template-columns: 90px 1fr; gap: 32px; padding: 36px 0; border-bottom: 1px solid var(--line); cursor: pointer; position: relative; transition: background 0.3s; }
+  .project-item:last-child { border-bottom: none; }
+  .project-item:hover { background: var(--paper2); padding-left: 16px; padding-right: 16px; }
+  .project-item .issuenum { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 800; color: var(--accent); line-height: 1; }
+  .project-item h3 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 600; margin-bottom: 8px; }
+  .project-item p { font-size: 0.98rem; color: #5a534a; max-width: 640px; margin-bottom: 12px; line-height: 1.8; }
+  .project-item .tags { display: flex; gap: 16px; }
+  .project-item .tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted); }
+  .project-item:hover .tag { color: var(--accent); }
+  .project-item .arrow { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--muted); opacity: 0; transition: all 0.3s; }
+  .project-item:hover .arrow { opacity: 1; color: var(--accent); }
+
+  /* Skills - pull quote style */
+  .skills { padding: 90px 0; background: var(--paper2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .skills .container { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+  .skills .left-col h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+  .skills .left-col p { font-size: 14px; color: var(--muted); font-style: italic; }
+  .skills-right { columns: 2; column-gap: 60px; }
+  .skill-group { break-inside: avoid; margin-bottom: 28px; }
+  .skill-group h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  .skill-group ul { list-style: none; }
+  .skill-group li { font-size: 14px; color: #5a534a; padding: 4px 0; }
+
+  /* Experience - narrative */
+  .experience { padding: 90px 0; }
+  .experience .section-head { margin-bottom: 24px; }
+  .exp-item { display: grid; grid-template-columns: 160px 1fr; gap: 40px; padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .exp-item .date { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: var(--accent); }
+  .exp-item h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 4px; }
+  .exp-item .company { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 14px; }
+  .exp-item .pub { font-size: 14px; margin-bottom: 10px; font-weight: 600; }
+  .exp-item ul { padding-left: 18px; margin-top: 8px; }
+  .exp-item li { font-size: 14px; color: #5a534a; margin-bottom: 6px; line-height: 1.7; }
+
+  /* Contact - centered spread */
+  .contact { padding: 110px 0; text-align: center; border-top: 2px solid var(--ink); }
+  .contact .kicker { font-size: 11px; text-transform: uppercase; letter-spacing: 0.35em; color: var(--accent); margin-bottom: 16px; }
+  .contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 24px; }
+  .contact h2 em { font-style: italic; font-weight: 400; color: var(--muted); }
+  .contact-links { display: flex; justify-content: center; gap: 48px; margin-top: 40px; }
+  .contact-links a { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+  .contact-links a:hover { border-bottom-color: var(--accent); }
+
+  footer { padding: 32px 0; border-top: 1px solid var(--line); text-align: center; font-size: 12px; color: var(--muted); font-style: italic; }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .skills .container { grid-template-columns: 1fr; gap: 40px; }
+    .skills-right { columns: 1; }
+    .project-item { grid-template-columns: 60px 1fr; gap: 16px; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .contact-links { flex-direction: column; gap: 20px; }
+    nav .links { display: none; }
+    nav .container { height: 60px; }
+    nav .tagline { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">AMG</div>
+    <div class="tagline">The Developer Magazine</div>
+    <div class="links">
+      <a href="#projects">Work</a>
+      <a href="#skills">Craft</a>
+      <a href="#experience">Story</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero container">
+  <div class="kicker">An Interview With</div>
+  <h1>Alejandro<br>Munoz Garay<em>.</em></h1>
+  <div class="rule"></div>
+  <p class="deck">Un ingeniero civil en informatica que construye sistemas full stack con TypeScript, Node.js y React. Desde Santiago, Chile, resolviendo problemas con arquitectura solida.</p>
+  <p class="byline">Issue No. 05 &mdash; Full Stack Developer Special Edition</p>
+</div>
+
+<div class="projects container" id="projects">
+  <div class="section-head">
+    <h2>The Work</h2>
+    <span class="num">Featured Portfolio &mdash; 5 Projects</span>
+  </div>
+  <div class="projects-list">
+    <div class="project-item" onclick="window.open('https://clinica-salud-vital.onrender.com','_blank')">
+      <div class="issuenum">01.</div>
+      <div class="arrow">&rarr;</div>
+      <div>
+        <h3>Vitaria</h3>
+        <p>Un SaaS clinico de 16 modulos con 1122 tests automatizados y 89% de cobertura. Autenticacion JWT con 2FA y soporte multi-idioma. El proyecto mas ambicioso hasta la fecha.</p>
+        <div class="tags"><span class="tag">Express 5</span><span class="tag">React 19</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+      </div>
+    </div>
+    <div class="project-item" onclick="window.open('https://agrobot.amgdeveloper.cl','_blank')">
+      <div class="issuenum">02.</div>
+      <div class="arrow">&rarr;</div>
+      <div>
+        <h3>AgroBot-Alert</h3>
+        <p>Una plataforma IoT de monitoreo agricola con alertas automaticas por WhatsApp y Email, mapas interactivos y dashboard en tiempo real.</p>
+        <div class="tags"><span class="tag">React 18</span><span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">Twilio</span></div>
+      </div>
+    </div>
+    <div class="project-item" onclick="window.open('https://taller.amgdeveloper.cl','_blank')">
+      <div class="issuenum">03.</div>
+      <div class="arrow">&rarr;</div>
+      <div>
+        <h3>TallerPro</h3>
+        <p>Gestion de talleres mecanicos construida sobre arquitectura hexagonal, con monitoreo Prometheus/Grafana y un pipeline de CI/CD automatizado.</p>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Prisma 6</span><span class="tag">Prometheus</span><span class="tag">Grafana</span></div>
+      </div>
+    </div>
+    <div class="project-item" onclick="window.open('https://transporte.amgdeveloper.cl','_blank')">
+      <div class="issuenum">04.</div>
+      <div class="arrow">&rarr;</div>
+      <div>
+        <h3>Transporte</h3>
+        <p>Un TMS de transporte internacional con GPS tracking en tiempo real, geofencing, facturacion y WebSockets para datos en vivo.</p>
+        <div class="tags"><span class="tag">React 19</span><span class="tag">PostGIS</span><span class="tag">Leaflet</span><span class="tag">WebSocket</span></div>
+      </div>
+    </div>
+    <div class="project-item" onclick="window.open('https://www.npmjs.com/package/typeforge','_blank')">
+      <div class="issuenum">05.</div>
+      <div class="arrow">&rarr;</div>
+      <div>
+        <h3>TypeForge</h3>
+        <p>Un CLI npm publicado que genera APIs TypeScript de produccion con scaffolding automatizado mediante Commander y Handlebars.</p>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Commander</span><span class="tag">Inquirer</span><span class="tag">npm</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="skills" id="skills">
+  <div class="container">
+    <div class="left-col">
+      <h2>The Craft</h2>
+      <p>"El 80% del trabajo invisible es lo que hace que el 20% visible funcione."</p>
+    </div>
+    <div class="skills-right">
+      <div class="skill-group"><h4>Lenguajes</h4><ul><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li></ul></div>
+      <div class="skill-group"><h4>Backend</h4><ul><li>Node.js</li><li>Express</li><li>Prisma ORM</li><li>REST API</li><li>JWT</li></ul></div>
+      <div class="skill-group"><h4>Frontend</h4><ul><li>React</li><li>Next.js</li><li>Tailwind CSS</li><li>MUI</li></ul></div>
+      <div class="skill-group"><h4>DevOps</h4><ul><li>Docker</li><li>GitHub Actions</li><li>Oracle Cloud</li><li>Nginx</li><li>Linux</li></ul></div>
+      <div class="skill-group"><h4>Bases de Datos</h4><ul><li>PostgreSQL</li><li>MySQL</li><li>PostGIS</li><li>SQL Avanzado</li></ul></div>
+      <div class="skill-group"><h4>Testing</h4><ul><li>Jest</li><li>Vitest</li><li>Supertest</li><li>Cobertura</li></ul></div>
+      <div class="skill-group"><h4>Seguridad</h4><ul><li>JWT + Tokens</li><li>TOTP 2FA</li><li>RBAC</li><li>Helmet / CORS</li></ul></div>
+      <div class="skill-group"><h4>Arquitectura</h4><ul><li>Hexagonal</li><li>Microservicios</li><li>SaaS</li><li>IoT</li></ul></div>
+    </div>
+  </div>
+</div>
+
+<div class="experience container" id="experience">
+  <div class="section-head">
+    <h2>The Story</h2>
+    <span class="num">A Career in Full Stack</span>
+  </div>
+  <div class="exp-item">
+    <div class="date">2024 &mdash; Present</div>
+    <div>
+      <h3>Full Stack Developer</h3>
+      <div class="company">Independent Projects</div>
+      <div class="pub">Actualmente construyendo sistemas que sirven a usuarios reales.</div>
+      <ul>
+        <li>Vitaria: 16 modulos SaaS, 1122 tests, 89% cobertura, 2FA</li>
+        <li>AgroBot-Alert: IoT agricola con alertas WhatsApp/Email</li>
+        <li>TallerPro: Arquitectura hexagonal con Prometheus/Grafana</li>
+      </ul>
+    </div>
+  </div>
+  <div class="exp-item">
+    <div class="date">Jun 2024 &mdash; Nov 2024</div>
+    <div>
+      <h3>Full-Stack Developer</h3>
+      <div class="company">IoT Platform (Geotrace/INIA)</div>
+      <div class="pub">Tesis de pregrado convertida en producto real.</div>
+      <ul>
+        <li>Plataforma IoT con Node.js/TypeScript y MySQL</li>
+        <li>Alertas automatizadas, 20-25% de respuesta mas rapida</li>
+        <li>Docker + integracion Wialon y OpenAI API</li>
+      </ul>
+    </div>
+  </div>
+  <div class="exp-item">
+    <div class="date">Jul 2020 &mdash; Oct 2020</div>
+    <div>
+      <h3>Software Engineering Intern</h3>
+      <div class="company">Infrastructure</div>
+      <div class="pub">Aprendiendo las bases de los sistemas distribuidos.</div>
+      <ul>
+        <li>Provisionamiento de servidores con Ansible</li>
+        <li>Hardening de seguridad en Linux</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="contact" id="contact">
+  <div class="kicker">Let's Write the Next Chapter</div>
+  <h2>Hablemos<em>.</em></h2>
+  <p style="color:#5a534a; max-width:480px; margin:0 auto;">Buscando nuevas oportunidades en desarrollo web, automatizacion e infraestructura.</p>
+  <div class="contact-links">
+    <a href="mailto:munozgarayalejandro@gmail.com">Enviar un email</a>
+    <a href="https://linkedin.com/in/alejandro-munoz-garay-668324347" target="_blank">LinkedIn</a>
+    <a href="https://github.com/bentlyy" target="_blank">GitHub</a>
+    <a href="../public/cv.pdf" download>Descargar CV</a>
+  </div>
+</div>
+
+<footer><div class="container">&copy; 2026 Alejandro Munoz Garay &mdash; All rights reserved</div></footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'}); });
+  });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.project-item, .exp-item, .skill-group').forEach(el => {
+    el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='all 0.6s ease';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro Munoz Garay | Bento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #f5f5f7; --card: #ffffff; --text: #1d1d1f; --muted: #86868b; --accent: #0071e3; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  .container { max-width: 1150px; margin: 0 auto; padding: 0 32px; }
+
+  /* Nav */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(245,245,247,0.75); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06); }
+  nav .container { display: flex; justify-content: space-between; align-items: center; height: 52px; }
+  nav .logo { font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+  nav .links { display: flex; gap: 28px; }
+  nav .links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 400; transition: color 0.2s; }
+  nav .links a:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { padding: 150px 0 60px; text-align: center; }
+  .hero .label { font-size: 12px; font-weight: 500; color: var(--accent); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; color: var(--text); }
+  .hero .desc { font-size: 1.2rem; color: var(--muted); max-width: 560px; margin: 20px auto 0; font-weight: 400; }
+  .hero .btn-row { margin-top: 32px; display: flex; gap: 12px; justify-content: center; }
+  .hero .btn { font-size: 14px; font-weight: 500; padding: 12px 24px; border-radius: 980px; text-decoration: none; transition: all 0.2s; }
+  .hero .btn.primary { background: var(--accent); color: #fff; }
+  .hero .btn.primary:hover { background: #0077ed; }
+  .hero .btn.secondary { background: var(--card); color: var(--text); box-shadow: 0 1px 0 rgba(0,0,0,0.08); }
+  .hero .btn.secondary:hover { background: #f0f0f2; }
+
+  /* Bento grid */
+  .bento { padding: 30px 0 20px; }
+  .grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 84px; gap: 16px; }
+
+  .bento-card { background: var(--card); border-radius: 24px; padding: 28px; overflow: hidden; position: relative; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .bento-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+
+  /* Hero card - large */
+  .card-hero { grid-column: span 12; grid-row: span 4; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; background: linear-gradient(135deg, #1d1d1f, #3a3a3e); color: #f5f5f7; }
+  .card-hero h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .card-hero .role { color: rgba(255,255,255,0.5); font-size: 15px; }
+
+  /* Profile card */
+  .card-profile { grid-column: span 4; grid-row: span 4; display: flex; flex-direction: column; justify-content: space-between; }
+  .card-profile .avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #7fb8ee); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+  .card-profile h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+  .card-profile p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .card-profile .availability { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 12px; font-weight: 500; color: #34c759; }
+  .card-profile .availability .dot { width: 7px; height: 7px; border-radius: 50%; background: #34c759; }
+
+  /* Project card - medium */
+  .card-project { grid-column: span 4; grid-row: span 4; cursor: pointer; display: flex; flex-direction: column; }
+  .card-project:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+  .card-project .tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; }
+  .card-project h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .card-project p { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
+  .card-project .tech { margin-top: 14px; display: flex; gap: 5px; flex-wrap: wrap; }
+  .card-project .tech span { font-size: 11px; color: var(--muted); background: var(--bg); padding: 4px 10px; border-radius: 100px; }
+
+  /* Wide feature card */
+  .card-wide { grid-column: span 8; grid-row: span 4; display: flex; flex-direction: column; }
+  .card-wide .tag { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px; }
+  .card-wide h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+  .card-wide p { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
+
+  .card-stats { grid-column: span 4; grid-row: span 4; display: flex; flex-direction: column; justify-content: center; }
+  .stat-row { display: flex; align-items: baseline; gap: 8px; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-row .num { font-size: 1.5rem; font-weight: 800; color: var(--text); }
+  .stat-row .lbl { font-size: 13px; color: var(--muted); }
+
+  .card-skill { grid-column: span 3; grid-row: span 4; }
+  .card-skill h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
+  .card-skill ul { list-style: none; }
+  .card-skill li { font-size: 13px; color: var(--text); padding: 5px 0; font-weight: 500; }
+
+  .card-quote { grid-column: span 6; grid-row: span 3; display: flex; flex-direction: column; justify-content: center; background: var(--text); color: #f5f5f7; }
+  .card-quote p { font-size: 1.2rem; font-weight: 600; line-height: 1.5; letter-spacing: -0.01em; }
+  .card-quote .attr { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.5); }
+
+  .card-cv { grid-column: span 6; grid-row: span 3; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; cursor: pointer; text-decoration: none; color: var(--text); background: linear-gradient(135deg, #e8f0fe, #fff); }
+  .card-cv .big { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 4px; }
+  .card-cv .sub { font-size: 13px; color: var(--accent); }
+
+  /* Contact full width */
+  .contact-strip { margin: 20px 0 60px; grid-column: span 12; background: var(--card); border-radius: 24px; padding: 48px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .contact-strip h2 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
+  .contact-strip p { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+  .contact-strip .links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .contact-strip .links a { font-size: 14px; font-weight: 500; color: var(--text); text-decoration: none; padding: 11px 20px; border-radius: 980px; background: var(--bg); transition: all 0.2s; }
+  .contact-strip .links a:hover { background: #e8e8ed; }
+  .contact-strip .links a.filled { background: var(--accent); color: #fff; }
+  .contact-strip .links a.filled:hover { background: #0077ed; }
+
+  footer { padding: 24px 0 48px; text-align: center; font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(6, 1fr); }
+    .card-profile, .card-project { grid-column: span 3; }
+    .card-wide, .card-stats, .card-skill { grid-column: span 6; }
+    .card-quote, .card-cv { grid-column: span 3; }
+    .card-quote, .card-cv { grid-row: span 4; }
+  }
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+    .card-hero { grid-column: span 1; }
+    .card-profile, .card-project, .card-wide, .card-stats, .card-skill, .card-quote, .card-cv { grid-column: span 1; min-height: 120px; }
+    nav .links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">AMG</div>
+    <div class="links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#skills">Skills</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <div class="label">Disponible para nuevos proyectos</div>
+    <h1>Alejandro Munoz Garay</h1>
+    <p class="desc">Full Stack Developer en TypeScript, Node.js y React, construyendo sistemas desde Santiago, Chile.</p>
+    <div class="btn-row">
+      <a href="#contacto" class="btn primary">Hablemos</a>
+      <a href="#proyectos" class="btn secondary">Ver mi trabajo</a>
+    </div>
+  </div>
+
+  <div class="bento grid" id="proyectos">
+
+    <!-- Hero statement -->
+    <div class="bento-card card-hero">
+      <h2>Sistemas full stack con solidez tecnica.</h2>
+      <div class="role">Cada proyecto tiene tests, monitoreo y seguridad. No es opcional.</div>
+    </div>
+
+    <!-- Profile -->
+    <div class="bento-card card-profile">
+      <div>
+        <div class="avatar">AM</div>
+        <h3>Alejandro Munoz</h3>
+        <p>Ingeniero Civil en Informatica, Universidad Adventista de Chile. Santiago, Chile.</p>
+        <div class="availability"><span class="dot"></span> Abierto a ofertas</div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);">munozgarayalejandro@gmail.com</div>
+    </div>
+
+    <!-- Projects -->
+    <div class="bento-card card-project" onclick="window.open('https://clinica-salud-vital.onrender.com','_blank')">
+      <div class="tag">SaaS Clinico</div>
+      <h3>Vitaria</h3>
+      <p>16 modulos, 1122 tests, 89% cobertura, 2FA y multi-idioma.</p>
+      <div class="tech"><span>Express 5</span><span>React 19</span><span>PostgreSQL</span></div>
+    </div>
+    <div class="bento-card card-project" onclick="window.open('https://agrobot.amgdeveloper.cl','_blank')">
+      <div class="tag">IoT Agricola</div>
+      <h3>AgroBot-Alert</h3>
+      <p>Alertas WhatsApp/Email, mapas interactivos y dashboard real-time.</p>
+      <div class="tech"><span>React</span><span>Node.js</span><span>MySQL</span></div>
+    </div>
+    <div class="bento-card card-project" onclick="window.open('https://taller.amgdeveloper.cl','_blank')">
+      <div class="tag">Gestion</div>
+      <h3>TallerPro</h3>
+      <p>Arquitectura hexagonal con Prometheus/Grafana y CI/CD.</p>
+      <div class="tech"><span>Node.js</span><span>Prisma</span><span>Prometheus</span></div>
+    </div>
+    <div class="bento-card card-project" onclick="window.open('https://transporte.amgdeveloper.cl','_blank')">
+      <div class="tag">Logistica</div>
+      <h3>Transporte</h3>
+      <p>GPS tracking real-time, geofencing, facturacion y WebSockets.</p>
+      <div class="tech"><span>React 19</span><span>PostGIS</span><span>WebSocket</span></div>
+    </div>
+    <div class="bento-card card-project" onclick="window.open('https://www.npmjs.com/package/typeforge','_blank')">
+      <div class="tag">DevTools</div>
+      <h3>TypeForge</h3>
+      <p>CLI npm que genera APIs TypeScript de produccion.</p>
+      <div class="tech"><span>Node.js</span><span>Commander</span><span>npm</span></div>
+    </div>
+
+    <!-- Wide feature: infra -->
+    <div class="bento-card card-wide">
+      <div class="tag">Infraestructura en produccion</div>
+      <h3>Cloudflare &middot; Oracle Cloud &middot; Render</h3>
+      <p>Todos los proyectos estan desplegados y funcionando. Docker Compose, Nginx gateway y CI/CD automatizado via GitHub Actions.</p>
+      <div class="tech" style="margin-top:14px;display:flex;gap:5px;flex-wrap:wrap;">
+        <span>Cloudflare Pages</span><span>Oracle Cloud</span><span>Render</span><span>Docker</span><span>Nginx</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="bento-card card-stats">
+      <div class="stat-row"><span class="num">5</span><span class="lbl">Proyectos en produccion</span></div>
+      <div class="stat-row"><span class="num">1122</span><span class="lbl">Tests automatizados</span></div>
+      <div class="stat-row"><span class="num">89%</span><span class="lbl">Cobertura de codigo</span></div>
+      <div class="stat-row"><span class="num">2024</span><span class="lbl">Grado en Informatica</span></div>
+    </div>
+
+    <!-- Skills bento -->
+    <div class="bento-card card-skill" id="skills"><h4>Backend</h4><ul><li>Node.js</li><li>Express</li><li>Prisma ORM</li><li>REST API</li></ul></div>
+    <div class="bento-card card-skill"><h4>Frontend</h4><ul><li>React</li><li>Next.js</li><li>Tailwind</li><li>MUI</li></ul></div>
+    <div class="bento-card card-skill"><h4>Databases</h4><ul><li>PostgreSQL</li><li>MySQL</li><li>PostGIS</li></ul></div>
+    <div class="bento-card card-skill"><h4>DevOps</h4><ul><li>Docker</li><li>GitHub Actions</li><li>Nginx</li><li>Linux</li></ul></div>
+    <div class="bento-card card-skill"><h4>Testing</h4><ul><li>Jest</li><li>Vitest</li><li>Supertest</li></ul></div>
+    <div class="bento-card card-skill"><h4>Seguridad</h4><ul><li>JWT + 2FA</li><li>RBAC</li><li>Helmet</li></ul></div>
+    <div class="bento-card card-skill"><h4>Lenguajes</h4><ul><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li></ul></div>
+    <div class="bento-card card-skill"><h4>Arquitectura</h4><ul><li>Hexagonal</li><li>Microservicios</li><li>IoT</li></ul></div>
+
+    <!-- Quote -->
+    <div class="bento-card card-quote">
+      <p>"El 80% del trabajo invisible es lo que hace que el 20% visible funcione."</p>
+      <div class="attr">&mdash; Principio de desarrollo</div>
+    </div>
+
+    <!-- CV -->
+    <a class="bento-card card-cv" href="../public/cv.pdf" download>
+      <div class="big">Descargar CV</div>
+      <div class="sub">PDF &darr;</div>
+    </a>
+
+    <!-- Contact -->
+    <div class="contact-strip" id="contacto">
+      <h2>Hablemos</h2>
+      <p>Nuevas oportunidades en desarrollo web, automatizacion e infraestructura.</p>
+      <div class="links">
+        <a href="mailto:munozgarayalejandro@gmail.com" class="filled">Enviar email</a>
+        <a href="https://linkedin.com/in/alejandro-munoz-garay-668324347" target="_blank">LinkedIn</a>
+        <a href="https://github.com/bentlyy" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 Alejandro Munoz Garay</footer>
+</div>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'}); });
+  });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+  }, {threshold:0.08});
+  document.querySelectorAll('.bento-card, .contact-strip').forEach(el => {
+    el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='opacity 0.6s ease, transform 0.6s ease';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
