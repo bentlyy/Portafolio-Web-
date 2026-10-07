@@ -1,12 +1,13 @@
 export type Lang = "es" | "en"
 
 export type TranslationSet = {
-  nav: { home: string; about: string; experience: string; projects: string; skills: string; infra: string; contact: string }
+  nav: { home: string; about: string; experience: string; projects: string; tools: string; skills: string; infra: string; contact: string }
   hero: { available: string; downloadCv: string; role: string; focus: string; status: string }
   about: { system: string; title: string; titleAccent: string; education: string; degree: string; location: string; available: string }
   experience: { subtitle: string; title: string; active: string }
   projects: { subtitle: string; title: string; description: string; activeDeployment: string; live: string; site: string; code: string; suiteLabel: string; suiteTitle: string; suiteDescription: string; suiteCta: string; suiteHint: string; suiteExpand: string; suiteCollapse: string }
   skills: { subtitle: string; titleStart: string; titleEnd: string }
+  tools: { subtitle: string; titleStart: string; titleEnd: string; description: string; install: string; code: string; package: string; license: string; clients: string; capabilities: string; config: string; features: string; mcpToolsLabel: string }
   contact: { subtitle: string; titleStart: string; titleEnd: string; description: string; email: string; location: string; downloadCv: string; cvDesc: string; download: string; portfolio: string; allSystems: string }
   footer: { portfolio: string; allSystems: string; home: string; about: string; projects: string; contact: string }
   infra: { subtitle: string; title: string; description: string; provider: string; statusOnline: string; statusMaintenance: string; statusUpdating: string; statusError: string; topology: string; providers: string; cloudflare: { name: string; tag: string; desc: string }; oracle: { name: string; tag: string; desc: string }; render: { name: string; tag: string; desc: string }; legend: { focal: string; gateway: string; edge: string; external: string; https: string; pgsql: string; docker: string }; toggle: { prod: string; suite: string }; suite: { description: string; topology: string; cloudflare: { name: string; tag: string; desc: string }; oracle: { name: string; tag: string; desc: string }; sqlite: { name: string; tag: string; desc: string }; legend: { focal: string; gateway: string; edge: string; external: string; https: string; sqlite: string; docker: string } } }
@@ -17,16 +18,19 @@ export type TranslationSet = {
   projectFeatures: string[][]
   skillCategories: Record<string, string>
   skillNames: Record<string, string>
+  toolKinds: Record<string, string>
+  aiToolSpecs: Record<string, { description: string; features: string[]; tools: Record<string, string>; configs: Array<{ client: string; json: string }> }>
 }
 
 export const translations: Record<Lang, TranslationSet> = {
   es: {
-    nav: { home: "INICIO", about: "SOBRE MÍ", experience: "EXPERIENCIA", projects: "PROYECTOS", skills: "STACK", infra: "INFRAESTRUCTURA", contact: "CONTACTO" },
+    nav: { home: "INICIO", about: "SOBRE MÍ", experience: "EXPERIENCIA", projects: "PROYECTOS", tools: "HERRAMIENTAS", skills: "STACK", infra: "INFRAESTRUCTURA", contact: "CONTACTO" },
     hero: { available: "DISPONIBLE", downloadCv: "DESCARGAR CV", role: "01 / ROL", focus: "02 / ENFOQUE", status: "03 / ESTADO" },
     about: { system: "SISTEMA v2.0", title: "SOBRE", titleAccent: "MÍ", education: "Formación", degree: "Ingeniería Civil en Informática", location: "Ubicación", available: "DISPONIBLE" },
     experience: { subtitle: "EXPERIENCIA v1.0", title: "EXPERIENCIA", active: "EXPERIENCIA ACTIVA" },
     projects: { subtitle: "PROYECTOS v4.0", title: "PROYECTOS", description: "Monitoreo en tiempo real de proyectos activos. Cada entrada representa un entorno desplegado con recursos dedicados.", activeDeployment: "DESPLIEGUE ACTIVO", live: "EN VIVO", site: "SITIO", code: "CÓDIGO", suiteLabel: "PLATAFORMA DE PRODUCTOS", suiteTitle: "Suite AMG", suiteDescription: "Una plataforma operativa desplegada y en línea: la plataforma Suite AMG centraliza el acceso a 9 herramientas ligeras sobre un único stack, cada una con su propia base de datos y su propio SSL. Un solo acceso, un solo despliegue.", suiteCta: "PROBAR LA SUITE", suiteHint: "Stack único · Despliegue en Oracle Cloud · SSL individual por app", suiteExpand: "VER SUITE AMG", suiteCollapse: "OCULTAR DETALLE" },
     skills: { subtitle: "RECURSOS DEL SISTEMA", titleStart: "STACK", titleEnd: "TECNOLÓGICO" },
+    tools: { subtitle: "INTEGRACIÓN IA v1.0", titleStart: "HERRAMIENTAS", titleEnd: "PARA IA", description: "Servidores MCP y utilidades que le dan capacidades nuevas a los agentes de IA. Cada herramienta sigue el protocolo Model Context Protocol, se instala con un solo comando y se conecta a cualquier cliente compatible.", install: "INSTALACIÓN", code: "CÓDIGO", package: "PYPI", license: "Licencia", clients: "Clientes compatibles", capabilities: "Capacidades", config: "Configuración", features: "Características", mcpToolsLabel: "HERRAMIENTAS MCP" },
     contact: { subtitle: "CONTACTO", titleStart: "ENVÍA UN", titleEnd: "MENSAJE", description: "Estoy buscando mi primera oportunidad profesional. Si tienes un proyecto, una idea o simplemente quieres conversar, me gustaría escucharte.", email: "Correo", location: "Ubicación", downloadCv: "Descargar CV", cvDesc: "Registro completo con experiencia, proyectos y formación.", download: "Descargar", portfolio: "PORTAFOLIO", allSystems: "TODOS LOS SISTEMAS OPERATIVOS" },
     footer: { portfolio: "PORTAFOLIO", allSystems: "TODOS LOS SISTEMAS OPERATIVOS", home: "INICIO", about: "SOBRE MÍ", projects: "PROYECTOS", contact: "CONTACTO" },
     infra: { subtitle: "ARQUITECTURA v1.0", title: "INFRAESTRUCTURA", description: "Así están distribuidos los servicios en producción. Cada plataforma corre en su propio entorno, con recursos y estrategias de despliegue independientes.", provider: "PROVEEDOR", statusOnline: "EN LÍNEA", statusMaintenance: "EN PAUSA", statusUpdating: "ACTUALIZANDO", statusError: "CAÍDO", topology: "TOPOLOGÍA DE PRODUCCIÓN", providers: "DISTRIBUCIÓN POR PROVEEDOR", cloudflare: { name: "Cloudflare", tag: "EDGE · DNS · WAF", desc: "Punto de entrada global. Proxea los tres dominios hacia el origen en Oracle Cloud y termina SSL." }, oracle: { name: "Oracle Cloud", tag: "COMPUTE · SA-SANTIAGO-1", desc: "VPS con Nginx como gateway y stacks en Docker Compose. Hostea los proyectos con sus bases de datos internas." }, render: { name: "Render", tag: "PAAS · IP FIJA", desc: "Servicio gestionado para la clínica. La app conecta al Postgres de Oracle por :5432 con SSL." }, legend: { focal: "Focal · datos", gateway: "Gateway · backend", edge: "Cloud · edge", external: "External · tráfico", https: "HTTPS · 443", pgsql: "PGSQL · 5432", docker: "Docker · interno" }, toggle: { prod: "PROYECTOS", suite: "SUITE AMG" }, suite: { description: "La plataforma Suite AMG corre completa en un solo stack sobre Oracle Cloud: 9 herramientas ligeras más un núcleo central (SSO, auth y landing), detrás de Cloudflare y con persistencia SQLite local por aplicación.", topology: "TOPOLOGÍA · SUITE AMG", cloudflare: { name: "Cloudflare", tag: "EDGE · DNS · WAF", desc: "Punto de entrada global. Proxea los subdominios de la plataforma hacia el origen en Oracle Cloud y termina SSL." }, oracle: { name: "Oracle Cloud", tag: "COMPUTE · SA-SANTIAGO-1", desc: "Un solo VPS con Nginx como gateway y un stack Docker Compose que publica la plataforma completa con puertos internos." }, sqlite: { name: "SQLite", tag: "DATA · VOLUMEN LOCAL", desc: "Persistencia de la suite: una base de datos por producto en el volumen compartido del stack, sin servicio externo." }, legend: { focal: "Focal · datos", gateway: "Gateway · backend", edge: "Cloud · edge", external: "External · tráfico", https: "HTTPS · 443", sqlite: "SQLite · local", docker: "Compose · interno" } } },
@@ -90,15 +94,40 @@ export const translations: Record<Lang, TranslationSet> = {
     ],
     skillCategories: { Lenguajes: "Lenguajes", Backend: "Backend", Frontend: "Frontend", DevOps: "DevOps", "Bases de Datos": "Bases de Datos", Testing: "Testing", Seguridad: "Seguridad" },
     skillNames: {},
+    toolKinds: { MCP_SERVER: "Servidor MCP", CLI: "CLI", SKILL: "Skill de agente", LIBRARY: "Biblioteca" },
+    aiToolSpecs: {
+      "mcp-polygon-renderer": {
+        description: "Servidor MCP que le da a los agentes de IA la capacidad de dibujar sobre imágenes. El modelo no puede pintar: razona sobre una grilla etiquetada, define regiones usando celdas (por ejemplo \"B3\", \"C3\") y el servidor las renderiza con OpenCV con precisión de píxel. Instalable con pip y compatible con cualquier cliente MCP.",
+        features: [
+          "Dos modos de entrada: grilla de referencia (imágenes complejas) o coordenadas directas en píxeles (formas geométricas).",
+          "Detección automática de regiones delimitadas por líneas de color, sin intervención del agente.",
+          "Diseñado para agentes: sin ventanas emergentes, todo se escribe en disco y la imagen se devuelve en base64.",
+          "Eficiente en RAM: reduce la carga automáticamente en imágenes grandes.",
+          "Paleta de 40 colores para diferenciar regiones y curvas por densidad de puntos en bordes redondeados.",
+        ],
+        tools: {
+          preparar_imagen: "Superpone una grilla etiquetada (A1, B2...) y devuelve el mapa de celdas en píxeles.",
+          renderizar_desde_grid: "Renderiza polígonos a partir de celdas de grilla declaradas por el agente.",
+          renderizar_poligonos: "Renderiza polígonos con coordenadas directas en píxeles.",
+          detectar_regiones: "Detecta y colorea automáticamente las regiones delimitadas por líneas.",
+          ver_imagen: "Devuelve una imagen en base64 para que el agente pueda visualizarla.",
+        },
+        configs: [
+          { client: "Claude Desktop", json: '{\n  "mcpServers": {\n    "polygon-renderer": {\n      "command": "python",\n      "args": ["-m", "mcp_polygon_renderer"]\n    }\n  }\n}' },
+          { client: "opencode", json: '{\n  "mcp": {\n    "polygon-renderer": {\n      "command": "python",\n      "args": ["-m", "mcp_polygon_renderer"]\n    }\n  }\n}' },
+        ],
+      },
+    },
   },
 
   en: {
-    nav: { home: "HOME", about: "ABOUT ME", experience: "EXPERIENCE", projects: "PROJECTS", skills: "STACK", infra: "INFRASTRUCTURE", contact: "CONTACT" },
+    nav: { home: "HOME", about: "ABOUT ME", experience: "EXPERIENCE", projects: "PROJECTS", tools: "AI TOOLS", skills: "STACK", infra: "INFRASTRUCTURE", contact: "CONTACT" },
     hero: { available: "AVAILABLE", downloadCv: "DOWNLOAD CV", role: "01 / ROLE", focus: "02 / FOCUS", status: "03 / STATUS" },
     about: { system: "SYSTEM v2.0", title: "ABOUT", titleAccent: "ME", education: "Education", degree: "Computer Science Engineering", location: "Location", available: "AVAILABLE" },
     experience: { subtitle: "EXPERIENCE v1.0", title: "EXPERIENCE", active: "ACTIVE EXPERIENCE" },
     projects: { subtitle: "PROJECTS v4.0", title: "PROJECTS", description: "Real-time monitoring of active projects. Each entry represents a deployed environment with dedicated resources.", activeDeployment: "ACTIVE DEPLOYMENT", live: "LIVE", site: "SITE", code: "CODE", suiteLabel: "PRODUCT PLATFORM", suiteTitle: "AMG Suite", suiteDescription: "A deployed and live operational platform: the AMG Suite centralizes access to 9 lightweight tools on a single stack, each with its own database and its own SSL. One access point, one deployment.", suiteCta: "TRY THE SUITE", suiteHint: "Single stack · Deployed on Oracle Cloud · Per-app SSL", suiteExpand: "VIEW AMG SUITE", suiteCollapse: "HIDE DETAIL" },
     skills: { subtitle: "SYSTEM RESOURCES", titleStart: "TECH", titleEnd: "STACK" },
+    tools: { subtitle: "AI INTEGRATION v1.0", titleStart: "AI", titleEnd: "TOOLS", description: "MCP servers and utilities that give AI agents new capabilities. Every tool follows the Model Context Protocol, installs with a single command and connects to any compatible client.", install: "INSTALL", code: "CODE", package: "PYPI", license: "License", clients: "Compatible clients", capabilities: "Capabilities", config: "Configuration", features: "Features", mcpToolsLabel: "MCP TOOLS" },
     contact: { subtitle: "CONTACT", titleStart: "SEND A", titleEnd: "MESSAGE", description: "I'm looking for my first professional opportunity. If you have a project, an idea or just want to chat, I'd love to hear from you.", email: "Email", location: "Location", downloadCv: "Download CV", cvDesc: "Complete record with experience, projects and education.", download: "Download", portfolio: "PORTFOLIO", allSystems: "ALL SYSTEMS OPERATIONAL" },
     footer: { portfolio: "PORTFOLIO", allSystems: "ALL SYSTEMS OPERATIONAL", home: "HOME", about: "ABOUT ME", projects: "PROJECTS", contact: "CONTACT" },
     infra: { subtitle: "ARCHITECTURE v1.0", title: "INFRASTRUCTURE", description: "How services are distributed in production. Each platform runs in its own environment, with independent resources and deploy strategies.", provider: "PROVIDER", statusOnline: "ONLINE", statusMaintenance: "ON HOLD", statusUpdating: "UPDATING", statusError: "DOWN", topology: "PRODUCTION TOPOLOGY", providers: "PROVIDER DISTRIBUTION", cloudflare: { name: "Cloudflare", tag: "EDGE · DNS · WAF", desc: "Global entry point. Proxies the three domains to the Oracle Cloud origin and terminates SSL." }, oracle: { name: "Oracle Cloud", tag: "COMPUTE · SA-SANTIAGO-1", desc: "VPS running Nginx as gateway and Docker Compose stacks. Hosts the projects with their internal databases." }, render: { name: "Render", tag: "PAAS · STATIC IP", desc: "Managed service for the clinic. The app connects to Oracle Postgres over :5432 with SSL." }, legend: { focal: "Focal · data", gateway: "Gateway · backend", edge: "Cloud · edge", external: "External · traffic", https: "HTTPS · 443", pgsql: "PGSQL · 5432", docker: "Docker · internal" }, toggle: { prod: "PROJECTS", suite: "SUITE AMG" }, suite: { description: "The AMG Suite platform runs entirely in a single stack on Oracle Cloud: 9 lightweight tools plus a central core (SSO, auth and landing page), behind Cloudflare with local per-app SQLite persistence.", topology: "TOPOLOGY · AMG SUITE", cloudflare: { name: "Cloudflare", tag: "EDGE · DNS · WAF", desc: "Global entry point. Proxies the platform subdomains to the Oracle Cloud origin and terminates SSL." }, oracle: { name: "Oracle Cloud", tag: "COMPUTE · SA-SANTIAGO-1", desc: "Single VPS running Nginx as gateway and a Docker Compose stack serving the whole platform on internal ports." }, sqlite: { name: "SQLite", tag: "DATA · LOCAL VOLUME", desc: "Suite persistence: one database per product in the stack's shared volume, no external database service." }, legend: { focal: "Focal · data", gateway: "Gateway · backend", edge: "Cloud · edge", external: "External · traffic", https: "HTTPS · 443", sqlite: "SQLite · local", docker: "Compose · internal" } } },
@@ -162,5 +191,29 @@ export const translations: Record<Lang, TranslationSet> = {
     ],
     skillCategories: { Lenguajes: "Languages", Backend: "Backend", Frontend: "Frontend", DevOps: "DevOps", "Bases de Datos": "Databases", Testing: "Testing", Seguridad: "Security" },
     skillNames: {},
+    toolKinds: { MCP_SERVER: "MCP Server", CLI: "CLI", SKILL: "Agent Skill", LIBRARY: "Library" },
+    aiToolSpecs: {
+      "mcp-polygon-renderer": {
+        description: "MCP server that gives AI agents the ability to draw on images. The model can't paint: it reasons over a labeled grid, defines regions using cells (e.g. \"B3\", \"C3\") and the server renders them with OpenCV at pixel precision. Installable with pip and compatible with any MCP client.",
+        features: [
+          "Two input modes: reference grid (complex images) or direct pixel coordinates (geometric shapes).",
+          "Automatic detection of regions delimited by colored lines, with no agent intervention.",
+          "Agent-first by design: no popups, everything is written to disk and the image is returned as base64.",
+          "Memory efficient: automatically downsizes large images on load.",
+          "40-color palette to differentiate regions, plus curve smoothing by point density on rounded edges.",
+        ],
+        tools: {
+          preparar_imagen: "Overlays a labeled grid (A1, B2...) and returns the cell-to-pixel map.",
+          renderizar_desde_grid: "Renders polygons from the grid cells declared by the agent.",
+          renderizar_poligonos: "Renders polygons using direct pixel coordinates.",
+          detectar_regiones: "Automatically detects and colors regions delimited by lines.",
+          ver_imagen: "Returns an image as base64 so the agent can look at it.",
+        },
+        configs: [
+          { client: "Claude Desktop", json: '{\n  "mcpServers": {\n    "polygon-renderer": {\n      "command": "python",\n      "args": ["-m", "mcp_polygon_renderer"]\n    }\n  }\n}' },
+          { client: "opencode", json: '{\n  "mcp": {\n    "polygon-renderer": {\n      "command": "python",\n      "args": ["-m", "mcp_polygon_renderer"]\n    }\n  }\n}' },
+        ],
+      },
+    },
   },
 }

@@ -8,6 +8,7 @@ import Hero from "@/components/Hero"
 import About from "@/components/About"
 import Experience from "@/components/Experience"
 import Projects from "@/components/Projects"
+import Tools from "@/components/Tools"
 import Skills from "@/components/Skills"
 import Infra from "@/components/Infra"
 import Contact from "@/components/Contact"
@@ -34,6 +35,7 @@ export default function Home() {
     { id: "about", label: t.nav.about, Component: About },
     { id: "experience", label: t.nav.experience, Component: Experience },
     { id: "projects", label: t.nav.projects, Component: Projects },
+    { id: "tools", label: t.nav.tools, Component: Tools },
     { id: "skills", label: t.nav.skills, Component: Skills },
     { id: "infra", label: t.nav.infra, Component: Infra },
     { id: "contact", label: t.nav.contact, Component: Contact },

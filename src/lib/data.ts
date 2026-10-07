@@ -127,6 +127,28 @@ export const projects = [
   },
 ]
 
+export const aiTools = [
+  {
+    id: "mcp-polygon-renderer",
+    name: "MCP Polygon Renderer",
+    kind: "MCP_SERVER",
+    license: "MIT",
+    version: "0.1.0",
+    clients: ["Claude Desktop", "opencode"],
+    tech: ["Python 3.10+", "MCP SDK", "OpenCV", "NumPy", "stdio JSON-RPC"],
+    install: "pip install mcp-polygon-renderer",
+    github: "https://github.com/bentlyy/mcp-polygon-renderer",
+    package: "https://pypi.org/project/mcp-polygon-renderer/",
+    mcpTools: [
+      { name: "preparar_imagen" },
+      { name: "renderizar_desde_grid" },
+      { name: "renderizar_poligonos" },
+      { name: "detectar_regiones" },
+      { name: "ver_imagen" },
+    ],
+  },
+]
+
 const SUITE_URL = "https://desarrollo.amgdeveloper.cl"
 
 export const suite = {
