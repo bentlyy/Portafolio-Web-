@@ -1,8 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Briefcase, ExternalLink, ChevronDown } from "lucide-react"
+import { Briefcase, ExternalLink } from "lucide-react"
 import { useLanguage } from "@/lib/LanguageProvider"
+import { experience } from "@/lib/data"
 
 export default function Experience() {
   const { t } = useLanguage()
@@ -75,7 +76,7 @@ export default function Experience() {
 
         <div className="mt-8 flex justify-center">
           <a
-            href="https://github.com/bentlyy"
+            href={experience[0].demoUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-mono text-xs text-primary uppercase tracking-widest hover:gap-3 transition-all"
