@@ -3,6 +3,7 @@ import "./globals.css"
 import { LanguageProvider } from "@/lib/LanguageProvider"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portafolio.amgdeveloper.cl"),
   title: "Alejandro Muñoz | Desarrollador Full-Stack",
   description:
     "Portafolio v2 de Alejandro Muñoz Garay — Ingeniero Civil en Informática y Desarrollador Full-Stack.",

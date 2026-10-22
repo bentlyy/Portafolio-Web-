@@ -28,7 +28,7 @@ export const experience = [
       "TypeForge: CLI publicado en npm que genera APIs TypeScript listas para producción en segundos.",
       "Stack principal: TypeScript, Node.js, React, PostgreSQL, Docker, GitHub Actions.",
     ],
-    demoUrl: "https://desarrollo.amgdeveloper.cl",
+    demoUrl: "https://amgdeveloper.cl",
   },
   {
     role: "Desarrollador Full-Stack — Plataforma IoT",
@@ -149,7 +149,7 @@ export const aiTools = [
   },
 ]
 
-const SUITE_URL = "https://desarrollo.amgdeveloper.cl"
+const SUITE_URL = "https://amgdeveloper.cl"
 
 export const suite = {
   url: SUITE_URL,
