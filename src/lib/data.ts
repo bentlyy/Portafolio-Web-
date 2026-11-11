@@ -130,8 +130,10 @@ export const projects = [
 export const aiTools = [
   {
     id: "mcp-polygon-renderer",
+    category: "mcp",
     name: "MCP Polygon Renderer",
     kind: "MCP_SERVER",
+    badge: "PyPI",
     license: "MIT",
     version: "0.1.0",
     clients: ["Claude Desktop", "opencode"],
@@ -145,6 +147,27 @@ export const aiTools = [
       { name: "renderizar_poligonos" },
       { name: "detectar_regiones" },
       { name: "ver_imagen" },
+    ],
+  },
+  {
+    id: "workbook-builder",
+    category: "skill",
+    name: "Workbook Builder",
+    kind: "SKILL",
+    badge: "GitHub",
+    license: "MIT",
+    version: "1.0.0",
+    clients: ["Claude Desktop", "opencode", "Cursor", "Windsurf"],
+    tech: ["Markdown", "Agentes IA", "HTML/CSS print", "QA con Python"],
+    install: "git clone https://github.com/bentlyy/workbook-builder.git",
+    github: "https://github.com/bentlyy/workbook-builder",
+    package: "https://github.com/bentlyy/workbook-builder/blob/main/SKILL.md",
+    phases: [
+      { name: "Fase 0 · Auditoría" },
+      { name: "Fase 1 · Blueprint" },
+      { name: "Fase 2 · Ledger" },
+      { name: "Fase 3 · Generación" },
+      { name: "Fase 4 · QA" },
     ],
   },
 ]

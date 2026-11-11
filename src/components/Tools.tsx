@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   Cpu,
   Blocks,
+  BookOpen,
   Check,
   Copy,
 } from "lucide-react"
@@ -42,6 +43,9 @@ export default function Tools() {
         <div className="flex flex-col gap-8 mt-10">
           {aiTools.map((tool, idx) => {
             const spec = t.aiToolSpecs[tool.id]
+            const isMcp = tool.category === "mcp"
+            const items = ("mcpTools" in tool ? tool.mcpTools : tool.phases) ?? []
+            const itemsLabel = isMcp ? t.tools.mcpToolsLabel : t.tools.phasesLabel
 
             return (
               <motion.article
@@ -70,7 +74,7 @@ export default function Tools() {
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
                         </span>
                         <span className="font-mono text-[10px] text-primary tracking-widest uppercase font-bold">
-                          PyPI
+                          {tool.badge}
                         </span>
                       </span>
                     </div>
@@ -91,20 +95,20 @@ export default function Tools() {
                     <div className="flex items-center gap-2 mb-3">
                       <Blocks size={14} className="text-primary" />
                       <h4 className="font-mono text-[10px] text-primary tracking-widest uppercase font-bold">
-                        {t.tools.mcpToolsLabel}
+                        {itemsLabel}
                       </h4>
                       <span className="font-mono text-[10px] text-outline">
-                        [{tool.mcpTools.length}]
+                        [{items.length}]
                       </span>
                     </div>
                     <ul className="flex flex-col gap-3">
-                      {tool.mcpTools.map((mcpTool) => (
-                        <li key={mcpTool.name} className="border-l-2 border-primary/30 pl-3">
+                      {items.map((item) => (
+                        <li key={item.name} className="border-l-2 border-primary/30 pl-3">
                           <code className="font-mono text-[11px] text-primary block mb-0.5">
-                            {mcpTool.name}()
+                            {item.name}{isMcp ? "()" : ""}
                           </code>
                           <p className="font-body text-xs text-on-surface-variant leading-snug">
-                            {spec.tools[mcpTool.name]}
+                            {spec.tools[item.name]}
                           </p>
                         </li>
                       ))}
@@ -186,8 +190,8 @@ export default function Tools() {
                     rel="noopener noreferrer"
                     className="glass-panel flex-1 py-3.5 rounded-full flex items-center justify-center gap-2 font-mono text-xs text-on-surface-variant hover:text-primary hover:border-primary/40 uppercase tracking-widest transition-all duration-300"
                   >
-                    <Package size={16} />
-                    {t.tools.package}
+                    {isMcp ? <Package size={16} /> : <BookOpen size={16} />}
+                    {isMcp ? t.tools.package : t.tools.docs}
                     <ExternalLink size={13} />
                   </a>
                 </div>
